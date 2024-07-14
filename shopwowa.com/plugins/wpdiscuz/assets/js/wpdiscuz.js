@@ -227,7 +227,7 @@ jQuery(document).ready(function ($) {
     $('body').on('click', '#wpdcom [data-wpd-clipboard]', function () {
         var val = $(this).data('wpd-clipboard');
         var mention = $(this).data('wpd-ismention');
-        if(mention){
+        if (mention) {
             val = '@' + val;
         }
         var el = $('<input/>');
@@ -606,7 +606,7 @@ jQuery(document).ready(function ($) {
     });
 
     function wpdiscuzSendComment(wcForm, data, currentSubmitBtn) {
-        getAjaxObj(isNativeAjaxEnabled || wpdiscuzUploader, false, data)
+        getAjaxObj(isNativeAjaxEnabled, false, data)
                 .done(function (r) {
                     $(currentSubmitBtn).addClass('wpd_not_clicked');
                     if (typeof r === 'object') {
@@ -1372,7 +1372,7 @@ jQuery(document).ready(function ($) {
     }
 
     function wpdSanitizeCommentText(form) {
-        if(form.attr('id') == 'wpdiscuz-subscribe-form'){
+        if (form.attr('id') == 'wpdiscuz-subscribe-form') {
             return;
         }
         var textarea = form.find('.wc_comment');
@@ -1721,7 +1721,7 @@ jQuery(document).ready(function ($) {
             setTimeout(function () {
                 $('#wpd-bubble-wrapper').addClass('wpd-bubble-hover');
                 const ckePath = wpdiscuzAjaxObj.bubbleHintShowOnce ? '/' : location.href;
-                const ckeExpires  = wpdiscuzAjaxObj.bubbleHintCookieExpires ? parseInt(wpdiscuzAjaxObj.bubbleHintCookieExpires, 10) : '';
+                const ckeExpires = wpdiscuzAjaxObj.bubbleHintCookieExpires ? parseInt(wpdiscuzAjaxObj.bubbleHintCookieExpires, 10) : '';
                 Cookies.set(wpdiscuzAjaxObj.cookieHideBubbleHint, '1', {expires: parseInt(wpdiscuzAjaxObj.bubbleHintCookieExpires, 10), path: ckePath});
                 setTimeout(function () {
                     $('#wpd-bubble-wrapper').removeClass('wpd-bubble-hover');
@@ -2330,6 +2330,7 @@ jQuery(document).ready(function ($) {
             });
         }
         var url = isNative ? wpdiscuzAjaxObj.url : wpdiscuzAjaxObj.customAjaxUrl;
+        console.log(url);
         return $.ajax({
             type: 'POST',
             url: url,
