@@ -91,6 +91,14 @@ jQuery(document).ready(function ($) {
     }
     $(document).on('submit', '.vi-ui.form', function () {
         let error = false, form = $(this);
+        let share_review=[];
+        form.find('.wcpr-share-reviews-products').each(function (k,v) {
+            if ($(v).val().length) {
+                share_review.push($(v).val());
+            }
+            $(v).removeAttr('name');
+        });
+        form.find('[name=share_reviews]').val(JSON.stringify(share_review));
         form.find('.viwcpr-rule-name-value').each(function (k, v) {
             if (!jQuery(v).val()){
                 form.find('.item[data-tab=coupon]').trigger('click');
@@ -142,6 +150,13 @@ jQuery(document).ready(function ($) {
             jQuery(this).parent().find('input[type="hidden"]').val('');
         }
     });
+    $('#ajax_check_content_reviews').on('change',function () {
+        if ($(this).prop('checked')){
+            $('#ajax_upload_file').closest('tr').fadeIn(300);
+        }else {
+            $('#ajax_upload_file').closest('tr').fadeOut(300);
+        }
+    }).trigger('change');
     $('#wcpr-pagination-ajax').on('change', function (e) {
         if ($(this).prop('checked')) {
             $('.wcpr-default-filters').removeClass('wcpr-hidden-items');
@@ -168,15 +183,15 @@ jQuery(document).ready(function ($) {
             switch (val) {
                 case 'text':
                     $('.wcpr-verified-badge-wrap-wrap').hide();
-                    $('input[name="verified_text"]').show();
+                    $('.wcpr-verified-text-wrap-wrap').show();
                     break;
                 case 'badge':
                     $('.wcpr-verified-badge-wrap-wrap').show();
-                    $('input[name="verified_text"]').hide();
+                    $('.wcpr-verified-text-wrap-wrap').hide();
                     break;
                 default:
                     $('.wcpr-verified-badge-wrap-wrap').hide();
-                    $('input[name="verified_text"]').hide();
+                    $('.wcpr-verified-text-wrap-wrap').hide();
             }
         }
     });
@@ -196,8 +211,11 @@ jQuery(document).ready(function ($) {
             }
         }
     });
-    $('.tab:not(.viwcpr-coupon-tab)').find('.viwcpr-search-select2').map(function (k, v) {
+    $('.viwcpr-search-select2').each(function (k, v) {
         v = $(v);
+        if ($(v).closest('.viwcpr-coupon-tab').length){
+            return true;
+        }
         let placeholder = '', action = '', close_on_select = false, allowClear = false;
         if (v.hasClass('category-search')){
             placeholder = 'Please enter the category title';
@@ -249,15 +267,17 @@ jQuery(document).ready(function ($) {
         return result;
     }
     /*rule coupons*/
-    jQuery('.viwcpr-coupon-rules-wrap').sortable({
-        connectWith: ".viwcpr-coupon-rules-wrap",
-        handle: ".viwcpr-rule-info",
-        cancel: ".viwcpr-rule-active-wrap,.viwcpr-rule-action,.title,.content",
-        placeholder: "viwcpr-placeholder",
-    });
-    jQuery('.viwcpr-coupon-tab .viwcpr-rule-wrap:not(.viwcpr-rule-wrap-init)').each(function () {
-        viwcpr_rule(jQuery(this).addClass('viwcpr-rule-wrap-init'));
-    });
+    if ($('.viwcpr-coupon-rules-wrap').length) {
+        $('.viwcpr-coupon-rules-wrap').sortable({
+            connectWith: ".viwcpr-coupon-rules-wrap",
+            handle: ".viwcpr-rule-info",
+            cancel: ".viwcpr-rule-active-wrap,.viwcpr-rule-action,.title,.content",
+            placeholder: "viwcpr-placeholder",
+        });
+        $('.viwcpr-coupon-tab .viwcpr-rule-wrap:not(.viwcpr-rule-wrap-init)').each(function () {
+            viwcpr_rule(jQuery(this).addClass('viwcpr-rule-wrap-init'));
+        });
+    }
     let tinyMceOptions = {
         tinymce: {
             theme: "modern",
@@ -714,7 +734,7 @@ jQuery(document).ready(function ($) {
         let index = 0;
         $('.wcpr-share-reviews-row').map(function () {
             let $row = $(this);
-            $row.find('.wcpr-share-reviews-products').attr('name', `share_reviews[${index}][]`);
+            // $row.find('.wcpr-share-reviews-products').attr('name', `share_reviews[${index}][]`);
             index++;
             $row.find('.wcpr-share-reviews-row-no').html(index);
         })

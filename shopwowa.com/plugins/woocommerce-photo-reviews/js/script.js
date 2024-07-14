@@ -185,7 +185,7 @@ jQuery(document).ready(function ($) {
                                     $container.append(`<input type="hidden" name="wcpr_image_upload_id" value="${response.img_id}">`);
                                 }
                             }
-                            resolve(error)
+                            resolve(error);
                         },
                         error:function (err){
                             error = err.responseText === '-1' ? err.statusText : err.responseText;
@@ -770,12 +770,33 @@ function viwcpr_flexslider() {
             touch: true,
             slideshow: false,
             start:function (slider){
+                if (slider.count === slider.move){
+                    get_reviews(slider,1,params,selector).then(function () {
+                        slider.setProps(0);
+                    });
+                }
                 let id_css = slider.data('id_css'),
                     css = `.${id_css} .viwse-suggestion-product-wrap{width: ${itemWidth}px !important;}`,
                     h=0;
                 for (let i = 0; i < slider.move; i++) {
                     if (h < slider.find(selector).eq(i).innerHeight()) {
                         h = slider.find(selector).eq(i).innerHeight();
+                    }
+                    if (slider.find(selector).eq(i).find('.shortcode-reviews-images-wrap-right img').length) {
+                        slider.find(selector).eq(i).find('.shortcode-reviews-images-wrap-right img').on('load',function(){
+                            if (!jQuery('#'+id_css).length){
+                                jQuery('head').append(`<style id="${id_css}"></style>`);
+                            }
+                            if (jQuery(this).closest(selector+':visible').length && jQuery(this).closest(selector).innerHeight() && slider.data('current_height')) {
+                                let h_tmp = slider.find(selector).eq(i).innerHeight() + 30;
+                                if (jQuery(this).closest(selector).innerHeight() > parseFloat(slider.data('current_height'))) {
+                                    let css_tmp = `.${id_css} .viwse-suggestion-product-wrap{width: ${itemWidth}px !important;}`;
+                                    css_tmp += `.${id_css} .villatheme-slider-viewport{height: ${h_tmp}px !important;}`;
+                                    jQuery('#' + id_css).html(css_tmp);
+                                    slider.data('current_height',h_tmp);
+                                }
+                            }
+                        });
                     }
                 }
                 if (h) {
@@ -786,6 +807,7 @@ function viwcpr_flexslider() {
                     jQuery('head').append(`<style id="${id_css}"></style>`);
                 }
                 jQuery('#'+id_css).html(css);
+                slider.data('current_height',h);
             },
             before:function (slider){
                 slider.removeClass('viwcpr-slide-wrap-init');
@@ -798,21 +820,54 @@ function viwcpr_flexslider() {
                 let id_css = slider.data('id_css'),
                     css = `.${id_css} .viwse-suggestion-product-wrap{width: ${itemWidth}px !important;}`,
                     first = slider.currentSlide * slider.move ,
-                    last = (slider.currentSlide + 1) * slider.move - 1,
+                    last = (slider.currentSlide + 1) * slider.move ,
                     h = 0;
                 slider.find(selector).css({'margin-bottom': '0', 'margin-top': '0', 'width': `${itemWidth}px !important;`});
                 if (first === last){
                     h = slider.find(selector).eq(first).innerHeight();
+                    if (slider.find(selector).eq(first).find('.shortcode-reviews-images-wrap-right img').length) {
+                        slider.find(selector).eq(first).find('.shortcode-reviews-images-wrap-right img').on('load',function(){
+                            if (!jQuery('#'+id_css).length){
+                                jQuery('head').append(`<style id="${id_css}"></style>`);
+                            }
+                            if (jQuery(this).closest(selector+':visible').length && jQuery(this).closest(selector).innerHeight() && slider.data('current_height')) {
+                                let h_tmp = slider.find(selector).eq(i).innerHeight() + 30;
+                                if (jQuery(this).closest(selector).innerHeight() > parseFloat(slider.data('current_height'))) {
+                                    let css_tmp = `.${id_css} .viwse-suggestion-product-wrap{width: ${itemWidth}px !important;}`;
+                                    css_tmp += `.${id_css} .villatheme-slider-viewport{height: ${h_tmp}px !important;}`;
+                                    jQuery('#' + id_css).html(css_tmp);
+                                    slider.data('current_height',h_tmp);
+                                }
+                            }
+                        });
+                    }
                 }else {
                     for (let i = first; i < last; i++) {
                         if (h < slider.find(selector).eq(i).innerHeight()) {
                             h = slider.find(selector).eq(i).innerHeight();
+                        }
+                        if (slider.find(selector).eq(i).find('.shortcode-reviews-images-wrap-right img').length) {
+                            slider.find(selector).eq(i).find('.shortcode-reviews-images-wrap-right img').on('load',function(){
+                                if (!jQuery('#'+id_css).length){
+                                    jQuery('head').append(`<style id="${id_css}"></style>`);
+                                }
+                                if (jQuery(this).closest(selector+':visible').length && jQuery(this).closest(selector).innerHeight() && slider.data('current_height')) {
+                                    let h_tmp = slider.find(selector).eq(i).innerHeight() + 30;
+                                    if (jQuery(this).closest(selector).innerHeight() > parseFloat(slider.data('current_height'))) {
+                                        let css_tmp = `.${id_css} .viwse-suggestion-product-wrap{width: ${itemWidth}px !important;}`;
+                                        css_tmp += `.${id_css} .villatheme-slider-viewport{height: ${h_tmp}px !important;}`;
+                                        jQuery('#' + id_css).html(css_tmp);
+                                        slider.data('current_height',h_tmp);
+                                    }
+                                }
+                            });
                         }
                     }
                 }
                 if (h) {
                     h += 30;
                     css += `.${id_css} .villatheme-slider-viewport{height: ${h}px !important;}`;
+                    slider.data('current_height',h);
                 }
                 if (!jQuery('#'+id_css).length){
                     jQuery('head').append(`<style id="${id_css}"></style>`);
@@ -820,49 +875,49 @@ function viwcpr_flexslider() {
                 jQuery('#'+id_css).html(css);
             },
             end:function (slider) {
-                let total_pages = parseInt(slider.find('.wcpr-reviews-total-pages').html()),
+                let total_pages = parseInt(slider.find('.wcpr-reviews-total-pages').html() || slider.closest('.woocommerce-photo-reviews-shortcode').find('.wcpr-reviews-total-pages').html() ),
                     current_page = Math.ceil(slider.find(selector).length/parseInt(params.comments_per_page || 1));
                 if (total_pages > current_page){
                     let current = slider.limit;
-                    let get_reviews = async function(){
-                        await new Promise(function (resolve) {
-                            jQuery.ajax({
-                                url: woocommerce_photo_reviews_params.ajaxurl,
-                                type: 'get',
-                                data: {
-                                    action: 'woocommerce_photo_reviews_shortcode_ajax_get_reviews',
-                                    reviews_shortcode: JSON.stringify(params),
-                                    wcpr_page: current_page + 1,
-                                    wcpr_image: slider.data('wcpr_image'),
-                                    wcpr_verified: slider.data('wcpr_verified'),
-                                    wcpr_rating: slider.data('wcpr_rating'),
-                                },
-                                beforeSend:function(){
-                                    slider.addClass('woocommerce-photo-reviews-shortcode-loading');
-                                },
-                                success: function (response) {
-                                    let temp = jQuery('<div></div>');
-                                    temp.append(response.html);
-                                    temp.find(selector).each(function (k, v) {
-                                       slider.addSlide(jQuery(v));
-                                    });
-                                    slider.removeClass('woocommerce-photo-reviews-shortcode-loading');
-                                    resolve(slider);
-                                },
-                                error: function (err) {
-                                    resolve(slider);
-                                    slider.removeClass('woocommerce-photo-reviews-shortcode-loading');
-                                }
-                            })
-                        });
-                    };
-                    get_reviews().then(function () {
-                        slider.setProps(current)
+                    get_reviews(slider,current_page,params,selector).then(function () {
+                        slider.setProps(current);
                     });
                 }
             }
         });
     });
+    let get_reviews = async function(slider,current_page,params,selector){
+        await new Promise(function (resolve) {
+            jQuery.ajax({
+                url: woocommerce_photo_reviews_params.ajaxurl,
+                type: 'get',
+                data: {
+                    action: 'woocommerce_photo_reviews_shortcode_ajax_get_reviews',
+                    reviews_shortcode: JSON.stringify(params),
+                    wcpr_page: current_page + 1,
+                    wcpr_image: slider.data('wcpr_image'),
+                    wcpr_verified: slider.data('wcpr_verified'),
+                    wcpr_rating: slider.data('wcpr_rating'),
+                },
+                beforeSend:function(){
+                    slider.closest('.woocommerce-photo-reviews-shortcode').addClass('woocommerce-photo-reviews-shortcode-loading');
+                },
+                success: function (response) {
+                    let temp = jQuery('<div></div>');
+                    temp.append(response.html);
+                    temp.find(selector).each(function (k, v) {
+                        slider.addSlide(jQuery(v));
+                    });
+                    slider.closest('.woocommerce-photo-reviews-shortcode').removeClass('woocommerce-photo-reviews-shortcode-loading');
+                    resolve(slider);
+                },
+                error: function (err) {
+                    resolve(slider);
+                    slider.closest('.woocommerce-photo-reviews-shortcode').removeClass('woocommerce-photo-reviews-shortcode-loading');
+                }
+            })
+        });
+    };
     jQuery('.wcpr-grid .wcpr-grid-item').last().css('display','inline-block');
     jQuery('.shortcode-wcpr-grid .shortcode-wcpr-grid-item').last().css('display','inline-block');
     if (jQuery('#wcpr_thank_you_message').length){
