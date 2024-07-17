@@ -489,6 +489,7 @@ function wcpr_pagination_loadmore($comments, $pagination_container) {
     $pagination_container = jQuery($pagination_container);
     let $filters = $comments.find('.wcpr-filter-container'),
         cpage = jQuery('.wcpr-load-more-reviews-cpage').val(),
+        max_page = jQuery('.wcpr-load-more-reviews-cpage').data('max_page'),
         parent_post_id = jQuery('.wcpr-load-more-reviews-product-id').val(),
         rating = jQuery('.wcpr-load-more-reviews-rating').val(),
         verified = jQuery('.wcpr-load-more-reviews-verified').val(),
@@ -516,55 +517,17 @@ function wcpr_pagination_loadmore($comments, $pagination_container) {
     }
 
     if (cpage && parent_post_id) {
-        if (cpage > 1) {
-            let $button = $comments.find('.wcpr-load-more-reviews-button');
-            jQuery.ajax({
-                url: woocommerce_photo_reviews_params.ajaxurl, // AJAX handler, declared before
-                data: {
-                    'action': 'wcpr_ajax_load_more_reviews', // wp_ajax_cloadmore
-                    'post_id': parent_post_id, // the current post
-                    'cpage': cpage, // current comment page
-                    'rating': rating,
-                    'verified': verified,
-                    'image': image,
-                    'is_shortcode': '',
-                    'frontend_style': woocommerce_photo_reviews_params.display,
-                },
-                type: 'POST',
-                beforeSend: function () {
-                    $button.addClass('wcpr-loading');
-                },
-                success: function (response) {
-                    if (response.html) {
-                        handle_missing_container();
-                        $container.html(response.html);
-                    }
-                    jQuery(document.body).trigger('wcpr_ajax_load_more_reviews_end');
-                    // wcpr_helpful_button();
-                },
-                complete: function () {
-                    $button.removeClass('wcpr-loading');
-                }
-            });
-        }
         jQuery(document).on('click', '.wcpr-load-more-reviews-button:not(.shortcode-wcpr-load-more-reviews-button):not(.wcpr-loading)', function () {
             let $button = jQuery(this);
-            if (woocommerce_photo_reviews_params.sort == 2) {
-                cpage++;
-                if (cpage == 1) {
-                    cpage++;
-                }
-            } else {
-                cpage--;
-                if (cpage == 1) {
-                    cpage--;
-                }
+            if ($button.parent().hasClass('wcpr-hidden')){
+                return false;
             }
             if (cpage > -1) {
                 jQuery.ajax({
                     url: woocommerce_photo_reviews_params.ajaxurl, // AJAX handler, declared before
                     data: {
                         'action': 'wcpr_ajax_load_more_reviews', // wp_ajax_cloadmore
+                        'nonce': woocommerce_photo_reviews_params.nonce,
                         'post_id': parent_post_id, // the current post
                         'cpage': cpage, // current comment page
                         'rating': rating,
@@ -581,13 +544,23 @@ function wcpr_pagination_loadmore($comments, $pagination_container) {
                         if (response.html) {
                             $container.append(response.html);
                             // if the last page, remove the button
-                            if (cpage == 0)
-                                $button.parent().remove();
+                            if (woocommerce_photo_reviews_params.default_comments_page === 'oldest') {
+                                if (cpage < max_page){
+                                    cpage++;
+                                }else {
+                                    $button.parent().addClass('wcpr-hidden');
+                                }
+                            }else {
+                                if (cpage > 1){
+                                    cpage--;
+                                }else {
+                                    $button.parent().addClass('wcpr-hidden');
+                                }
+                            }
                         } else {
-                            $button.parent().remove();
+                            $button.parent().addClass('wcpr-hidden');
                         }
                         jQuery(document.body).trigger('wcpr_ajax_load_more_reviews_end');
-                        // wcpr_helpful_button();
                     },
                     complete: function () {
                         $button.removeClass('wcpr-loading');
@@ -604,7 +577,11 @@ function wcpr_pagination_loadmore($comments, $pagination_container) {
                 if (ajax_pagination_running || (parseInt($button.find('.wcpr-filter-button-count').html()) === 0 && !$button.hasClass('wcpr-active'))) {
                     return false;
                 }
-                cpage = 0;
+                if (woocommerce_photo_reviews_params.default_comments_page === 'oldest') {
+                    cpage=1;
+                }else {
+                    cpage = '';
+                }
                 let filter_type = $button.data('filter_type');
                 switch (filter_type) {
                     case 'all':
@@ -655,19 +632,22 @@ function wcpr_pagination_loadmore($comments, $pagination_container) {
                         'frontend_style': woocommerce_photo_reviews_params.display,
                     },
                     success: function (response) {
-                        if (woocommerce_photo_reviews_params.sort == 2) {
-                            cpage++;
-                        } else {
-                            cpage--;
-                        }
                         if (response.html) {
                             $no_review.hide();
                             handle_missing_container();
                         }
                         $container.html(response.html);
-                        cpage = parseInt(response.cpage);
                         handle_missing_pagination();
-                        $pagination_container.html(response.load_more_html);
+                        max_page = parseInt(response.max_page);
+                        if (max_page != cpage) {
+                            if (woocommerce_photo_reviews_params.default_comments_page === 'oldest') {
+                                cpage++;
+                            }else {
+                                cpage--;
+                            }
+                            $pagination_container.find('.wcpr-load-more-reviews-button').parent().removeClass('wcpr-hidden');
+                        }
+                        // $pagination_container.html(response.load_more_html);
                         // wcpr_helpful_button();
                         let update_count = response.update_count;
                         if (update_count) {
@@ -695,7 +675,7 @@ function wcpr_pagination_loadmore($comments, $pagination_container) {
                             default:
                                 $filters_rating.find('.wcpr-filter-button').removeClass('wcpr-active');
                                 $button.addClass('wcpr-active');
-                            // $filters.find('.wcpr-filter-rating-placeholder').html($button.html());
+                                $filters.find('.wcpr-filter-rating-placeholder').html($button.html());
                         }
                         jQuery(document.body).trigger('wcpr_ajax_load_more_reviews_end');
                     },
@@ -742,6 +722,8 @@ function viwcpr_flexslider() {
         if (jQuery(this).closest('.rtl').length) {
             rtl = true;
         }
+        console.log('rtl')
+        console.log(rtl)
         let wrap = jQuery(this).find('.viwcpr-slide-wrap');
         let wrap_width = wrap.innerWidth() ?  jQuery(this).parent().width() : 0,
             gap = parseInt(params.cols_gap || 20),
@@ -764,7 +746,7 @@ function viwcpr_flexslider() {
             itemMargin: gap,
             controlNav: false,
             maxItems: colums,
-            reverse: rtl,
+            reverse: false,
             rtl: rtl,
             move: colums,
             touch: true,
@@ -893,6 +875,7 @@ function viwcpr_flexslider() {
                 type: 'get',
                 data: {
                     action: 'woocommerce_photo_reviews_shortcode_ajax_get_reviews',
+                    nonce: woocommerce_photo_reviews_params.nonce,
                     reviews_shortcode: JSON.stringify(params),
                     wcpr_page: current_page + 1,
                     wcpr_image: slider.data('wcpr_image'),
@@ -1039,7 +1022,7 @@ function wcpr_helpful_button() {
                 'action': 'wcpr_helpful_button_handle',
                 'vote': vote,
                 'comment_id': comment_id,
-                // 'nonce': woocommerce_photo_reviews_params.nonce,
+                'nonce': woocommerce_photo_reviews_params.nonce,
             },
             type: 'POST',
             success: function (response) {

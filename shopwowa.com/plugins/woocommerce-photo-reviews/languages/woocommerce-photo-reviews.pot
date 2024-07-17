@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Photo Reviews Premium\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 07:05+0000\n"
+"POT-Creation-Date: 2024-07-16 06:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,33 +14,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1606
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1637
 msgid " Grid(masonry)."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2464
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2511
 msgid ""
 " must be enabled in your shipping zone and be set to require \"a valid free "
 "shipping coupon\" (see the \"Free Shipping Requires\" setting)."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1329
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1343
 msgid " Newest first"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1614
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1645
 msgid " Normal."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1340
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1354
 msgid " Oldest first"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1574
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1590
 msgid " Please type your comment text."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5128
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5182
 msgid " View & Edit"
 msgstr ""
 
@@ -52,17 +52,17 @@ msgstr ""
 msgid "\">Orders</a>."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3623
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3670
 msgid ""
 "\"Label\" is used for review form. If \"Label\" is empty, \"Name\" will be "
 "used instead."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3620
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3667
 msgid "\"Name\" can not be empty."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3626
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3673
 msgid ""
 "\"Value set\" and \"Units\": if you want customers to enter them by "
 "themselves, leave them empty; if you want your customers to select from a "
@@ -76,129 +76,131 @@ msgid_plural "%s customer reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:101
+#. %s: review count
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:103
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:105
 #, php-format
 msgid "%s review per page"
 msgid_plural "%s reviews per page"
 msgstr[0] ""
 msgstr[1] ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:60
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:104
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:70
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:114
 #, php-format
 msgid "%s star"
 msgid_plural "%s stars"
 msgstr[0] ""
 msgstr[1] ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:696
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:710
 #, php-format
 msgid "'%s' is not an allowed file type."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3724
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3771
 msgid ""
 "*This feature is also used for reviews imported from AliExpress, Amazon "
 "using chrome extension"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1095
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1109
 msgid "."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:354
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:402
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:366
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:414
 msgid "...More"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2033
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5239
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2080
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5293
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/rating-widget.php:99
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:142
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:378
 msgid "1 Star"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5558
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5613
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:140
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:277
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:465
 msgid "1 star"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2034
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2081
 msgid "2 Star"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5238
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5292
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/rating-widget.php:100
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:141
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:379
 msgid "2 Stars"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5559
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5614
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:142
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:278
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:466
 msgid "2 stars"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2035
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2082
 msgid "3 Star"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5237
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5291
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/rating-widget.php:103
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:140
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:382
 msgid "3 Stars"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5560
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5615
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:144
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:279
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:467
 msgid "3 stars"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2036
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2083
 msgid "4 Star"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5236
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5290
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/rating-widget.php:102
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:139
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:381
 msgid "4 Stars"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5561
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5616
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:146
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:280
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:468
 msgid "4 stars"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2037
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2084
 msgid "5 Star"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5235
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5289
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/rating-widget.php:101
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:138
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:380
 msgid "5 Stars"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5562
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5617
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:148
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:281
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:469
 msgid "5 stars"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:81
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:83
 msgid ""
 "<i>Post maxsize</i> should be greater than <i>Max file upload</i> plus <i>"
 "Upload max filesize</i>."
@@ -236,54 +238,54 @@ msgid ""
 "uploaded by customers"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3971
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4018
 msgid "Actions"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2186
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2233
 msgid "Active"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3789
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3836
 msgid "Add"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4750
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4751
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4803
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4804
 msgid "Add A Review"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3586
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3633
 msgid "Add content"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3717
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3764
 msgid "Add field"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4568
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5270
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4621
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5324
 msgid "Add Image"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3599
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3646
 msgid ""
 "Add optional input fields in review form and display in customers reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5157
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5211
 msgid "Add product review"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5279
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5334
 msgid "Add review"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5213
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5267
 msgid "Add review title"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3526
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3573
 msgid "Add template"
 msgstr ""
 
@@ -291,7 +293,7 @@ msgstr ""
 msgid "Add your review"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/api.php:376
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/api.php:381
 #, php-format
 msgid "Added to %s product"
 msgid_plural "Added to %s products"
@@ -302,7 +304,7 @@ msgstr[1] ""
 msgid "Ajax check reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1686
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1733
 msgid "Ajax Pagination & Filter"
 msgstr ""
 
@@ -319,8 +321,8 @@ msgstr ""
 msgid "AliExpress Reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2032
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5557
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2079
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5612
 msgid "All ratings"
 msgstr ""
 
@@ -328,8 +330,8 @@ msgstr ""
 msgid "All Stars"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:64
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:79
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:74
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:89
 msgid "All stars"
 msgstr ""
 
@@ -348,11 +350,17 @@ msgid ""
 "Allow customers to post reviews with empty content, only rating is required"
 msgstr ""
 
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1714
+msgid ""
+"Allow displaying 1 random image of the product's gallery and the product's "
+"image if the review has no photos or videos."
+msgstr ""
+
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1017
 msgid "Allow empty comment"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2447
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2494
 msgid "Allow Free Shipping"
 msgstr ""
 
@@ -368,28 +376,28 @@ msgid ""
 "time"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3195
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3242
 msgid ""
 "Allow your customers to leave a review with 5 stars. The ratings would be "
 "set the status to pending approval."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5673
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5728
 #, php-format
 msgid "Applied Phrases filter to %s review"
 msgid_plural "Applied Phrases filter to %s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4597
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4650
 msgid "Apply Phrases Filter"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2653
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2700
 msgid "Apply To All Qualifying Items In Cart"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3892
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3939
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:160
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:393
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:581
@@ -404,46 +412,50 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5199
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5204
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5253
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5258
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:290
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:104
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1082
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:112
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1077
 msgid "Author email"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:303
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:117
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1095
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:125
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1090
 msgid "Author IP"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5191
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5245
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:289
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:103
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1081
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:111
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1076
 msgid "Author name"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5186
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5240
 msgid "Author name(*required)"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:291
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:105
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1083
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:113
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1078
 msgid "Author URL"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3269
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3316
 msgid "Auto login"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4029
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4076
 msgid "Auto Update Key"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3276
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1057
+msgid "Auto-play video"
+msgstr ""
+
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3323
 msgid ""
 "Automatically log customers into their accounts when clicking on button "
 "\"Review Now\" in their review reminder emails. The link is onetime-use and "
@@ -459,20 +471,22 @@ msgstr ""
 msgid "Background Color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1175
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1189
 msgid "Background color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1431
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1445
 msgid "Badge"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-overall-rating-html.php:47
+#. %s: review count
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-overall-rating-html.php:49
 #, php-format
 msgid "Based on %s review"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-overall-rating-html.php:44
+#. %s: review count
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-overall-rating-html.php:45
 #, php-format
 msgid "Based on %s reviews"
 msgstr ""
@@ -482,7 +496,7 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3815
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3862
 msgid ""
 "Below options are used for importing reviews using <a href=\"http:"
 "//downloads.villatheme.com/?download=woo-photo-reviews-extension\" "
@@ -493,7 +507,7 @@ msgstr ""
 msgid "Below Thumb"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1646
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1677
 msgid "Below thumbnails"
 msgstr ""
 
@@ -501,36 +515,36 @@ msgstr ""
 msgid "Both"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4999
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5565
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5052
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5620
 msgid "Both with & without image"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2881
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2928
 msgid ""
 "Bulk send review reminder only applies to orders whose statuses are among "
 "these values."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1732
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1779
 msgid ""
 "Button \"More\" will show if a review content length is greater than this "
 "value so that customers can click the button to load full review content"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3201
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3248
 msgid "Button \"Review now\""
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3238
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3285
 msgid "Button \"Review now\" background color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3227
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3274
 msgid "Button \"Review now\" text color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3353
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3400
 msgid "Button Review on My account/orders"
 msgstr ""
 
@@ -540,6 +554,10 @@ msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:965
 msgid "By number of times the customer bought that product"
+msgstr ""
+
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/api.php:265
+msgid "Can not get review detail to import"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:886
@@ -556,11 +574,11 @@ msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/reviews_form.php:37
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/reviews_form.php:82
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:710
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:725
 msgid "Caption for this image"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3731
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3778
 msgid "Case Sensitive"
 msgstr ""
 
@@ -578,28 +596,28 @@ msgstr ""
 msgid "Change phrases filter settings"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2167
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2214
 msgid "Check rules from top to bottom and apply the first one found."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2518
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2565
 msgid ""
 "Check this box if the coupon cannot be used in conjunction with other "
 "coupons."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2462
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2509
 msgid "Check this box if the coupon grants free shipping. A "
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2536
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2583
 msgid ""
 "Check this box if the coupon should not apply to items on sale. Per-item "
 "coupons will only work if the item is not on sale. Per-cart coupons will "
 "only work if there are items in the cart that are not on sale."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2400
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2447
 msgid "Choose to send an existing coupon or generate unique coupons."
 msgstr ""
 
@@ -607,27 +625,27 @@ msgstr ""
 msgid "Chrome Extension"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4811
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4864
 msgid "Clear"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2352
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2377
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2563
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2589
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2931
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2399
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2424
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2610
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2636
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2978
 msgid "Clear all"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4812
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4865
 msgid "Clear color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:47
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:49
 msgid "Click to view full screen"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2198
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2245
 msgid "Clone"
 msgstr ""
 
@@ -636,7 +654,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4816
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4869
 msgid "Color value"
 msgstr ""
 
@@ -649,20 +667,20 @@ msgid "Column name"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:304
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:118
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1096
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:126
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1091
 msgid "Comment agent"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:305
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:119
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1097
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:127
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1092
 msgid "Comment date"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:306
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:120
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1098
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:128
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1093
 msgid "Comment date gmt"
 msgstr ""
 
@@ -671,15 +689,15 @@ msgid "Comment ID"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:301
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:115
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1093
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:123
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1088
 msgid "Comment parent"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:154
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:293
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:108
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1086
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:116
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1081
 msgid "Comment status"
 msgstr ""
 
@@ -691,29 +709,29 @@ msgstr ""
 msgid "Conditional Tag"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2225
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2272
 msgid "Conditions"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:104
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:108
 msgid "Configure"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:292
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:107
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1085
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:115
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1080
 msgid "Content"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5217
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5271
 msgid "Content(*required)"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1224
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1219
 msgid "Continue"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3834
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3881
 msgid "Copy Secret key"
 msgstr ""
 
@@ -723,56 +741,56 @@ msgid "Countries"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:800
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2384
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2431
 msgid "Coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2435
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2482
 msgid "Coupon Amount"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2671
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2718
 msgid "Coupon Code Prefix"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2103
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2150
 msgid "Coupon for reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2477
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2524
 msgid ""
 "Coupon will expire after x day(s) since it's generated and sent. Set 0 or "
 "blank to make it never expire."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1667
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1698
 msgid "Create a new cropped “thumbnail” image when uploading the image"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2745
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3082
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2792
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3129
 msgid "Create a new email template"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3611
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3658
 msgid "Create optional fields from all variations of current products"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1657
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1688
 msgid "Cropped image"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2155
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3012
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2202
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3059
 msgid "Custom \"from\" address"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1898
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1945
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:796
 msgid "Custom CSS"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1857
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1904
 msgid "Custom review date format"
 msgstr ""
 
@@ -797,26 +815,26 @@ msgstr ""
 msgid "Date format"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2474
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2521
 msgid "Day(s)"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2992
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3039
 msgid "Days"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3408
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3455
 msgid "days"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1429
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4813
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1443
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4866
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/review-form-widget.php:78
 msgid "Default"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-basic-html.php:175
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:445
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-basic-html.php:185
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:457
 msgid "Delete"
 msgstr ""
 
@@ -828,8 +846,8 @@ msgstr ""
 msgid "Design"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1719
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1786
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1766
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1833
 msgid "Desktop"
 msgstr ""
 
@@ -837,15 +855,15 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3281
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3328
 msgid "Disable auto login if users have roles:"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:87
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:89
 msgid "Disabled"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2419
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2466
 msgid "Discount Type"
 msgstr ""
 
@@ -853,17 +871,17 @@ msgstr ""
 msgid "Display as slider"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1404
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1418
 msgid ""
 "Display full first name and initial for surname. Eg: \"Photo Reviews\" "
 "becomes \"Photo R\""
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1673
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1720
 msgid "Display full image size"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1405
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1419
 msgid ""
 "Display full of the last name and initial for the first name. Eg: \"Woo "
 "Photo Reviews\" becomes \"W.Reviews\""
@@ -878,7 +896,7 @@ msgstr ""
 msgid "Display overall rating of which products?"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1737
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1784
 msgid "Display popup in fullscreen on mobile"
 msgstr ""
 
@@ -895,40 +913,40 @@ msgstr ""
 msgid "Display Type"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1121
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1149
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1116
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1144
 msgid "Do not import"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1693
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1740
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:262
 msgid ""
 "Do not reload page when customers select other reviews page or select a "
 "filter"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1988
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2035
 msgid "Do not show Filter if a product does not have any reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1931
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1978
 msgid ""
 "Do not show Rating count & Overall rating if a product does not have any "
 "reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3298
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3345
 msgid "Do not use auto login function if users have roles in this group"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1865
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1912
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1036
 msgid "Documentation on date and time formatting."
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:300
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:114
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1092
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:122
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1087
 msgid "Down-vote count"
 msgstr ""
 
@@ -960,12 +978,12 @@ msgstr ""
 msgid "Draft"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-basic-html.php:173
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:443
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-basic-html.php:183
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:455
 msgid "Edit"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2684
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2731
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-review-form-html.php:72
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-review-form-html.php:85
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-review-form-html.php:225
@@ -973,48 +991,48 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2803
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3147
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2850
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3194
 msgid "Email content"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3536
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3583
 msgid "email content"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2778
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3121
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2825
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3168
 msgid "Email heading"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2753
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3095
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2800
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3142
 msgid "Email subject"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2694
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3026
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2741
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3073
 msgid "Email template"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3447
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3494
 msgid "email template"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3440
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3487
 msgid "Email template to resend"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:820
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1760
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2006
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2018
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3382
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3593
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1807
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2053
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2065
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3429
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3640
 msgid "Enable"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1769
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1816
 msgid "Enable ajax add to cart"
 msgstr ""
 
@@ -1022,7 +1040,7 @@ msgstr ""
 msgid "Enable Box Shadow"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1872
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1919
 msgid "Enable box shadow"
 msgstr ""
 
@@ -1030,7 +1048,7 @@ msgstr ""
 msgid "Enable Filter"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1698
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1745
 msgid "Enable load-more button"
 msgstr ""
 
@@ -1050,15 +1068,15 @@ msgstr ""
 msgid "Enable Rating Count"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1189
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1203
 msgid "Enable review title"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:93
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:95
 msgid "Enable reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2970
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3017
 msgid "Enable this if you mean to offer coupon for reviews in review reminder."
 msgstr ""
 
@@ -1066,7 +1084,7 @@ msgstr ""
 msgid "Enable this if you're about to import reviews from Shopify"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:87
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:89
 msgid "Enabled"
 msgstr ""
 
@@ -1074,47 +1092,47 @@ msgstr ""
 msgid "End date"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3991
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4038
 msgid "Enter product title to search"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1437
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1458
 msgid "Enter text here"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1722
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1752
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1741
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1771
 #, php-format
 msgid "Error adding file: %s."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2616
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2937
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2663
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2984
 msgid "Exclude categories"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2307
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2354
 msgid "Exclude categories to give coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2886
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2933
 msgid "Exclude Email addresses"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2962
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3009
 msgid "Exclude non-coupon given products"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2568
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2910
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2615
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2957
 msgid "Exclude products"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2356
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2403
 msgid "Exclude products to give coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2521
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2568
 msgid "Exclude Sale Items"
 msgstr ""
 
@@ -1133,14 +1151,14 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:159
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:162
 msgid ""
 "File is empty. Please upload something more substantial. This error could "
 "also be caused by uploads being disabled in your php.ini or by post_max_size "
 "being defined as smaller than upload_max_filesize in php.ini."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:162
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:165
 msgid "File is error."
 msgstr ""
 
@@ -1152,7 +1170,7 @@ msgstr ""
 msgid "File upload:"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1678
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1697
 msgid "File's too large!"
 msgstr ""
 
@@ -1160,7 +1178,7 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2054
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2101
 msgid "Filter area backgroud color"
 msgstr ""
 
@@ -1172,7 +1190,7 @@ msgstr ""
 msgid "Filter Area Border Color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2043
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2090
 msgid "Filter area border color"
 msgstr ""
 
@@ -1180,7 +1198,7 @@ msgstr ""
 msgid "Filter Button Background Color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2088
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2135
 msgid "Filter button background color"
 msgstr ""
 
@@ -1192,23 +1210,23 @@ msgstr ""
 msgid "Filter Button Color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2077
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2124
 msgid "Filter button color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2066
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2113
 msgid "Filter buttons border color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1969
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2016
 msgid "Filters"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2427
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2474
 msgid "Fixed cart discount"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2430
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2477
 msgid "Fixed product discount"
 msgstr ""
 
@@ -1216,11 +1234,11 @@ msgstr ""
 msgid "For Single Product"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2464
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2511
 msgid "free shipping method"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1598
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1629
 msgid "Front-end style"
 msgstr ""
 
@@ -1228,26 +1246,26 @@ msgstr ""
 msgid "Full Screen On Mobile"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1283
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1297
 msgid "GDPR checkbox"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1296
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1310
 msgid "GDPR message"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:794
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2209
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2256
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/overall-rating-widget.php:30
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:31
 msgid "General"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2394
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2441
 msgid "Generate unique coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4041
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4088
 msgid "Get Key"
 msgstr ""
 
@@ -1256,19 +1274,19 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1802
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1849
 msgid "Grid background color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1813
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1860
 msgid "Grid item background color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1824
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1871
 msgid "Grid item border color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3969
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4016
 msgid "Group no"
 msgstr ""
 
@@ -1276,20 +1294,20 @@ msgstr ""
 msgid "Helper"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1551
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1582
 msgid "Helpful buttons"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1563
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1594
 msgid "Helpful buttons title"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1924
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1982
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1971
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2029
 msgid "Hide if empty"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1395
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1409
 msgid "Hide name"
 msgstr ""
 
@@ -1301,19 +1319,19 @@ msgstr ""
 msgid "Hold"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3429
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3476
 msgid "Hour"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2991
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3038
 msgid "Hours"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2645
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2692
 msgid "How many times this coupon can be used before it is void."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2668
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2715
 msgid "How many times this coupon can be used by an individual user."
 msgstr ""
 
@@ -1333,7 +1351,7 @@ msgid ""
 "based folders will be created inside your upload folders"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3946
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3993
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1016
 msgid ""
 "If a review has images or videos, upload them to your server instead of "
@@ -1345,24 +1363,24 @@ msgstr ""
 msgid "If a review has images, download them to your server"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2161
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3018
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2208
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3065
 msgid "If blank, \"From\" address of WooCommerce will be used"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2854
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2901
 msgid ""
 "If checked, an email will be automatically sent when a customer completes an "
 "order to request for a review."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3389
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3436
 msgid ""
 "If checked, the reminder email will be sent if the customer has not yet "
 "rated."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2124
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2171
 msgid "If enabled, coupon will be used for received emails only."
 msgstr ""
 
@@ -1372,7 +1390,7 @@ msgid ""
 "page."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1889
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1936
 msgid ""
 "If nothing happens when you click on button load more, product review "
 "template have been customized on your site. Just find the specific class or "
@@ -1381,7 +1399,7 @@ msgid ""
 "hash(#) if it's an id."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3882
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3929
 msgid ""
 "If set, reviews imported with chrome extension will be added only to "
 "selected product(s). The \"Look up for product ID by\" option above will not "
@@ -1396,15 +1414,15 @@ msgid ""
 "for Import review photos folder"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1524
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1555
 msgid "Image caption background color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1536
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1567
 msgid "Image caption font size(px)"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1513
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1544
 msgid "Image caption text color"
 msgstr ""
 
@@ -1412,11 +1430,11 @@ msgstr ""
 msgid "Image Popup"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1641
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1672
 msgid "Image popup"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3932
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3979
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:998
 msgid "Images"
 msgstr ""
@@ -1427,7 +1445,7 @@ msgstr ""
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:592
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:637
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:867
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1178
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1173
 msgid "Import"
 msgstr ""
 
@@ -1435,7 +1453,7 @@ msgstr ""
 msgid "Import from Shopify"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3952
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3999
 msgid "Import order info"
 msgstr ""
 
@@ -1455,14 +1473,14 @@ msgstr ""
 msgid "Import review successfully"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3958
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4005
 msgid ""
 "Import reviewer' order info(except for logistics info) such as Color, Size..."
 " to Optional fields"
 msgstr ""
 
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:51
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:52
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:53
 msgid "Import Reviews"
 msgstr ""
 
@@ -1474,11 +1492,11 @@ msgstr ""
 msgid "Import reviews from AliExpress <em>(optional)</em>"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3863
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3910
 msgid "Import reviews to"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3916
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3963
 msgid "Import vote up/down count of reviews"
 msgstr ""
 
@@ -1493,23 +1511,23 @@ msgstr ""
 msgid "Include photos & videos"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2541
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2588
 msgid "Include products"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2595
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2642
 msgid "Included categories"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2503
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2550
 msgid "Individual Use Only"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:79
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:83
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:87
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:693
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:701
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:91
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:95
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:698
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:706
 msgid "Invalid file."
 msgstr ""
 
@@ -1521,16 +1539,16 @@ msgstr ""
 msgid "Invalid review data"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1079
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1093
 #, php-format
 msgid "KB (Max %s KB)."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3638
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3685
 msgid "Label"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3645
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3692
 msgid "Language"
 msgstr ""
 
@@ -1545,11 +1563,11 @@ msgstr ""
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3769
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3816
 msgid "Leave blank to delete matches"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1888
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1935
 msgid "Leave this field blank if ajax load more reviews works properly."
 msgstr ""
 
@@ -1564,27 +1582,27 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1507
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1538
 msgid ""
 "Let your customer add caption for their review images and show it in reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1647
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1678
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:577
 msgid "Lightbox"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2648
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2695
 msgid "Limit Usage To X Items"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:681
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:695
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-pagination-loadmore-html.php:9
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-pagination-loadmore-html.php:19
 msgid "Load more"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:682
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:696
 msgid "Loading..."
 msgstr ""
 
@@ -1592,7 +1610,7 @@ msgstr ""
 msgid "Loadmore Button"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3852
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3899
 msgid "Look up for product ID by"
 msgstr ""
 
@@ -1609,7 +1627,7 @@ msgstr ""
 msgid "Masonry"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1709
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1756
 msgid "Max content length"
 msgstr ""
 
@@ -1617,25 +1635,25 @@ msgstr ""
 msgid "Max file uploads:"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1682
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1701
 #, php-format
 msgid "Max size allowed: %skB."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1654
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1673
 #, php-format
 msgid "Maximum number of files allowed is: %s."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2492
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2539
 msgid "Maximum Spend"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1086
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1100
 msgid "Maximum upload file quantity"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1070
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1084
 msgid "Maximum upload file size"
 msgstr ""
 
@@ -1643,26 +1661,26 @@ msgstr ""
 msgid "Minimum comment length"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2270
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2317
 msgid "Minimum required rating"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2483
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2530
 msgid "Minimum Spend"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2990
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3037
 msgid "Minutes"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:833
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1728
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1794
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1775
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1841
 msgid "Mobile"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2214
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3637
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2261
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3684
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-review-form-html.php:70
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-review-form-html.php:83
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-review-form-html.php:223
@@ -1677,8 +1695,8 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:861
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:862
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:863
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:864
 msgid "never expires"
 msgstr ""
 
@@ -1686,7 +1704,8 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:101
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:103
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:105
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/rating-widget.php:80
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/review-form-widget.php:110
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:43
@@ -1709,11 +1728,11 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2497
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2544
 msgid "No maximum"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2488
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2535
 msgid "No minimum"
 msgstr ""
 
@@ -1722,15 +1741,15 @@ msgid "No more reviews to import"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:962
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1410
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2699
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2720
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3035
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3057
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3474
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3497
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4886
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4907
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1424
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2746
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2767
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3082
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3104
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3521
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3544
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4939
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4960
 msgid "None"
 msgstr ""
 
@@ -1743,7 +1762,7 @@ msgstr ""
 msgid "Not that bad"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1777
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1824
 msgid "Number of columns"
 msgstr ""
 
@@ -1757,7 +1776,7 @@ msgstr ""
 msgid "Number: "
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1632
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1663
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:59
 msgid "Off"
 msgstr ""
@@ -1766,7 +1785,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:106
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:108
 msgid "One minute"
 msgstr ""
 
@@ -1780,12 +1799,12 @@ msgstr ""
 msgid "One review no matter the customer bought that product or not"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1611
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1617
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1627
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1636
 msgid "Only customers who bought this product can leave a review."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1403
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1417
 msgid ""
 "Only display first letter of each word in author'name. Eg: \"Woo Photo "
 "Reviews\" becomes \"W** P**** R******\""
@@ -1795,7 +1814,7 @@ msgstr ""
 msgid "Only Image"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1631
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1662
 msgid "Only image"
 msgstr ""
 
@@ -1808,9 +1827,12 @@ msgstr ""
 msgid "Only import reviews with images"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1659
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1669
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1678
 msgid "Only JPG, JPEG, BMP, PNG , WEBP, GIF, MP4 and WEBM are allowed."
+msgstr ""
+
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1688
+msgid "Only JPG, JPEG, BMP, PNG , WEBP, GIF, MP4, MOV and WEBM are allowed."
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-review-form-html.php:112
@@ -1827,11 +1849,11 @@ msgstr ""
 msgid "Only Rating Count"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2304
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2351
 msgid "Only reviews on products in these categories can receive coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2353
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2400
 msgid ""
 "Only reviews on selected products can receive coupons. Leave blank to apply "
 "for all products"
@@ -1841,20 +1863,20 @@ msgstr ""
 msgid "Only Reviews With Images"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2267
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2314
 msgid "Only send coupon for reviews from purchased customers."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2279
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2326
 msgid ""
 "Only send coupons for reviews if rating is equal or greater than this value"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2255
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2302
 msgid "Only send coupons for reviews including photos or videos"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2243
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2290
 msgid "Only send coupons if author's email is registered an account"
 msgstr ""
 
@@ -1862,12 +1884,12 @@ msgstr ""
 msgid "Optional Fields"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:112
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:120
 msgid "Optional fields/Variation"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:297
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1090
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1085
 msgid "Optional fields/Variations"
 msgstr ""
 
@@ -1876,8 +1898,8 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2743
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3080
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2790
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3127
 msgid "or"
 msgstr ""
 
@@ -1889,7 +1911,7 @@ msgstr ""
 msgid "Order By"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2860
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2907
 msgid "Order statuses trigger"
 msgstr ""
 
@@ -1897,7 +1919,7 @@ msgstr ""
 msgid "Overall Rating"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1938
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1985
 msgid "Overall rating"
 msgstr ""
 
@@ -1908,7 +1930,7 @@ msgid ""
 "</strong> is used to display overall rating"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:100
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:102
 msgid "Paginate reviews"
 msgstr ""
 
@@ -1929,14 +1951,14 @@ msgid "Pagination Pre"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:472
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3891
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3938
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:394
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:582
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:124
 msgid "Pending"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2424
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2471
 msgid "Percentage discount"
 msgstr ""
 
@@ -1945,24 +1967,24 @@ msgstr ""
 msgid "Perfect"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1633
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1652
 msgid "Photo is required"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1651
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1670
 msgid "Photo is required."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4735
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4788
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:15
 msgid "Photo Reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4462
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4583
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4515
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4636
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:296
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:111
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1089
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:119
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1084
 msgid "Photos"
 msgstr ""
 
@@ -1971,37 +1993,37 @@ msgstr ""
 msgid "Phrases filter"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3639
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3686
 msgid "Placeholder"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/reviews_form.php:42
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/reviews_form.php:87
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:688
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:702
 msgid "Please agree with our term and policy."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1805
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1850
 msgid "Please agree with the GDPR policy!"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1570
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1586
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5194
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5248
 msgid "Please enter author name"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5040
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5093
 msgid "Please enter Author name!"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2942
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2989
 msgid "Please enter category title"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3847
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3894
 msgid "Please enter this key in the chrome extension to import reviews"
 msgstr ""
 
@@ -2010,12 +2032,12 @@ msgstr ""
 msgid "Please enter your comment"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:685
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:699
 #, php-format
 msgid "Please enter your comment not less than %s character."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:684
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:698
 msgid "Please enter your comment."
 msgstr ""
 
@@ -2024,7 +2046,7 @@ msgstr ""
 msgid "Please enter your email"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:687
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:701
 msgid "Please enter your email."
 msgstr ""
 
@@ -2033,16 +2055,16 @@ msgstr ""
 msgid "Please enter your name"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:686
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:700
 msgid "Please enter your name."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2915
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3867
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2962
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3914
 msgid "Please Fill In Your Product Title"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4046
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4093
 msgid ""
 "Please fill the key you get from <a target=\"_blank\" href=\"https:"
 "//villatheme.com/my-download\">https://villatheme.com/my-download</a> to be "
@@ -2051,36 +2073,36 @@ msgid ""
 "auto-update-feature/\">guide</a>"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1568
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1584
 msgid "Please fill the required fields."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3318
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3365
 msgid ""
 "Please select a page that you use shortcode <strong>"
 "[woocommerce_photo_reviews_form]</strong>. If empty, customers will be "
 "redirected to single product page when click on button \"Review Now\""
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5030
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5083
 msgid "Please select a product!"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5243
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5297
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/reviews_form.php:33
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/reviews_form.php:78
 msgid "Please select a rating"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5060
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5113
 msgid "Please select a rating!"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:683
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:697
 msgid "Please select a rating."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5181
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5235
 msgid "Please select product that you want to add review"
 msgstr ""
 
@@ -2090,15 +2112,15 @@ msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/reviews_form.php:41
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/reviews_form.php:86
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:694
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:708
 msgid "Please upload at least one image for your review!"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4934
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4987
 msgid "Please wait..."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5050
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5103
 msgid "Please write your review!"
 msgstr ""
 
@@ -2110,11 +2132,11 @@ msgstr ""
 msgid "Popup Type"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1625
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1656
 msgid "Popup type"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:74
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:75
 msgid "Post maxsize:"
 msgstr ""
 
@@ -2151,25 +2173,25 @@ msgstr ""
 msgid "Product Categories"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2613
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2660
 msgid ""
 "Product categories that the coupon will be applied to, or that need to be in "
 "the cart in order for the \"Fixed cart discount\" to be applied."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2634
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2681
 msgid ""
 "Product categories that the coupon will not be applied to, or that cannot be "
 "in the cart in order for the \"Fixed cart discount\" to be applied."
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:288
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:102
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1080
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:110
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1075
 msgid "Product ID"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3249
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3296
 msgid "Product image width"
 msgstr ""
 
@@ -2192,7 +2214,7 @@ msgstr ""
 msgid "Product Status"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1750
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1797
 msgid "Product summary on masonry popup"
 msgstr ""
 
@@ -2201,11 +2223,11 @@ msgstr ""
 msgid "Product title"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5161
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5215
 msgid "Product(*required)"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3970
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4017
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:117
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/overall-rating-widget.php:39
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/overall-rating-widget.php:64
@@ -2214,17 +2236,17 @@ msgstr ""
 msgid "Products"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2957
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3004
 msgid "Products in these categories will not appear in review reminder email."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2565
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2612
 msgid ""
 "Products that the coupon will be applied to, or that need to be in the cart "
 "in order for the \"Fixed cart discount\" to be applied"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2590
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2637
 msgid ""
 "Products that the coupon will not be applied to, or that cannot be in the "
 "cart in order for the \"Fixed cart discount\" to be applied."
@@ -2238,7 +2260,7 @@ msgstr ""
 msgid "Publish"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3259
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3306
 msgid "px"
 msgstr ""
 
@@ -2258,10 +2280,10 @@ msgstr ""
 msgid "Rate&hellip;"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4585
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4638
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:294
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:109
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1087
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:117
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1082
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/rating-widget.php:15
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/rating-widget.php:94
 msgid "Rating"
@@ -2279,11 +2301,11 @@ msgstr ""
 msgid "Rating Counts & Filters"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1384
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1398
 msgid "Rating stars color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5232
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5286
 msgid "Rating(*required)"
 msgstr ""
 
@@ -2293,50 +2315,50 @@ msgstr ""
 msgid "Ratings"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1912
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1959
 msgid "Ratings count"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1951
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1998
 msgid "Ratings count bar color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:354
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:401
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:366
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:413
 msgid "Read more"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2234
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2281
 msgid "Registered-account email is required"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2905
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2952
 msgid "Reminder will not be sent if email is among these"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2202
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3517
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3577
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3708
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3733
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4091
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4536
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4557
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4870
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4926
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2249
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3564
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3624
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3755
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3780
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4138
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4589
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4610
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4923
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4979
 msgid "Remove"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3732
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3779
 msgid "Replace"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:2478
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:2519
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:2600
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:2644
 msgid "Reply"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:383
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:395
 msgid "Reply from "
 msgstr ""
 
@@ -2351,19 +2373,19 @@ msgstr ""
 msgid "Require WooCommerce Photo Reviews plugin version %s"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2284
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2331
 msgid "Required categories"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2331
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2378
 msgid "Required products"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3425
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3472
 msgid "Resend email at"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3398
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3445
 msgid "Resend reminder email after"
 msgstr ""
 
@@ -2383,15 +2405,15 @@ msgstr ""
 msgid "Review Border Color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5227
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5281
 msgid "Review content cannot be empty"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5257
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5311
 msgid "Review Date"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/api.php:379
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/api.php:384
 msgid "Review exists"
 msgstr ""
 
@@ -2405,7 +2427,7 @@ msgstr ""
 msgid "Review Form"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2130
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2177
 msgid "Review form description"
 msgstr ""
 
@@ -2421,11 +2443,11 @@ msgstr ""
 msgid "Review ID"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5265
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5319
 msgid "Review Images"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3302
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3349
 msgid "Review page"
 msgstr ""
 
@@ -2434,11 +2456,11 @@ msgstr ""
 msgid "Review Reminder"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2846
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2893
 msgid "Review reminder"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3887
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3934
 msgid "Review status"
 msgstr ""
 
@@ -2446,27 +2468,27 @@ msgstr ""
 msgid "Review Text Color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1835
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1882
 msgid "Review text color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4453
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4582
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4506
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4635
 msgid "Review Title"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5208
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5262
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:298
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:106
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1084
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:114
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1079
 msgid "Review title"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1202
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1216
 msgid "Review title placeholder"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3910
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3957
 msgid "Review vote"
 msgstr ""
 
@@ -2479,19 +2501,19 @@ msgstr ""
 msgid "Reviews anchor link"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1883
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1930
 msgid "Reviews container"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1064
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1078
 msgid "Reviews must include a photo or a video to be uploaded."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2327
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2374
 msgid "Reviews on products in these categories will not receive coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2378
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2425
 msgid "Reviews on these products will not receive coupon"
 msgstr ""
 
@@ -2531,47 +2553,47 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-basic-html.php:136
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-basic-html.php:146
 msgid "Rotate left 90 degrees"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-basic-html.php:138
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-basic-html.php:148
 msgid "Rotate right 90 degrees"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4058
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4105
 msgid "Save & Check Key"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4054
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4101
 msgid "Save Settings"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3007
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3054
 msgid ""
 "Schedule a time to send request email order status changes to the one you "
 "selected."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2976
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3023
 msgid "Schedule time"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3730
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3777
 msgid "Search"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3722
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3769
 msgid ""
 "Search and replace strings in review author and review content when "
 "importing reviews from AliExpress"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2989
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3036
 msgid "Seconds"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3827
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3874
 msgid "Secret key"
 msgstr ""
 
@@ -2579,37 +2601,37 @@ msgstr ""
 msgid "Secret key does not match"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-comment-field-html.php:58
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-comment-field-html.php:59
 #, php-format
 msgid "Select %s"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2351
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2376
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2562
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2588
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2930
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2398
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2423
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2609
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2635
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2977
 msgid "Select all"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2397
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2404
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2444
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2451
 msgid "Select an existing coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4815
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4868
 msgid "Select Color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2390
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2437
 msgid "Select coupon kind"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1213
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1208
 msgid "Select csv file to import"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4814
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4867
 msgid "Select default color"
 msgstr ""
 
@@ -2617,7 +2639,7 @@ msgstr ""
 msgid "Select file"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2000
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2047
 msgid "Select Image filter by default"
 msgstr ""
 
@@ -2625,7 +2647,7 @@ msgstr ""
 msgid "Select Images Filter By Default"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3373
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3420
 msgid ""
 "Select order statuses that you want button Review to be shown on My "
 "account/orders"
@@ -2635,7 +2657,7 @@ msgstr ""
 msgid "Select product that you want to display the star rating for."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2027
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2074
 msgid "Select Rating by default"
 msgstr ""
 
@@ -2647,15 +2669,15 @@ msgstr ""
 msgid "Select Verified Filter By Default"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2012
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2059
 msgid "Select Verified filter by default"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2111
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2158
 msgid "Send coupon to customers when their reviews are approved"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2880
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2927
 msgid "Send reminder when an order status changes to one of these values."
 msgstr ""
 
@@ -2667,14 +2689,14 @@ msgstr ""
 msgid "Sent"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5665
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5720
 #, php-format
 msgid "Set %s review as verified."
 msgid_plural "Set %s reviews as verified."
 msgstr[0] ""
 msgstr[1] ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2117
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2164
 msgid "Set email restriction"
 msgstr ""
 
@@ -2683,12 +2705,12 @@ msgstr ""
 msgid "Set review status"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3898
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4596
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3945
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4649
 msgid "Set review verified"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3904
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3951
 msgid "Set reviews imported with chrome extension to verified reviews"
 msgstr ""
 
@@ -2714,7 +2736,7 @@ msgstr ""
 msgid "Show all language reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1501
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1532
 msgid "Show image caption"
 msgstr ""
 
@@ -2722,7 +2744,7 @@ msgstr ""
 msgid "Show number of reviews of product"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3605
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3652
 msgid "Show optional fields from product variations"
 msgstr ""
 
@@ -2730,52 +2752,56 @@ msgstr ""
 msgid "Show Product"
 msgstr ""
 
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1704
+msgid "Show products gallery"
+msgstr ""
+
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/reviews-widget.php:133
 msgid "Show Ratings"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3800
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3847
 msgid "Show review country"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1846
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1893
 msgid "Show review date"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1371
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1385
 msgid "Show review tab first"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3184
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3231
 msgid "Show star rating"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1236
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1250
 msgid "Show this message after a customer leaves a review"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1264
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1278
 msgid ""
 "Show this message after a customer leaves a review and receives a coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1557
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1588
 msgid "Show up-vote/down-vote buttons in customer reviews"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1545
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1561
 msgid "Sorry, comments are allowed for this item."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1540
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1556
 msgid "Sorry, comments are closed for this item."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1563
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1579
 msgid "Sorry, you must be logged in to comment."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1318
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1332
 msgid "Sort reviews by"
 msgstr ""
 
@@ -2793,7 +2819,7 @@ msgstr ""
 msgid "Star Color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2277
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2324
 msgid "Star(s)"
 msgstr ""
 
@@ -2814,7 +2840,7 @@ msgstr ""
 msgid "Status: "
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3413
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3460
 msgid "Stop after"
 msgstr ""
 
@@ -2840,70 +2866,70 @@ msgstr ""
 msgid "System status"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1430
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1444
 msgid "Text"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1182
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1196
 msgid "Text color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:906
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:908
 msgid "Thank You For Your Review!"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1227
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1241
 msgid "Thank you message"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1255
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1269
 msgid "Thank you message if Coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2751
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2798
 msgid "The below email is used when no Email template is selected"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3148
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3195
 msgid "The content of email sending to customers to ask for reviews."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2804
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2851
 msgid ""
 "The content of email sending to customers to inform them the coupon code "
 "they get for leaving reviews."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3129
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3176
 msgid "The heading of emails sending to customers to request for reviews."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2786
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2833
 msgid ""
 "The heading of emails sending to customers which include discount coupon "
 "code."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2655
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2702
 msgid ""
 "The maximum number of individual items this coupon can apply to when using "
 "product discount."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1097
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1111
 msgid ""
 "The maximum quantity of photos and videos can be uploaded with a review."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1081
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1095
 msgid "The maximum size of a single picture or a video can be uploaded."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2498
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2545
 msgid "The maximum spend to use the coupon."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2489
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2536
 msgid "The minimum spend to use the coupon."
 msgstr ""
 
@@ -2911,41 +2937,41 @@ msgstr ""
 msgid "The photo or videos will upload via ajax"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1863
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1910
 msgid ""
 "The review use the same date format of your WP settings. If you want to use "
 "a different format for it, enter it here."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:697
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:711
 #, php-format
 msgid "The size of '%s' is greater than %s kB."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3103
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3150
 msgid "The subject of emails sending to customers to request for reviews."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2761
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2808
 msgid ""
 "The subject of emails sending to customers which include discount coupon "
 "code."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1648
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1667
 #, php-format
 msgid "There was an error uploading files: %s"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2932
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2979
 msgid "These products will not appear in review reminder email."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3531
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3578
 msgid "This email content is used to send the default email"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3091
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3138
 msgid "This email is used when no Email template is selected"
 msgstr ""
 
@@ -2962,20 +2988,20 @@ msgid ""
 "specific rating star(s)"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3806
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3853
 msgid "This option only works for reviews imported since version 1.1.4"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2468
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2515
 msgid "Time To Live"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3446
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3535
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3493
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3582
 msgid "Times"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3417
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3464
 msgid "times"
 msgstr ""
 
@@ -2986,7 +3012,7 @@ msgid ""
 "reviews/#page_section_menu_3142\">Docs</a>"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1963
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2010
 msgid "To set default active filters, Ajax pagination must be enabled"
 msgstr ""
 
@@ -3013,6 +3039,12 @@ msgstr ""
 msgid "Trash"
 msgstr ""
 
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1066
+msgid ""
+"Turn on this option to allow the videos of the reviews to auto-play after "
+"loading the page."
+msgstr ""
+
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/plugins/elementor/review-form-widget.php:74
 msgid "Type"
 msgstr ""
@@ -3021,17 +3053,17 @@ msgstr ""
 msgid "Unauthorized"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3641
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3688
 msgid "Units"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2666
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2713
 msgid "Unlimited Usage"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:299
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:113
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1091
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:121
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1086
 msgid "Up-vote count"
 msgstr ""
 
@@ -3039,19 +3071,19 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1361
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1375
 msgid "Update comment meta to use sort review by vote count option"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1165
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1179
 msgid "Upload button style"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1134
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1148
 msgid "Upload button text"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1103
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1117
 msgid "Upload files requirement"
 msgstr ""
 
@@ -3059,21 +3091,21 @@ msgstr ""
 msgid "Upload max filesize:"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1057
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2246
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1071
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2293
 msgid "Upload required"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3922
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3969
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:986
 msgid "Upload review files"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2639
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2686
 msgid "Usage Limit Per Coupon"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2658
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2705
 msgid "Usage Limit Per User"
 msgstr ""
 
@@ -3109,24 +3141,24 @@ msgid "Use translated content from AliExpress if available"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:302
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:116
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1094
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:124
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1089
 msgid "User id"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2442
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2489
 msgid "Value of the coupon."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3640
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3687
 msgid "Value set"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4587
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4640
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/export.php:295
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:110
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1088
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:53
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:118
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1083
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:50
 msgid "Verified"
 msgstr ""
 
@@ -3134,21 +3166,21 @@ msgstr ""
 msgid "Verified Badge/Text Color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5248
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5302
 msgid "Verified Owner"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1421
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1435
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:345
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:532
 msgid "Verified owner"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1489
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1520
 msgid "Verified owner color"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2258
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2305
 msgid "Verified owner is required"
 msgstr ""
 
@@ -3157,13 +3189,13 @@ msgstr ""
 msgid "Very poor"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3941
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3988
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:1010
 msgid "Videos"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2742
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3079
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2789
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3126
 msgid "View all Email templates"
 msgstr ""
 
@@ -3180,7 +3212,7 @@ msgstr ""
 msgid "Vote up"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1351
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1365
 msgid "Vote up high to low"
 msgstr ""
 
@@ -3189,7 +3221,7 @@ msgstr ""
 msgid "What do you think of this product?"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3858
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3905
 msgid ""
 "When you import reviews, this plugin looks up for AliExpress and Amazon "
 "product ID by SKU of WooCommerce products by default. If you want to use an "
@@ -3210,27 +3242,27 @@ msgstr ""
 msgid "Whole Review"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1630
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1661
 msgid "Whole review"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5000
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5566
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5053
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5621
 msgid "With image only"
 msgstr ""
 
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:318
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_ali.php:505
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:48
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-filters-html.php:45
 msgid "With images"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5001
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5567
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5054
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:5622
 msgid "Without image only"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4734
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4787
 msgid "WooCommerce Photo Reviews"
 msgstr ""
 
@@ -3256,7 +3288,7 @@ msgstr ""
 msgid "WooCommerce Photo Reviews Settings"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:86
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/status.php:88
 msgid "WooCommerce reviews"
 msgstr ""
 
@@ -3294,15 +3326,15 @@ msgid_plural "You can only upload maximum of %s files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:695
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/single-page.php:709
 #, php-format
 msgid "You can only upload maximum of %s file."
 msgid_plural "You can only upload maximum of %s files."
 msgstr[0] ""
 msgstr[1] ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2737
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3073
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2784
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3120
 msgid ""
 "You can use <a href=\"https://1.envato.market/BZZv1\" target=\"_blank\">"
 "WooCommerce Email Template Customizer</a> or <a href=\"http://bit.ly/woo-"
@@ -3311,35 +3343,35 @@ msgid ""
 "template is selected, below email will be used."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:257
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/import_csv.php:260
 msgid "You do not have permission."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1604
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1620
 msgid ""
 "You have reached the maximum number of reviews that a user can leave for "
 "this product"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1609
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1625
 msgid ""
 "You have reached the maximum number of reviews that a user can leave for "
 "this product."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1619
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1638
 msgid ""
 "You have reached the maximum number of reviews that you can leave for this "
 "product"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4194
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4241
 msgid ""
 "You have to enable the use of coupon on WooCommerce settings page to use "
 "Coupon feature!"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4187
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4234
 msgid ""
 "You have to enable WooCommerce product reviews on WooCommerce settings page "
 "to use WooCommerce Photo Reviews and its features!"
@@ -3368,61 +3400,61 @@ msgstr ""
 msgid "Your review"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1470
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:2141
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:1485
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/frontend/frontend.php:2215
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/review-meta.php:26
 #: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-shortcode-template-basic-html.php:87
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:213
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-template-masonry-html.php:225
 msgid "Your review is awaiting approval"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-comment-field-html.php:152
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/templates/viwcpr-comment-field-html.php:154
 msgid "Your review is being submitted. Please wait a moment"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4446
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:4499
 msgid "Your settings have been saved!"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2826
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2873
 msgid "{coupon_code} - Discount coupon code will be sent to customer."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2825
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3173
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2872
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3220
 msgid "{customer_name} - Customer's name."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3177
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3224
 msgid "{date_complete} - Order's completed date."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3176
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3223
 msgid "{date_create} - Order's created date."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2827
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2874
 msgid "{date_expires} - Expiry date of the coupon."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2828
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:2875
 msgid "{last_valid_date} - The last day that the coupon is valid to use."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1112
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1143
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1126
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1157
 msgid "{max_files} - Maximum upload file quantity"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1115
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1146
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1129
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:1160
 msgid "{max_size} - Maximum upload file size including unit KB"
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3174
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3221
 msgid "{order_id} - Order id."
 msgstr ""
 
-#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3175
+#: D:/git/woocommerce-photo-reviews/woocommerce-photo-reviews/admin/admin.php:3222
 msgid "{site_title} - Your site title."
 msgstr ""

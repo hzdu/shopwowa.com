@@ -480,6 +480,7 @@ jQuery(document).ready(function ($) {
             dataType: 'JSON',
             data: {
                 action: 'wcpr_preview_emails',
+                nonce: $('#wcpr_nonce_field').val(),
                 anchor: $('#wcpr-reviews-anchor-link').val(),
                 email_type: 'reminder',
                 heading: $('#follow_up_email_heading' + language).val(),
@@ -521,6 +522,7 @@ jQuery(document).ready(function ($) {
             dataType: 'JSON',
             data: {
                 action: 'wcpr_select_all_products',
+                nonce: woo_photo_reviews_params_admin.nonce,
             },
             success: function (response) {
                 if (response.length > 0) {
@@ -559,6 +561,7 @@ jQuery(document).ready(function ($) {
             dataType: 'json',
             data: {
                 action: 'wcpr_update_comment_meta',
+                nonce: woo_photo_reviews_params_admin.nonce,
                 page: currentPage,
                 end: currentPage === maxPage
             },

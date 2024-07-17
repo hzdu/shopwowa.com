@@ -213,7 +213,7 @@ jQuery(document).ready(function ($) {
             }
             queue.push({
                 type: 'post',
-                url: woocommerce_photo_reviews_form_params.wc_ajax_url.toString().replace('%%endpoint%%', 'viwcpr_review_order'),
+                url: woocommerce_photo_reviews_form_params.wc_ajax_url.toString().replace('%%endpoint%%', 'viwcpr_review_order') + '&nonce=' + woocommerce_photo_reviews_form_params.nonce,
                 // url: $container.find('form').attr('action'),
                 processData: false,
                 cache: false,

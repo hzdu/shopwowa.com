@@ -429,6 +429,7 @@ jQuery(document).ready(function ($) {
             type: 'get',
             data: {
                 action: 'woocommerce_photo_reviews_shortcode_ajax_get_reviews',
+                nonce: woocommerce_photo_reviews_shortcode_params.nonce,
                 reviews_shortcode: JSON.stringify(reviews_shortcode),
                 wcpr_page: $button.data('cpage'),
                 wcpr_image: wcpr_image,
@@ -507,6 +508,7 @@ jQuery(document).ready(function ($) {
             type: 'get',
             data: {
                 action: 'woocommerce_photo_reviews_shortcode_ajax_get_reviews',
+                nonce: woocommerce_photo_reviews_shortcode_params.nonce,
                 reviews_shortcode: JSON.stringify(reviews_shortcode),
                 wcpr_page: parseInt($button.html()),
                 wcpr_image: wcpr_image,
@@ -591,6 +593,7 @@ jQuery(document).ready(function ($) {
             type: 'get',
             data: {
                 action: 'woocommerce_photo_reviews_shortcode_ajax_get_reviews',
+                nonce: woocommerce_photo_reviews_shortcode_params.nonce,
                 reviews_shortcode: JSON.stringify(reviews_shortcode),
                 wcpr_image: wcpr_image,
                 wcpr_verified: wcpr_verified,
