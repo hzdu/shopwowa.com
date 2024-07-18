@@ -61,7 +61,7 @@ var popWin = {
         });
     },
 };
-//���ض���
+
 function b() {
     (h = $(window).height()),
         (t = $(document).scrollTop()),
