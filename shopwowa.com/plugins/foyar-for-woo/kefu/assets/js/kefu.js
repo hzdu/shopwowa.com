@@ -8,4 +8,3 @@ jQuery(document).ready(function () {
         );
     });
 });
-h;
