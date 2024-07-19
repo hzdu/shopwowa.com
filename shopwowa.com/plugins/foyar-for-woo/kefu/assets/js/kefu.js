@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $("a.moquu_wmaps").on("click", function () {
+jQuery(document).ready(function () {
+    jQuery("a.moquu_wmaps").on("click", function () {
         popWin.showWin(
             "400",
             "800",
@@ -8,3 +8,4 @@ $(document).ready(function () {
         );
     });
 });
+h;

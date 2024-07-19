@@ -36,43 +36,43 @@ var popWin = {
                 '" src="' +
                 d +
                 '"></iframe>'),
-            $("body").append(h),
+            jQuery("body").append(h),
             this.int();
     },
     mouseClose: function () {
-        $("#popWinClose").on("mouseenter", function () {
-            $(this).css(
+        jQuery("#popWinClose").on("mouseenter", function () {
+            jQuery(this).css(
                 "background-image",
                 "url(./shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/closehdtipper.webp)"
             );
         }),
-            $("#popWinClose").on("mouseleave", function () {
-                $(this).css(
+            jQuery("#popWinClose").on("mouseleave", function () {
+                jQuery(this).css(
                     "background-image",
                     "url(./shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/closehdtipper.webp)"
                 );
             });
     },
     closeMask: function () {
-        $("#popWinClose").on("click", function () {
-            $("#mask,#maskTop").fadeOut(function () {
-                $(this).remove();
+        jQuery("#popWinClose").on("click", function () {
+            jQuery("#mask,#maskTop").fadeOut(function () {
+                jQuery(this).remove();
             });
         });
     },
 };
 
 function b() {
-    (h = $(window).height()),
-        (t = $(document).scrollTop()),
-        t > h ? $("#moquu_top").show() : $("#moquu_top").hide();
+    (h = jQuery(window).height()),
+        (t = jQuery(document).scrollTop()),
+        t > h ? jQuery("#moquu_top").show() : jQuery("#moquu_top").hide();
 }
-$(document).ready(function () {
+jQuery(document).ready(function () {
     b(),
-        $("#moquu_top").click(function () {
-            $(document).scrollTop(0);
+        jQuery("#moquu_top").click(function () {
+            jQuery(document).scrollTop(0);
         });
 }),
-    $(window).scroll(function () {
+    jQuery(window).scroll(function () {
         b();
     });
