@@ -21,10 +21,10 @@ var popWin = {
                 g +
                 'px; z-index: 2999; border-radius:5px; ">'),
             (h +=
-                '<div id="maskTitle" style="height:35px; line-height: 35px; font-size: 14px; font-weight:bold; color: #797979; padding-left: 10px; background: url(./shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/hbbg.webp); border-bottom: 1px solid #d1d1d1; position: relative;">'),
+                '<div id="maskTitle" style="height:35px; line-height: 35px; font-size: 14px; font-weight:bold; color: #797979; padding-left: 10px; background: url(/shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/hbbg.webp); border-bottom: 1px solid #d1d1d1; position: relative;">'),
             (h += "" + c),
             (h +=
-                '<div id="popWinClose" style="width: 15px; height:15px; cursor: pointer; position: absolute; top:10px; right: 9px; background: url(./shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/closehdtipper.webp)"></div>'),
+                '<div id="popWinClose" style="width: 15px; height:15px; cursor: pointer; position: absolute; top:10px; right: 9px; background: url(/shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/closehdtipper.webp)"></div>'),
             (h += "</div>"),
             (h +=
                 '<iframe width="' +
@@ -43,13 +43,13 @@ var popWin = {
         jQuery("#popWinClose").on("mouseenter", function () {
             jQuery(this).css(
                 "background-image",
-                "url(./shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/closehdtipper.webp)"
+                "url(/shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/closehdtipper.webp)"
             );
         }),
             jQuery("#popWinClose").on("mouseleave", function () {
                 jQuery(this).css(
                     "background-image",
-                    "url(./shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/closehdtipper.webp)"
+                    "url(/shopwowa.com/plugins/foyar-for-woo/kefu/assets/images/closehdtipper.webp)"
                 );
             });
     },
