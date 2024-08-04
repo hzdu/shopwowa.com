@@ -1,16 +1,16 @@
-#moquu_top,
-#moquu_wxin,
-#moquu_wshare,
-#moquu_wmaps,
-#moquu_top {
+#foyar_top,
+#foyar_wholesale,
+#foyar_qrcode,
+#foyar_wowaplay,
+#foyar_top {
     width: 30px;
     height: 30px;
 }
 
-#moquu_top,
-#moquu_wxin,
-#moquu_wshare,
-#moquu_wmaps {
+#foyar_top,
+#foyar_wholesale,
+#foyar_qrcode,
+#foyar_wowaplay {
     z-index: 2;
     right: 10px;
     position: fixed;
@@ -28,11 +28,11 @@
     );
 }
 
-#moquu_wxin {
+#foyar_wholesale {
     top: 300px;
     _margin-top: 300px;
 }
-#moquu_wxin a {
+#foyar_wholesale a {
     background: url(../images/sbtn.webp) 3px -1px;
     right: 0;
     float: left;
@@ -40,14 +40,11 @@
     height: 30px;
     text-indent: -9999px;
 }
-/* #moquu_wxin a:hover {
-    background: url(../images/sbtn.webp) -50px -0px;
-} */
-#moquu_wshare {
+#foyar_qrcode {
     top: 335px;
     _margin-top: 335px;
 }
-#moquu_wshare a {
+#foyar_qrcode a {
     background: url(../images/sbtn.webp) 3px -40px;
     width: 30px;
     height: 30px;
@@ -55,14 +52,11 @@
     float: left;
     text-indent: -9999px;
 }
-/* #moquu_wshare a:hover {
-    background: url(../images/sbtn.webp) -50px -50px;
-} */
-#moquu_wmaps {
+#foyar_wowaplay {
     top: 370px;
     _margin-top: 370px;
 }
-#moquu_wmaps a {
+#foyar_wowaplay a {
     background: url(../images/sbtn.webp) -35px -40px;
     width: 30px;
     height: 30px;
@@ -70,36 +64,21 @@
     float: left;
     text-indent: -9999px;
 }
-/* #moquu_wmaps a:hover {
-    background: url(../images/sbtn.webp) -50px -150px;
-} */
-#moquu_top {
+#foyar_top {
     top: 405px;
     _margin-top: 405px;
     background: url(../images/sbtn.webp) -35px -1px;
 }
-/* #moquu_top:hover {
-    background: url(../images/sbtn.webp) -50px -101px;
-} */
-.moquu_wxin,
-.moquu_wshare {
+.foyar_wholesale,
+.foyar_qrcode {
     position: relative;
     z-index: 2;
 }
-.moquu_wxin a:hover .moquu_wxinh,
-.moquu_wshare a:hover .moquu_wshareh {
+.foyar_wholesale a:hover .foyar_wholesaleh,
+.foyar_qrcode a:hover .foyar_qrcodeh {
     display: block;
 }
-/* .moquu_wxin .moquu_wxinh {
-    position: absolute;
-    display: none;
-    left: -210px;
-    top: -120px;
-    width: 200px;
-    height: 250px;
-    background: url(../images/moquu_ico.webp) -1px -482px no-repeat;
-} */
-.moquu_wshare .moquu_wshareh {
+.foyar_qrcode .foyar_qrcodeh {
     position: absolute;
     display: none;
     left: -210px;

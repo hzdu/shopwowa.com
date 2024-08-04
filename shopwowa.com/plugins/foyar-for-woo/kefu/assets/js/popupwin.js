@@ -71,11 +71,11 @@ var popWin = {
 function b() {
     (h = jQuery(window).height()),
         (t = jQuery(document).scrollTop()),
-        t > h ? jQuery("#moquu_top").show() : jQuery("#moquu_top").hide();
+        t > h ? jQuery("#foyar_top").show() : jQuery("#foyar_top").hide();
 }
 jQuery(document).ready(function () {
     b(),
-        jQuery("#moquu_top").click(function () {
+        jQuery("#foyar_top").click(function () {
             jQuery(document).scrollTop(0);
         });
 }),
