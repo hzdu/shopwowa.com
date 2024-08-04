@@ -1,10 +1,17 @@
 #moquu_top,
 #moquu_wxin,
 #moquu_wshare,
+#moquu_wmaps,
+#moquu_top {
+    width: 30px;
+    height: 30px;
+}
+
+#moquu_top,
+#moquu_wxin,
+#moquu_wshare,
 #moquu_wmaps {
     z-index: 2;
-    width: 50px;
-    height: 50px;
     right: 10px;
     position: fixed;
     cursor: pointer;
@@ -22,60 +29,58 @@
 }
 
 #moquu_wxin {
-    top: 360px;
-    _margin-top: 360px;
+    top: 300px;
+    _margin-top: 300px;
 }
 #moquu_wxin a {
-    background: url(../images/sbtn.webp) 0 -0px;
+    background: url(../images/sbtn.webp) 3px -1px;
     right: 0;
     float: left;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     text-indent: -9999px;
 }
-#moquu_wxin a:hover {
+/* #moquu_wxin a:hover {
     background: url(../images/sbtn.webp) -50px -0px;
-}
+} */
 #moquu_wshare {
-    top: 412px;
-    _margin-top: 412px;
+    top: 335px;
+    _margin-top: 335px;
 }
 #moquu_wshare a {
-    background: url(../images/sbtn.webp) 0 -50px;
-    width: 50px;
-    height: 50px;
+    background: url(../images/sbtn.webp) 3px -40px;
+    width: 30px;
+    height: 30px;
     right: 0;
     float: left;
     text-indent: -9999px;
 }
-#moquu_wshare a:hover {
+/* #moquu_wshare a:hover {
     background: url(../images/sbtn.webp) -50px -50px;
-}
+} */
 #moquu_wmaps {
-    top: 464px;
-    _margin-top: 464px;
+    top: 370px;
+    _margin-top: 370px;
 }
 #moquu_wmaps a {
-    background: url(../images/sbtn.webp) 0 -150px;
-    width: 50px;
-    height: 50px;
+    background: url(../images/sbtn.webp) -35px -40px;
+    width: 30px;
+    height: 30px;
     right: 0;
     float: left;
     text-indent: -9999px;
 }
-#moquu_wmaps a:hover {
+/* #moquu_wmaps a:hover {
     background: url(../images/sbtn.webp) -50px -150px;
-}
+} */
 #moquu_top {
-    top: 516px;
-    _margin-top: 516px;
-    background: url(../images/sbtn.webp) 0 -101px;
-    width: 50px;
-    height: 50px;
+    top: 405px;
+    _margin-top: 405px;
+    background: url(../images/sbtn.webp) -35px -1px;
 }
-#moquu_top:hover {
+/* #moquu_top:hover {
     background: url(../images/sbtn.webp) -50px -101px;
-}
+} */
 .moquu_wxin,
 .moquu_wshare {
     position: relative;
@@ -85,21 +90,21 @@
 .moquu_wshare a:hover .moquu_wshareh {
     display: block;
 }
-.moquu_wxin .moquu_wxinh {
+/* .moquu_wxin .moquu_wxinh {
     position: absolute;
     display: none;
-    left: -280px;
-    top: -200px;
-    width: 275px;
-    height: 355px;
+    left: -210px;
+    top: -120px;
+    width: 200px;
+    height: 250px;
     background: url(../images/moquu_ico.webp) -1px -482px no-repeat;
-}
+} */
 .moquu_wshare .moquu_wshareh {
     position: absolute;
     display: none;
-    left: -280px;
-    top: -200px;
-    width: 275px;
-    height: 360px;
-    background: url(../images/moquu_wshare.webp) no-repeat;
+    left: -210px;
+    top: -120px;
+    width: 200px;
+    height: 250px;
+    background: url(../images/sbtn.webp) 0px -76px;
 }
