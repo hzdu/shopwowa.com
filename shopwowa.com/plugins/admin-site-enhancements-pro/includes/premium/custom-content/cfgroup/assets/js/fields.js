@@ -45,7 +45,9 @@
             create: function(event, ui) {
                 // Append <ul> to empty repeater fields. 
                 // Wrap in a <div> to fix jittery drag and drop of sub-fields. Ref: https://stackoverflow.com/a/21024291
-                $('ul.fields li.repeater').filter(function(idx) {
+                $('ul.fields li.sortable-item').filter(function() {
+                    return 'repeater' === $(this).find('.field_form .field_type select').val();
+                }).filter(function() {
                     return $(this).children('.connected-sortable-wrapper').length < 1;
                 }).append('<div class="connected-sortable-wrapper"><ul class="connected-sortable sortable-item"></ul></div>');
                 $('.connected-sortable').sortable({
@@ -61,8 +63,11 @@
                 // Use parents() because closest() includes the current element
                 // ui.item is the <li>, and repeater fields have <li class="repeater">
                 var parent_id = 0;
-                if (0 < ui.item.parents('li.repeater').length) {
-                    parent_id = ui.item.parents('li.repeater').first().find('.field_id').first().val();
+                var $repeaterParent = ui.item.parents('li.sortable-item').filter(function() {
+                    return 'repeater' === $(this).find('.field_form .field_type select').val();
+                }).first();
+                if (0 < $repeaterParent.length) {
+                    parent_id = $repeaterParent.find('.field_id').first().val();
                     console.log(parent_id);
                 }
                 ui.item.find('.parent_id').first().val(parent_id);
@@ -110,6 +115,14 @@
             var field = $(this).closest('.field');
             field.toggleClass('form_open');
             field.find('.field_form').slideToggle('fast');
+            
+            var type = field.find('.field_form .field_type select').val();
+            console.log(type);
+            if (type == 'line_break') {
+                field.find('.field_notes').hide();
+            } else {
+                field.find('.field_notes').show();                
+            }                
         });
 
         // Add or replace field_type options
@@ -120,7 +133,26 @@
             $(this).closest('.field').find('.field_meta .field_type').html(type);
             $(this).closest('.field').find('.field_option').remove();
             $(this).closest('.field_basics').after(html);
-            $(this).closest('.sortable-item').addClass(type);
+            // Ensure field type classes do not accumulate on the sortable item.
+            // Accumulated classes can cause non-repeater fields to be treated as repeater containers.
+            var $item = $(this).closest('.sortable-item');
+            $item.removeClass([
+                'text', 'textarea', 'wysiwyg', 'file', 'gallery',
+                'true_false', 'radio', 'select', 'checkbox',
+                'hyperlink', 'number', 'date', 'time', 'datetime', 'color',
+                'relationship', 'term', 'user',
+                'repeater',
+                'tab', 'heading', 'line_break'
+            ].join(' '));
+            $item.addClass(type);
+
+            // If switching away from repeater, remove any empty wrapper that may have been added previously.
+            if ('repeater' !== type) {
+                var $wrapper = $item.children('.connected-sortable-wrapper');
+                if (0 < $wrapper.length && 0 === $wrapper.find('li.sortable-item').length) {
+                    $wrapper.remove();
+                }
+            }
             if (type == 'tab') {
                 var fieldLabelHtml = $(this).closest('.field').find('.field_meta .field_label');
                 fieldLabelHtml.append('<span class="tab-flag">tab</span>');                
@@ -129,6 +161,13 @@
                 var newLabel = fieldLabelHtml.replace('<span class="tab-flag">tab</span>', '');
                 $(this).closest('.field').find('.field_meta .field_label').html(newLabel);
             }
+
+            if (type == 'heading' || type == 'line_break') {
+                $(this).closest('.field').find('.field_notes').hide();
+            } else {
+                $(this).closest('.field').find('.field_notes').show();                
+            }
+
             // Try to make new 'repeater' field immediately usable to contain sub-fields
             // Does not work because field ID is not assigned yet until field grou pis saved
             // so, sub-fields positions are not being saved.

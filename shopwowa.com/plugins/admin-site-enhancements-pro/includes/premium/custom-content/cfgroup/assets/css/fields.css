@@ -141,7 +141,7 @@
     background: #fafafa;
 }
 
-.tab-flag {
+.field-type-flag {
     margin-left: 2px;
     padding: 2px 6px;
     font-weight: 500;
@@ -151,7 +151,7 @@
     border-radius: 4px;
 }
 
-#cfgroup_fields .field.form_open .tab-flag {
+#cfgroup_fields .field.form_open .field-type-flag {
     border-color: #0073aa;
 }
 
@@ -164,16 +164,27 @@ li.tab .field_meta td {
     background: #f3f7fb;
 }
 
+/* #cfgroup_fields .fields li.heading table.widefat,
+#cfgroup_fields .fields li.line_break table.widefat {
+    background: #f9f9f9;
+} */
+
 #cfgroup_fields .fields li.tab a.cfgroup_edit_field {
     font-weight: 600;
 }
 
-#cfgroup_fields .fields li.tab .field_meta .field_name {
+#cfgroup_fields .fields li.tab .field_meta .field_name,
+#cfgroup_fields .fields li.heading .field_meta .field_name,
+#cfgroup_fields .fields li.line_break .field_meta .field_name {
     color: #bbb;    
 }
 
 #cfgroup_fields .fields li.tab .field_meta .field_type,
-#cfgroup_fields .fields li.tab .field_meta .field_width {
+#cfgroup_fields .fields li.tab .field_meta .field_width,
+#cfgroup_fields .fields li.heading .field_meta .field_type,
+#cfgroup_fields .fields li.heading .field_meta .field_width,
+#cfgroup_fields .fields li.line_break .field_meta .field_type,
+#cfgroup_fields .fields li.line_break .field_meta .field_width {
     color: transparent !important;
 }
 
@@ -197,6 +208,10 @@ li.tab .field_meta td {
 }
 
 #cfgroup_fields .fields li.repeater li:last-child {
+}
+
+.asenha-repeater-row-label-seq-setting {
+    margin-top: 8px;
 }
 
 #cfgroup_fields .field.form_open {

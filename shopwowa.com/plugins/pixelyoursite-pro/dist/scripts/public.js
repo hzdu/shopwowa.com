@@ -20,7 +20,72 @@
         domain = getRootDomain(true);
     }
 
+    /**
+     * Resolve parameter value based on mode (static or dynamic)
+     *
+     * @param {Object|string} param - Parameter object with { value, selector } or string value
+     * @returns {string|null} - Resolved value
+     */
+    function resolveParamValue(param) {
+        // Handle old format (string)
+        if (typeof param === 'string') {
+            return param;
+        }
+        // Handle new format (object with value and selector)
+        if (typeof param === 'object' && param !== null) {
+            // STATIC MODE: selector is empty or not present
+            if ((!param.dynamic || param.dynamic == false) || (!param.selector || param.selector.trim() === "")) {
+                if (param.input_type === "float" || param.input_type === "int") {
+                    param.value = extractNumericValue(param.value, param.input_type === "int");
+                }
+                return param.value ?? param;
+            }
 
+            // DYNAMIC MODE: selector is present
+            try {
+                const el = document.querySelector(param.selector);
+                if (!el) {
+                    return null;
+                }
+                value = (
+                    el.value ||                           // Input fields
+                    el.innerText ||                       // Text content
+                    el.textContent ||                     // Alternative text content
+                    el.getAttribute("content") ||         // Meta tags
+                    el.getAttribute("data-value") ||      // Data attributes
+                    null
+                );
+                if (param.input_type === "float" || param.input_type === "int") {
+                    value = extractNumericValue(value, param.input_type === "int");
+                }
+                // Try to extract value from element in order of priority
+                return value;
+            } catch (e) {
+
+                return null;
+            }
+        }
+
+        if (typeof param === 'number'){
+            return param;
+        }
+
+        if (Array.isArray(param)) {
+            return param;
+        }
+
+        return null;
+    }
+
+    function extractNumericValue(value, isInt=false) {
+        if (value === null || value === undefined) {
+            return null;
+        }
+        if (isInt) {
+            return parseInt(value);
+        }
+        return parseFloat(value);
+    }
 
     var loadTags = [];
 
@@ -133,12 +198,82 @@
 
     }();
 
+	var dummyReddit = function () {
+		/**
+		 * Public API
+		 */
+		return {
+			tag: function () {
+				return "reddit";
+			},
+			isEnabled: function () {
+			},
+
+			disable: function () {
+			},
+
+			loadPixel: function () {
+			},
+
+			fireEvent: function ( name, data ) {
+				return false;
+			},
+
+			onAdSenseEvent: function ( event ) {
+			},
+
+			onClickEvent: function ( params ) {
+			},
+
+			onWatchVideo: function ( params ) {
+			},
+
+			onCommentEvent: function ( event ) {
+			},
+
+			onFormEvent: function ( params ) {
+			},
+
+			onDownloadEvent: function ( params ) {
+			},
+
+			onWooAddToCartOnButtonEvent: function ( product_id ) {
+			},
+
+			onWooAddToCartOnSingleEvent: function ( product_id, qty, product_type, is_external, $form ) {
+			},
+
+			onWooRemoveFromCartEvent: function ( cart_item_hash ) {
+			},
+
+			onWooAffiliateEvent: function ( product_id ) {
+			},
+
+			onWooPayPalEvent: function ( event ) {
+			},
+
+			onEddAddToCartOnButtonEvent: function ( download_id, price_index, qty ) {
+			},
+
+			onEddRemoveFromCartEvent: function ( item ) {
+			},
+
+			onPageScroll: function ( event ) {
+			},
+
+			onTime: function ( event ) {
+			},
+		}
+	}();
+
     var Utils = function (options) {
 
 
         var Pinterest = dummyPinterest;
 
         var Bing = dummyBing;
+
+	    var Reddit = dummyReddit;
 
         var gtag_loaded = false;
 
@@ -181,6 +316,10 @@
                 if (!options.gdpr.bing_disabled_by_api) {
                     Bing.loadPixel();
                 }
+
+	            if (!options.gdpr.reddit_disabled_by_api) {
+		            Reddit.loadPixel();
+	            }
 
             }
             if (options.gdpr.consent_magic_integration_enabled && typeof CS_Data !== "undefined") {
@@ -418,8 +557,10 @@
                                         }
 
                                         if ( currentTime >= marks[ trigger.value ] ) {
-                                            event.params[ "progress" ] = key;
-                                            Utils.copyProperties( params, event.params );
+											if (pixels[i] !== 'reddit') {
+												event.params["progress"] = key;
+												Utils.copyProperties( params, event.params );
+											}
 
                                             if ( event.fired !== true ) {
                                                 if ( Utils.isEventInTimeWindow( event.name, event, 'dyn_' + pixels[ i ] + '_' + trigger_id ) ) {
@@ -447,14 +588,18 @@
                                 continue;
                             }
                             var event = Utils.clone(options.dynamicEvents.automatic_event_video[pixels[i]]);
-                            event.params["progress"] = key
-                            Utils.copyProperties(params, event.params)
-                            if ( pixels[i] === 'tiktok' ) {
+
+							if ( pixels[ i ] !== 'reddit' ) {
+								event.params[ "progress" ] = key;
+								Utils.copyProperties(params, event.params)
+							}
+
+                            if ( pixels[i] === 'tiktok' || pixels[i] === 'reddit' ) {
                                 var time_trigger = event.automatic_event_video_trigger;
                                 if ( currentTime >= marks[time_trigger] && event.fired !== true ) {
                                     getPixelBySlag(pixels[i]).onWatchVideo(event);
 
-                                    //tiktok watch video fire once
+                                    //tiktok and reddit watch video fire once
                                     options.dynamicEvents.automatic_event_video[pixels[i]].fired = true;
                                 }
                             } else {
@@ -583,8 +728,10 @@
                                             }
 
                                             if ( seconds >= player.pysMarks[ trigger.value ] ) {
-                                                event.params[ "progress" ] = key;
-                                                Utils.copyProperties( params, event.params );
+												if ( pixels[ i ] !== 'reddit' ) {
+													event.params[ "progress" ] = key;
+													Utils.copyProperties( params, event.params );
+                                                }
 
                                                 if ( event.fired !== true ) {
                                                     if ( Utils.isEventInTimeWindow( event.name, event, 'dyn_' + pixels[ i ] + '_' + trigger_id ) ) {
@@ -613,15 +760,18 @@
                                 }
 
                                 var event = Utils.clone(options.dynamicEvents.automatic_event_video[pixels[i]]);
-                                event.params["progress"] = key
-                                Utils.copyProperties(params, event.params);
 
-                                if ( pixels[i] === 'tiktok' ) {
+								if ( pixels[i] !== 'reddit' ) {
+									event.params["progress"] = key;
+									Utils.copyProperties(params, event.params);
+								}
+
+                                if ( pixels[i] === 'tiktok' || pixels[i] === 'reddit' ) {
                                     var time_trigger = event.automatic_event_video_trigger;
                                     if ( seconds >= player.pysMarks[time_trigger] && event.fired !== true ) {
                                         getPixelBySlag(pixels[i]).onWatchVideo(event);
 
-                                        //tiktok watch video fire once
+                                        //tiktok and reddit watch video fire once
                                         options.dynamicEvents.automatic_event_video[pixels[i]].fired = true;
                                     }
                                 } else {
@@ -775,6 +925,61 @@
             }
         }
 
+        /**
+         * Handle alternative GCLID parameter for Safari compatibility
+         * Creates _gcl_aw cookie when alternative parameter is detected and _gcl_aw doesn't exist
+         */
+        function handleAlternativeGclid() {
+            // Check if alternative GCLID is enabled
+            if (!options.GATags || !options.GATags.gclid_alternative_enabled || !options.GATags.gclid_alternative_param) {
+                return;
+            }
+
+            // GDPR consent checks - stop if any consent filter blocks it
+            if (options.gdpr.all_disabled_by_api) {
+                return;
+            }
+            if (options.gdpr.analytics_disabled_by_api) {
+                return;
+            }
+            if (options.cookie.disabled_all_cookie) {
+                return;
+            }
+            if (options.cookie.disabled_google_alternative_id) {
+                return;
+            }
+
+            const alternativeParam = options.GATags.gclid_alternative_param;
+            const queryVars = getQueryVars();
+            
+            // Check if alternative parameter exists in URL
+            if (queryVars[alternativeParam]) {
+                const gclidValue = queryVars[alternativeParam];
+                
+                // Only create _gcl_aw cookie if it doesn't exist
+                if (!Cookies.get('_gcl_aw')) {
+                    // Create _gcl_aw cookie with the alternative parameter value in Google's format
+                    // Format: GCL.{timestamp}.{gclid_value}
+                    const timestamp = Math.floor(Date.now() / 1000);
+                    const cookieValue = 'GCL.' + timestamp + '.' + gclidValue;
+                    
+                    // Set cookie for 90 days (Google's standard)
+                    const expires = new Date();
+                    expires.setTime(expires.getTime() + (90 * 24 * 60 * 60 * 1000));
+                    
+                    Cookies.set('_gcl_aw', cookieValue, { 
+                        expires: expires, 
+                        path: '/', 
+                        domain: domain 
+                    });
+                    
+                    if (options.debug) {
+                        console.log('PYS: Created _gcl_aw cookie from alternative parameter:', alternativeParam, '=', gclidValue);
+                    }
+                }
+            }
+        }
+
         function getUTMId(useLast = false) {
             try {
                 let cookiePrefix = 'pys_'
@@ -868,7 +1073,7 @@
 
                 const url_parts = window.location.href;
                 const url_params = new URLSearchParams(window.location.search);
-                const matchingPixels = ["facebook", "ga", "gtm", "google_ads", "bing", "pinterest", "tiktok"];
+                const matchingPixels = ["facebook", "ga", "gtm", "google_ads", "bing", "pinterest", "tiktok", "reddit"];
                 $.each(matchingPixels, function (index, slug) {
                     var module = getPixelBySlag(slug);
                     if (module && module.isEnabled()) {
@@ -911,6 +1116,8 @@
                     Bing[functionName](events[Bing.tag()]);
                 if (events.hasOwnProperty(TikTok.tag()))
                     TikTok[functionName](events[TikTok.tag()]);
+	            if (events.hasOwnProperty(Reddit.tag()))
+		            Reddit[functionName](events[Reddit.tag()]);
 
                 if (events.hasOwnProperty(GTM.tag()))
                     GTM[functionName](events[GTM.tag()]);
@@ -934,6 +1141,11 @@
                 return Bing;
             },
 
+	        setupRedditObject: function () {
+		        Reddit = window.pys.Reddit || Reddit;
+		        return Reddit;
+	        },
+
             // Clone all object members to another and return it
             copyProperties: function (from, to) {
                 for (var key in from) {
@@ -949,7 +1161,12 @@
              * Generate unique ID
              */
             generateUniqueId : function (event) {
-                if(event.eventID.length == 0 || (event.type == "static" && options.ajaxForServerStaticEvent) || (event.type !== "static" && options.ajaxForServerEvent)) {
+                if(event.eventID.length == 0 ||
+                    (!event.isVariationTrigger &&
+                        (event.type == "static" && options.ajaxForServerStaticEvent ||
+                        event.type !== "static" && options.ajaxForServerEvent)
+                    )
+                ) {
                     let idKey = event.hasOwnProperty('custom_event_post_id') ? event.custom_event_post_id : event.e_id;
                     if (!uniqueId.hasOwnProperty(idKey)) {
                         uniqueId[idKey] = pys_generate_token();
@@ -962,7 +1179,63 @@
                 }
             },
 
+            // Flatten object for sendBeacon compatibility
+            flattenObject: function (obj, prefix = '', res = {}) {
+                for (const [key, value] of Object.entries(obj)) {
+                    const prefixedKey = prefix
+                        ? (Array.isArray(obj) ? `${prefix}[${key}]` : `${prefix}[${key}]`)
+                        : key;
+                    if (value !== null && typeof value === 'object' && !(value instanceof File)) {
+                        this.flattenObject(value, prefixedKey, res);
+                    } else {
+                        res[prefixedKey] = value;
+                    }
+                }
+                return res;
+            },
+
             sendServerAjaxRequest: function ( url, data ) {
+                // Check if we should use REST API for TikTok or Facebook
+                if (data.action === 'pys_tiktok_api_event' && window.pysTikTokRest) {
+                    // Use TikTok REST API
+                    this.sendRestAPIRequest(data, 'tiktok');
+                    return;
+                }
+
+                if (data.action === 'pys_api_event' && data.pixel === 'facebook' && window.pysFacebookRest) {
+                    // Use Facebook REST API
+                    this.sendRestAPIRequest(data, 'facebook');
+                    return;
+                }
+
+                // Check if sendBeacon is enabled and supported
+                if (options.useSendBeacon && navigator.sendBeacon) {
+                    try {
+                        // Flatten the data object for sendBeacon compatibility
+                        const flattenedData = this.flattenObject(data);
+                        const formData = new URLSearchParams();
+
+                        // Convert flattened data to URLSearchParams
+                        for (const [key, value] of Object.entries(flattenedData)) {
+                            if (value !== null && value !== undefined) {
+                                formData.append(key, value);
+                            }
+                        }
+
+                        // Try to send using sendBeacon
+                        const success = navigator.sendBeacon(url, formData);
+                        if (success) {
+                            return; // Successfully sent via sendBeacon
+                        }
+                    } catch (e) {
+                        // If sendBeacon fails, fall back to jQuery.ajax
+                        if (options.debug) {
+                            console.log('PYS: sendBeacon failed, falling back to jQuery.ajax:', e);
+                        }
+                    }
+                }
+
+                // Fallback to jQuery.ajax
                 jQuery.ajax( {
                     type: 'POST',
                     url: url,
@@ -973,6 +1246,100 @@
                     success: function () {
                     },
                 } );
+            },
+
+            // Send event via REST API (unified function for TikTok, Facebook, and other platforms)
+            // Replaces the old sendTikTokRestAPIRequest and sendFacebookRestAPIRequest functions
+            sendRestAPIRequest: function (data, platform) {
+                let restApiUrl;
+
+                // Get platform-specific REST API configuration
+                switch (platform) {
+                    case 'tiktok':
+                        restApiUrl = window.pysTikTokRest ? window.pysTikTokRest.restApiUrl : '/wp-json/pys-tiktok/v1/event';
+                        break;
+                    case 'facebook':
+                        restApiUrl = window.pysFacebookRest ? window.pysFacebookRest.restApiUrl : '/wp-json/pys-facebook/v1/event';
+                        break;
+                    case 'pinterest':
+                        restApiUrl = window.pysPinterestRest ? window.pysPinterestRest.restApiUrl : '/wp-json/pys-pinterest/v1/event';
+                        break;
+                    default:
+                        console.error('PYS: Unknown platform for REST API:', platform);
+                        this.sendAjaxFallback(data);
+                        return;
+                }
+
+                // Prepare data for REST API
+                const restApiData = {
+                    event: data.event,
+                    event_slug: data.event_slug,
+                    data: JSON.stringify(data.data || {}),
+                    ids: JSON.stringify(data.ids || []),
+                    eventID: data.event_id || data.eventID || '',
+                    woo_order: data.woo_order || '0',
+                    edd_order: data.edd_order || '0'
+                };
+
+                // Try to send using sendBeacon first (if enabled)
+                if (options.useSendBeacon && navigator.sendBeacon) {
+                    try {
+                        const formData = new URLSearchParams();
+                        for (const [key, value] of Object.entries(restApiData)) {
+                            formData.append(key, value);
+                        }
+
+                        if (navigator.sendBeacon(restApiUrl, formData)) {
+                            return;
+                        }
+                    } catch (e) {
+                        // sendBeacon failed, continue to fetch
+                    }
+                }
+
+                // Try to send using fetch with REST API
+                if (window.fetch) {
+                    const headers = {
+                        'Content-Type': 'application/json'
+                    };
+
+                    fetch(restApiUrl, {
+                        method: 'POST',
+                        headers: headers,
+                        body: JSON.stringify(restApiData)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(platform + ' REST API request failed: ' + response.status);
+                        }
+                    })
+                    .catch(error => {
+                        // Fallback to AJAX if REST API fails
+                        if (options.debug) {
+                            console.log('PYS: ' + platform + ' REST API failed, falling back to AJAX:', error);
+                        }
+                        this.sendAjaxFallback(data);
+                    });
+                } else {
+                    // Fallback to AJAX if fetch is not supported
+                    this.sendAjaxFallback(data);
+                }
+            },
+
+
+
+            // Fallback AJAX method
+            sendAjaxFallback: function (data) {
+                jQuery.ajax({
+                    type: 'POST',
+                    url: options.ajaxUrl,
+                    data: data,
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    },
+                    success: function () {
+                    },
+                });
             },
 
             clone: function(obj) {
@@ -1038,11 +1405,16 @@
                             });
                         });
                     }
-                    if(options.automatic.enable_youtube || trigger_has_video_YT){
-                        Utils.initYouTubeAPI();
-                    }
-                    if(options.automatic.enable_vimeo || trigger_has_video_Vimeo){
-                        Utils.initVimeoAPI();
+                    if (
+                        options.hasOwnProperty('enable_automatic_events') &&
+                        options.enable_automatic_events
+                    ) {
+                        if (options.automatic.enable_youtube || trigger_has_video_YT) {
+                            Utils.initYouTubeAPI();
+                        }
+                        if (options.automatic.enable_vimeo || trigger_has_video_Vimeo) {
+                            Utils.initVimeoAPI();
+                        }
                     }
                 }
             },
@@ -1149,6 +1521,9 @@
             },
 
             manageCookies: function () {
+                // Handle alternative GCLID parameter for Safari compatibility
+                handleAlternativeGclid();
+                
                 if (options.gdpr.cookiebot_integration_enabled && typeof Cookiebot !== 'undefined') {
                     if (Cookiebot.consented === false && !Cookiebot.consent['marketing'] && !Cookiebot.consent['statistics']) {
                         return;
@@ -1266,7 +1641,6 @@
                         }
 
                     }
-
                     // save data for last visit if it new session
                     if(isNewSession && (!options.cookie.disabled_all_cookie)) {
                         if(!options.cookie.disabled_trafficsource_cookie)
@@ -1290,8 +1664,6 @@
                             $.each(utmTerms, function (index, name) {
                                 if (queryVars.hasOwnProperty(name)) {
                                     Cookies.set('last_pys_' + name, queryVars[name], { expires: expires,path: '/',domain: domain });
-                                } else {
-                                    Cookies.remove('last_pys_' + name, { path: '/',domain: domain })
                                 }
                             });
                         }
@@ -1306,8 +1678,6 @@
                             $.each(utmId,function(index,name) {
                                 if (queryVars.hasOwnProperty(name)) {
                                     Cookies.set('last_pys_' + name, queryVars[name], { expires: expires,path: '/',domain: domain });
-                                } else {
-                                    Cookies.remove('last_pys_' + name, { path: '/',domain: domain })
                                 }
                             })
                         }
@@ -1448,6 +1818,28 @@
                 });
 
 
+            },
+
+            setupFormFieldEvents: function (eventId, triggers) {
+                triggers.forEach(function(trigger) {
+                    let eventType = 'input';
+
+                    if (['checkbox', 'radio', 'select'].includes(trigger.type)) {
+                        eventType = 'change';
+                    } else if (['text', 'email', 'tel'].includes(trigger.type)) {
+                        eventType = 'blur';
+                    }
+
+                    const form = document.querySelector(trigger.form);
+                    if (!form) return;
+
+                    const field = form.querySelector(trigger.field); // ищем поле ТОЛЬКО внутри формы
+                    if (!field) return;
+
+                    field.addEventListener(eventType, function (event) {
+                        Utils.fireTriggerEvent(eventId);
+                    }, true);
+                });
             },
 
             setupCSSClickEvents: function (eventId, triggers) {
@@ -1688,6 +2080,14 @@
                         TikTok.fireEvent(event.name, event);
                     }
                 }
+	            if (events.hasOwnProperty('reddit')) {
+		            event = events.reddit;
+		            if(Utils.isEventInTimeWindow(event.name,event,"dyn_reddit_"+eventId)) {
+			            event = Utils.getFormFilledData(event);
+			            Reddit.fireEvent(event.name, event);
+		            }
+	            }
+
 
                 if (events.hasOwnProperty('gtm')) {
                     event = events.gtm;
@@ -1887,6 +2287,7 @@
                                 options.gdpr.google_ads_disabled_by_api = res.data.google_ads_disabled_by_api;
                                 options.gdpr.pinterest_disabled_by_api = res.data.pinterest_disabled_by_api;
                                 options.gdpr.bing_disabled_by_api = res.data.bing_disabled_by_api;
+                                options.gdpr.reddit_disabled_by_api = res.data.reddit_disabled_by_api;
 
                                 options.cookie.externalID_disabled_by_api = res.data.externalID_disabled_by_api;
                                 options.cookie.disabled_all_cookie = res.data.disabled_all_cookie;
@@ -1997,6 +2398,7 @@
                     if (
                         ( ( typeof CS_Data.cs_google_consent_mode_enabled !== "undefined" && CS_Data.cs_google_consent_mode_enabled == 1 ) && ( pixel == 'analytics' || pixel == 'google_ads' ) )
                         || ( typeof CS_Data.cs_meta_ldu_mode !== "undefined" && CS_Data.cs_meta_ldu_mode && pixel == 'facebook' )
+                        || ( typeof CS_Data.cs_reddit_ldu_mode !== "undefined" && CS_Data.cs_reddit_ldu_mode && pixel == 'reddit' )
                         || ( typeof CS_Data.cs_bing_consent_mode !== "undefined" && CS_Data.cs_bing_consent_mode.ad_storage.enabled && pixel == 'bing' )
                     ) {
                         if ( CS_Data.cs_cache_enabled == 0 || ( CS_Data.cs_cache_enabled == 1 && window.CS_Cache && window.CS_Cache.check_status ) ) {
@@ -2018,7 +2420,9 @@
                         return true;
                     } else if( pixel == 'tiktok' && ( CS_Data.cs_script_cat.tiktok == 0 || CS_Data.cs_script_cat.tiktok == CS_Data.cs_necessary_cat_id ) ) {
                         return true;
-                    }
+                    } else if( pixel == 'reddit' && ( CS_Data.cs_script_cat?.reddit == 0 || CS_Data.cs_script_cat?.reddit == CS_Data.cs_necessary_cat_id ) ) {
+		                return true;
+	                }
 
                     let substring = "cs_enabled_cookie_term",
                         theCookies = document.cookie.split( ';' );
@@ -2041,6 +2445,8 @@
                                 return cs_cookie_val == 'yes';
                             } else if ( categoryCookie === CS_Data.cs_script_cat.tiktok && pixel == 'tiktok' ) {
                                 return cs_cookie_val == 'yes';
+                            } else if ( categoryCookie === CS_Data.cs_script_cat?.reddit && pixel == 'reddit' ) {
+	                            return cs_cookie_val == 'yes';
                             }
                         }
                     }
@@ -2303,6 +2709,7 @@
                             bing: true,
                             pinterest: true,
                             gtm: true,
+	                        reddit: true,
                         };
 
                         for ( let i = 1; i <= theCookies.length; i++ ) {
@@ -2336,6 +2743,10 @@
                                     if ( categoryCookie === CS_Data.cs_script_cat.tiktok ) {
                                         TikTok.loadPixel();
                                     }
+
+	                                if ( ( categoryCookie === CS_Data.cs_script_cat.reddit ) || ( typeof CS_Data.cs_reddit_ldu_mode !== "undefined" && CS_Data.cs_reddit_ldu_mode ) ) {
+		                                Reddit.loadPixel();
+	                                }
                                 } else {
                                     if ( ( categoryCookie === CS_Data.cs_script_cat.facebook ) && ( typeof CS_Data.cs_meta_ldu_mode == "undefined" || !CS_Data.cs_meta_ldu_mode ) ) {
                                         Facebook.disable();
@@ -2367,6 +2778,11 @@
                                         TikTok.disable();
                                         consent.tiktok = false;
                                     }
+
+	                                if ( ( categoryCookie === CS_Data.cs_script_cat.reddit ) && ( typeof CS_Data.cs_reddit_ldu_mode == "undefined" || !CS_Data.cs_reddit_ldu_mode ) ) {
+		                                Reddit.disable();
+		                                consent.reddit = false;
+	                                }
                                 }
                                 if ( Cookies.get( 'cs_enabled_advanced_matching' ) == 'yes' ) {
                                     Facebook.loadPixel();
@@ -2391,6 +2807,7 @@
                                 bing: true,
                                 pinterest: true,
                                 gtm: true,
+	                            reddit: true,
                             };
 
                             let elm = $( this ),
@@ -2406,6 +2823,7 @@
                                 GAds.loadPixel();
                                 Pinterest.loadPixel();
                                 TikTok.loadPixel();
+								Reddit.loadPixel();
 
                                 consent.facebook = true;
                                 consent.bing = true;
@@ -2413,6 +2831,7 @@
                                 consent.google_ads = true;
                                 consent.pinterest = true;
                                 consent.tiktok = true;
+								consent.reddit = true;
                                 consent.gtm = true;
 
                                 Utils.setupGDPRData( consent );
@@ -2439,6 +2858,12 @@
                                     GAds.disable();
                                     consent.google_ads = false;
                                 }
+
+	                            if ( typeof CS_Data.cs_reddit_ldu_mode == "undefined" || CS_Data.cs_reddit_ldu_mode == 0 ) {
+		                            Reddit.disable();
+		                            consent.reddit = false;
+	                            }
+
                                 Pinterest.disable();
                                 TikTok.disable();
 
@@ -2980,6 +3405,22 @@
             },
 
             getFormFilledData: function ( event ) {
+                // First, resolve static/dynamic parameters
+                if (event.params && Object.keys(event.params).length > 0) {
+                    Object.entries(event.params).forEach(([key, value]) => {
+                        // Resolve parameter value (static or dynamic)
+                        const resolvedValue = resolveParamValue(value);
+                        if (resolvedValue !== null) {
+                            event.params[key] = resolvedValue;
+                        }
+                        else {
+                            delete event.params[key];
+                        }
+                    });
+                }
+
+                // Then, handle dynamic fields from cookies (existing logic)
+
                 if ( Object.keys(options.track_dynamic_fields).length > 0 && Object.keys(event.params).length > 0 ) {
                     Object.entries(event.params).forEach((item) => {
 
@@ -3166,6 +3607,7 @@
                                 action: 'pys_tiktok_api_event',
                                 pixel: TikTok.tag(),
                                 event: name,
+                                event_slug: event.e_id,
                                 ids: ids,
                                 data:params,
                                 url:window.location.href,
@@ -3197,15 +3639,14 @@
                             if(event.hasOwnProperty('edd_order')) {
                                 json['edd_order'] = event.edd_order;
                             }
-                            if(event.e_id === "automatic_event_internal_link"
-                                || event.e_id === "automatic_event_outbound_link"
-                                || name == 'PageView'
-                            ) {
-                                setTimeout(function(){
-                                    delay = delay === 0 ? 500 : delay;
-                                    Utils.sendServerAjaxRequest(options.ajaxUrl, json)
-                                },delay)
-                            } else {
+                            if (event.e_id === "automatic_event_internal_link" || event.e_id === "automatic_event_outbound_link" || name == 'PageView') {
+                                delay = delay === 0 ? 500 : delay;
+                                setTimeout(() => Utils.sendServerAjaxRequest(options.ajaxUrl, json), delay);
+                            } else if (event.type != 'static') {
+                                setTimeout(() => Utils.sendServerAjaxRequest(options.ajaxUrl, json), delay);
+                            }
+
+                            if ( ( event.type == 'static' && options.ajaxForServerStaticEvent ) || ( event.hasOwnProperty( 'ajaxFire' ) && event.ajaxFire ) ) {
                                 setTimeout( () => Utils.sendServerAjaxRequest( options.ajaxUrl, json ), delay );
                             }
                         }
@@ -3412,11 +3853,11 @@
                     }
                     // send event from server if they was bloc by gdpr or need send with delay
                     if( options.ajaxForServerEvent || isApiDisabled ){
-
                         var json = {
                             action: 'pys_api_event',
                             pixel: 'facebook',
                             event: name,
+                            event_slug: event.e_id,
                             ids: ids,
                             data:params,
                             url:window.location.href,
@@ -3919,6 +4360,7 @@
 
         var initialized = false;
         var isAllowEnhancedConversions = false;
+
         /**
          * Fires event
          *
@@ -3943,14 +4385,24 @@
                 return loadTags.some(loadTag => pixelId.startsWith(loadTag)) && !Utils.hideMatchingPixel(pixelId, 'ga') && !Utils.hideMatchingPixel(pixelId, 'google_ads');
             })
 
+            // Generate unique event_id for deduplication
+            eventParams.event_id = Utils.generateUniqueId(event);
+            event.eventID = Utils.generateUniqueId(event);
+
             Utils.copyProperties(Utils.getRequestParams(), eventParams);
+
+            var copyParams = Utils.copyProperties(eventParams, {}); // copy params because mapParamsTov4 can modify it
+            var params = mapParamsTov4(ids,name,copyParams)
+
             var _fireEvent = function (tracking_ids,name,params) {
 
                 params['send_to'] = tracking_ids;
+
                 if (options.debug) {
                     console.log('[Google Analytics #' + tracking_ids + '] ' + name, params);
                 }
 
+                // Send via gtag
                 gtag('event', name, params);
 
                 var customEvent = new CustomEvent('gtag_event_sent', {
@@ -3961,14 +4413,7 @@
                     }
                 });
                 window.dispatchEvent(customEvent);
-
             };
-
-            var copyParams = Utils.copyProperties(eventParams, {}); // copy params because mapParamsTov4 can modify it
-
-            var params = mapParamsTov4(ids,name,copyParams)
-
-            params.event_id = Utils.generateUniqueId(event);
 
 
             delete params.analytics_storage;
@@ -3976,11 +4421,49 @@
             delete params.ad_user_data;
             delete params.ad_personalization;
 
+            if(options.hasOwnProperty('google_ads')){
+                var conversion_event_name = event.e_id;
+                switch ( conversion_event_name ) {
+                    case "woo_add_to_cart_on_cart_page":
+                    case "woo_add_to_cart_on_checkout_page":
+                    case "woo_add_to_cart_on_button_click":
+                        conversion_event_name = 'woo_add_to_cart';
+                        break;
+                    case "edd_add_to_cart_on_cart_page":
+                    case "edd_add_to_cart_on_checkout_page":
+                    case "edd_add_to_cart_on_button_click":
+                        conversion_event_name = 'edd_add_to_cart';
+                        break;
+                    case "automatic_event_adsense":
+                    case "automatic_event_comment":
+                    case "automatic_event_download":
+                    case "automatic_event_email_link":
+                    case "automatic_event_form":
+                    case "automatic_event_internal_link":
+                    case "automatic_event_outbound_link":
+                    case "automatic_event_scroll":
+                    case "automatic_event_tel_link":
+                    case "automatic_event_time_on_page":
+                    case "automatic_event_video":
+                        conversion_event_name = 'automatic_event';
+                        break;
+                }
+
+                if ( conversion_event_name !== 'automatic_event' &&
+                    typeof options.google_ads[conversion_event_name + '_conversion_track'] !== 'undefined' ) {
+                    const conversionTrack = options.google_ads[ conversion_event_name + '_conversion_track' ];
+
+                    if ( conversionTrack === 'conversion' ) {
+                        ids = ids.map(id => id.split('/')[0])
+                    }
+                }
+            }
+
+
             _fireEvent(ids, name, params);
-            isTrackEventForGA.push(name);
-
-
-
+            if(event.hasOwnProperty('unify') && event.unify){
+                isTrackEventForGA.push(name);
+            }
         }
 
         function normalizeEventName(eventName) {
@@ -4079,22 +4562,6 @@
                     }
                 }
 
-                var cd = {
-                    'dimension1': 'event_hour',
-                    'dimension2': 'event_day',
-                    'dimension3': 'event_month'
-                };
-
-                // configure Dynamic Remarketing CDs
-                if (options.ga.retargetingLogic === 'ecomm') {
-                    cd.dimension4 = 'ecomm_prodid';
-                    cd.dimension5 = 'ecomm_pagetype';
-                    cd.dimension6 = 'ecomm_totalvalue';
-                } else {
-                    cd.dimension4 = 'dynx_itemid';
-                    cd.dimension5 = 'dynx_pagetype';
-                    cd.dimension6 = 'dynx_totalvalue';
-                }
 
                 if(options.hasOwnProperty("tracking_analytics") && options.tracking_analytics.hasOwnProperty("userDataEnable") && options.tracking_analytics.userDataEnable){
                     var advanced = Utils.getAdvancedMergeFormData();
@@ -4103,9 +4570,7 @@
                     }
                 }
 
-                var config = {
-                    'custom_map': cd
-                };
+                var config = {};
 
                 if(options.user_id && options.user_id != 0) {
                     config.user_id = options.user_id;
@@ -4204,7 +4669,6 @@
                     });
                     isAdsLoad = true;
                 }
-
 
                 initialized = true;
 
@@ -4571,14 +5035,14 @@
                 }
 
                 if ( ids.length ) {
-                    if ( conversion_event_name !== 'automatic_event' && options.google_ads[ conversion_event_name + '_conversion_track' ] ) {
+                    if ( conversion_event_name !== 'automatic_event' && options.hasOwnProperty('google_ads') && options.google_ads[ conversion_event_name + '_conversion_track' ] ) {
                         const conversionTrack = options.google_ads[ conversion_event_name + '_conversion_track' ];
 
                         if ( conversionTrack === 'conversion' ) {
                             _fireEvent( ids, "conversion" );
+                            ids = conversionIds;
                         }
                     }
-
                 } else {
                     ids = conversionIds;
                 }
@@ -5401,6 +5865,19 @@
 
     }(options);
 
+    var getPixelBySlag = function getPixelBySlag(slug) {
+        switch (slug) {
+            case "facebook": return window.pys.Facebook;
+            case "ga": return window.pys.Analytics;
+            case "gtm": return window.pys.GTM;
+            case "google_ads": return window.pys.GAds;
+            case "bing": return window.pys.Bing;
+            case "pinterest": return window.pys.Pinterest;
+            case "tiktok": return window.pys.TikTok;
+            case "reddit": return window.pys.Reddit;
+        }
+    }
+
     window.pys = window.pys || {};
     window.pys.Facebook = Facebook;
     window.pys.Analytics = Analytics;
@@ -5408,6 +5885,10 @@
     window.pys.GTM = GTM;
     window.pys.Utils = Utils;
     window.pys.TikTok = TikTok;
+    window.pys.getPixelBySlag = getPixelBySlag;
+    
+    // Export getPixelBySlag globally for backward compatibility
+    window.getPixelBySlag = getPixelBySlag;
 
 
 
@@ -5449,6 +5930,7 @@
 
         var Pinterest = Utils.setupPinterestObject();
         var Bing = Utils.setupBingObject();
+	    var Reddit = Utils.setupRedditObject();
         if(options.hasOwnProperty('cookie'))
         {
             if(options.cookie.externalID_disabled_by_api || options.cookie.disabled_all_cookie)
@@ -5633,7 +6115,7 @@
                                     var extensions = event.extensions;
                                     if (extensions.includes(extension)) {
 
-                                        if(pixels[i] == "tiktok") {
+                                        if(pixels[i] == "tiktok" || pixels[i] == "reddit") {
                                             getPixelBySlag(pixels[i]).fireEvent(event.name, event);
                                         } else {
                                             if (options.enable_remove_download_url_param) {
@@ -5729,7 +6211,7 @@
                             var pixels = Object.keys(options.dynamicEvents.automatic_event_tel_link);
                             for(var i = 0;i<pixels.length;i++) {
                                 var event = Utils.clone(options.dynamicEvents.automatic_event_tel_link[pixels[i]]);
-                                if ( pixels[i] !== 'tiktok') {
+                                if ( pixels[i] !== 'tiktok' && pixels[i] !== 'reddit') {
                                     Utils.copyProperties(Utils.getRequestParams(), event.params);
                                 }
                                 getPixelBySlag(pixels[i]).fireEvent(event.name, event);
@@ -5782,7 +6264,7 @@
                     for(var i = 0;i<pixels.length;i++) {
                         var event = Utils.clone(options.dynamicEvents.automatic_event_internal_link[pixels[i]]);
 
-                        if(pixels[i] !== "tiktok") { // TT doesn't support custom parameters
+	                    if(pixels[i] !== "tiktok" && pixels[i] !== "reddit") { // TT and reddit don't support custom parameters
                             event.params["text"] = text;
                             if(target_url){
                                 event.params["target_url"] = target_url;
@@ -5803,7 +6285,7 @@
                     for(var i = 0;i<pixels.length;i++) {
                         var event = Utils.clone(options.dynamicEvents.automatic_event_outbound_link[pixels[i]]);
 
-                        if(pixels[i] !== "tiktok") { // TT doesn't support custom parameters
+                        if(pixels[i] !== "tiktok" && pixels[i] !== "reddit") { // TT and reddit don't support custom parameters
                             event.params["text"] = text;
                             if(target_url){
                                 event.params["target_url"] = target_url;
@@ -5843,7 +6325,7 @@
                             var pixels = Object.keys(options.dynamicEvents.automatic_event_adsense);
                             for (var i = 0; i < pixels.length; i++) {
                                 var event = Utils.clone(options.dynamicEvents.automatic_event_adsense[pixels[i]]);
-                                if ( pixels[i] !== 'tiktok') {
+                                if ( pixels[i] !== 'tiktok' && pixels[i] !== 'reddit') {
                                     Utils.copyProperties(Utils.getRequestParams(), event.params);
                                 }
                                 getPixelBySlag(pixels[i]).onAdSenseEvent(event);
@@ -5921,7 +6403,7 @@
                         var scroll = Math.round(docHeight * event.scroll_percent / 100)// convert % to absolute positions
 
                         if(scroll < $(window).scrollTop()) {
-                            if ( pixels[i] !== 'tiktok') {
+                            if ( pixels[i] !== 'tiktok' && pixels[i] !== 'reddit') {
                                 Utils.copyProperties(Utils.getRequestParams(), event.params);
                             }
                             getPixelBySlag(pixels[i]).onPageScroll(event);
@@ -5943,7 +6425,7 @@
             setTimeout(function(){
                 for(var i = 0;i<pixels.length;i++) {
                     var event = Utils.clone(options.dynamicEvents.automatic_event_time_on_page[pixels[i]]);
-                    if ( pixels[i] !== 'tiktok') {
+                    if ( pixels[i] !== 'tiktok' && pixels[i] !== 'reddit') {
                         Utils.copyProperties(Utils.getRequestParams(), event.params);
                     }
                     getPixelBySlag(pixels[i]).onTime(event);
@@ -5977,6 +6459,10 @@
                         break;
                     case 'video_view':
                         //@see: Utils.checkYouTubeCompletion() and Utils.addYouTubeEvents()
+                        break;
+
+                    case 'form_field':
+                        Utils.setupFormFieldEvents(eventId, triggers);
                         break;
                 }
 
@@ -6069,6 +6555,7 @@
                         Pinterest.onWooAddToCartOnButtonEvent(product_id);
                         Bing.onWooAddToCartOnButtonEvent(product_id);
                         TikTok.onWooAddToCartOnButtonEvent(product_id);
+                        Reddit.onWooAddToCartOnButtonEvent(product_id);
                     }
 
                 });
@@ -6142,6 +6629,7 @@
                     Pinterest.onWooAddToCartOnSingleEvent(product_id, qty, product_type, is_external, $form);
                     Bing.onWooAddToCartOnSingleEvent(product_id, qty, product_type, is_external, $form);
                     TikTok.onWooAddToCartOnSingleEvent(product_id, qty, product_type, is_external, $form);
+                    Reddit.onWooAddToCartOnSingleEvent(product_id, qty, product_type, is_external, $form);
                 });
 
             } else {
@@ -6234,25 +6722,46 @@
             if(options.dynamicEvents.hasOwnProperty("woo_initiate_checkout_progress_f") ) {
 
                 $(document).on("change",".woocommerce-validated #billing_first_name",function () {
-                    Analytics.onWooCheckoutProgressStep(options.dynamicEvents.woo_initiate_checkout_progress_f[Analytics.tag()]);
+                    var pixels = Object.keys(options.dynamicEvents.woo_initiate_checkout_progress_f);
+                    for (var i = 0; i < pixels.length; i++) {
+                        var event = Utils.clone(options.dynamicEvents.woo_initiate_checkout_progress_f[pixels[i]]);
+                        getPixelBySlag(pixels[i]).onWooCheckoutProgressStep(event);
+                    }
                 });
             }
             if(options.dynamicEvents.hasOwnProperty("woo_initiate_checkout_progress_l")) {
 
                 $(document).on("change",".woocommerce-validated #billing_last_name",function () {
-                    Analytics.onWooCheckoutProgressStep(options.dynamicEvents.woo_initiate_checkout_progress_l[Analytics.tag()]);
+                    var pixels = Object.keys(options.dynamicEvents.woo_initiate_checkout_progress_l);
+                    for (var i = 0; i < pixels.length; i++) {
+                        var event = Utils.clone(options.dynamicEvents.woo_initiate_checkout_progress_l[pixels[i]]);
+                        getPixelBySlag(pixels[i]).onWooCheckoutProgressStep(event);
+                    }
                 });
             }
 
             if(options.dynamicEvents.hasOwnProperty("woo_initiate_checkout_progress_e")) {
 
                 $(document).on("change",".woocommerce-validated #billing_email",function () {
-                    Analytics.onWooCheckoutProgressStep(options.dynamicEvents.woo_initiate_checkout_progress_e[Analytics.tag()]);
+                    var pixels = Object.keys(options.dynamicEvents.woo_initiate_checkout_progress_e);
+                    for (var i = 0; i < pixels.length; i++) {
+                        var event = Utils.clone(options.dynamicEvents.woo_initiate_checkout_progress_e[pixels[i]]);
+                        getPixelBySlag(pixels[i]).onWooCheckoutProgressStep(event);
+                    }
                 });
             }
             if(options.dynamicEvents.hasOwnProperty("woo_initiate_checkout_progress_o")) {
                 $(document).onFirst('submit click', '#place_order', function () {
-                    Analytics.onWooCheckoutProgressStep(options.dynamicEvents.woo_initiate_checkout_progress_o[Analytics.tag()]);
+                    var shippingMethodFull = $('[name="shipping_method[0]"]:checked').val();
+                    var shippingMethod = shippingMethodFull ? shippingMethodFull.split(':')[0] : '';
+                    var pixels = Object.keys(options.dynamicEvents.woo_initiate_checkout_progress_o);
+                    for (var i = 0; i < pixels.length; i++) {
+                        var event = Utils.clone(options.dynamicEvents.woo_initiate_checkout_progress_o[pixels[i]]);
+                        // Add shipping_method to event params
+                        event.params = event.params || {};
+                        event.params.checkout_option = shippingMethod;
+                        getPixelBySlag(pixels[i]).onWooCheckoutProgressStep(event);
+                    }
                 });
             }
 
@@ -6382,6 +6891,7 @@
                         Pinterest.onEddAddToCartOnButtonEvent(download_id, price_index, q);
                         Bing.onEddAddToCartOnButtonEvent(download_id, price_index, q);
                         TikTok.onEddAddToCartOnButtonEvent(download_id, price_index, q);
+                        Reddit.onEddAddToCartOnButtonEvent(download_id, price_index, q);
 
                     });
 
@@ -6419,7 +6929,7 @@
                     var pixels = Object.keys(options.dynamicEvents.automatic_event_comment);
                     for (var i = 0; i < pixels.length; i++) {
                         var event = Utils.clone(options.dynamicEvents.automatic_event_comment[pixels[i]]);
-                        if ( pixels[i] !== 'tiktok') {
+                        if ( pixels[i] !== 'tiktok' && pixels[i] !== 'reddit') {
                             Utils.copyProperties(Utils.getRequestParams(), event.params);
                         }
                         getPixelBySlag(pixels[i]).onCommentEvent(event);
@@ -6506,7 +7016,7 @@
                         for (var i = 0; i < pixels.length; i++) {
                             var event = Utils.clone(options.dynamicEvents.automatic_event_form[pixels[i]]);
 
-                            if (pixels[i] === "tiktok") {
+                            if (pixels[i] === "tiktok" || pixels[i] === "reddit") {
                                 getPixelBySlag(pixels[i]).fireEvent(event.name, event);
                             } else {
                                 Utils.copyProperties(params, event.params,)
@@ -6530,7 +7040,8 @@
         document.addEventListener( 'wpcf7mailsent', function ( event ) {
             let form_id = event.detail.contactFormId,
                 sendEventId = null,
-                disabled_form_action = false;
+                disabled_form_action = false,
+                form_submit_mode = 'both';
             if ( options.triggerEventTypes.hasOwnProperty( 'CF7' ) ) {
                 $.each( options.triggerEventTypes.CF7, function ( eventId, triggers ) {
                     $.each( triggers, function ( index, trigger ) {
@@ -6538,15 +7049,16 @@
                             if ( value == form_id ) {
                                 sendEventId = eventId;
                                 disabled_form_action = trigger.disabled_form_action;
+                                form_submit_mode = trigger.form_submit_mode || 'both';
                             }
                         } )
                     } );
                 } );
             }
-            if ( sendEventId != null ) {
+            if ( sendEventId != null && ( form_submit_mode === 'both' || form_submit_mode === 'ajax_only' ) ) {
                 Utils.fireTriggerEvent( sendEventId );
             }
-            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action );
+            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action, form_submit_mode );
 
         }, false );
 
@@ -6554,7 +7066,8 @@
         jQuery( document ).on( 'gform_confirmation_loaded', function ( event, formId ) {
             let form_id = formId,
                 sendEventId = null,
-                disabled_form_action = false;
+                disabled_form_action = false,
+                form_submit_mode = 'both';
             if ( options.triggerEventTypes.hasOwnProperty( 'gravity' ) ) {
                 $.each( options.triggerEventTypes.gravity, function ( eventId, triggers ) {
                     $.each( triggers, function ( index, trigger ) {
@@ -6562,16 +7075,17 @@
                             if ( value == form_id ) {
                                 disabled_form_action = trigger.disabled_form_action;
                                 sendEventId = eventId;
+                                form_submit_mode = trigger.form_submit_mode || 'both';
                             }
                         } )
                     } );
                 } );
             }
 
-            if ( sendEventId != null ) {
+            if ( sendEventId != null && ( form_submit_mode === 'both' || form_submit_mode === 'ajax_only' ) ) {
                 Utils.fireTriggerEvent( sendEventId );
             }
-            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action );
+            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action, form_submit_mode );
             jQuery( document ).off( 'gform_confirmation_loaded' );
         } );
         //Forminator
@@ -6579,7 +7093,8 @@
 
             let form_id = $( event.target ).find( 'input[name="form_id"]' ).val(),
                 sendEventId = null,
-                disabled_form_action = false;
+                disabled_form_action = false,
+                form_submit_mode = 'both';
             if ( options.triggerEventTypes.hasOwnProperty( 'forminator' ) ) {
                 $.each( options.triggerEventTypes.forminator, function ( eventId, triggers ) {
                     $.each( triggers, function ( index, trigger ) {
@@ -6587,15 +7102,16 @@
                             if ( value == form_id ) {
                                 disabled_form_action = trigger.disabled_form_action;
                                 sendEventId = eventId;
+                                form_submit_mode = trigger.form_submit_mode || 'both';
                             }
                         } )
                     } );
                 } );
             }
-            if ( sendEventId != null ) {
+            if ( sendEventId != null && ( form_submit_mode === 'both' || form_submit_mode === 'ajax_only' ) ) {
                 Utils.fireTriggerEvent( sendEventId );
             }
-            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action );
+            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action, form_submit_mode );
         } );
 
         //WPForm
@@ -6603,7 +7119,8 @@
 
             let form_id = $( event.target ).attr( 'data-formid' ),
                 sendEventId = null,
-                disabled_form_action = false;
+                disabled_form_action = false,
+                form_submit_mode = 'both';
 
             if ( options.triggerEventTypes.hasOwnProperty( 'wpforms' ) ) {
                 $.each( options.triggerEventTypes.wpforms, function ( eventId, triggers ) {
@@ -6612,21 +7129,23 @@
                             if ( value == form_id ) {
                                 sendEventId = eventId;
                                 disabled_form_action = trigger.disabled_form_action;
+                                form_submit_mode = trigger.form_submit_mode || 'both';
                             }
                         } )
                     } );
                 } );
             }
-            if ( sendEventId != null ) {
+            if ( sendEventId != null && ( form_submit_mode === 'both' || form_submit_mode === 'ajax_only' ) ) {
                 Utils.fireTriggerEvent( sendEventId );
             }
-            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action );
+            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action, form_submit_mode );
         } )
 
         $( document ).on( 'frmFormComplete', function ( event, form, response ) {
             const form_id = $( form ).find( 'input[name="form_id"]' ).val();
             let sendEventId = null,
-                disabled_form_action = false;
+                disabled_form_action = false,
+                form_submit_mode = 'both';
             if ( options.triggerEventTypes.hasOwnProperty( 'formidable' ) ) {
                 $.each( options.triggerEventTypes.formidable, function ( eventId, triggers ) {
                     $.each( triggers, function ( index, trigger ) {
@@ -6634,15 +7153,16 @@
                             if ( value == form_id ) {
                                 disabled_form_action = trigger.disabled_form_action;
                                 sendEventId = eventId;
+                                form_submit_mode = trigger.form_submit_mode || 'both';
                             }
                         } )
                     } );
                 } );
             }
-            if ( sendEventId != null ) {
+            if ( sendEventId != null && ( form_submit_mode === 'both' || form_submit_mode === 'ajax_only' ) ) {
                 Utils.fireTriggerEvent( sendEventId );
             }
-            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action );
+            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action, form_submit_mode );
 
         } );
 
@@ -6650,7 +7170,8 @@
         $( document ).onFirst( 'nfFormSubmitResponse', function ( event, data ) {
             const form_id = data.response.data.form_id;
             let sendEventId = null,
-                disabled_form_action = false;
+                disabled_form_action = false,
+                form_submit_mode = 'both';
             if ( options.triggerEventTypes.hasOwnProperty( 'ninjaform' ) ) {
                 $.each( options.triggerEventTypes.ninjaform, function ( eventId, triggers ) {
                     $.each( triggers, function ( index, trigger ) {
@@ -6658,19 +7179,23 @@
                             if ( value == form_id ) {
                                 disabled_form_action = trigger.disabled_form_action;
                                 sendEventId = eventId;
+                                form_submit_mode = trigger.form_submit_mode || 'both';
                             }
                         } )
                     } );
                 } );
             }
-            if ( sendEventId != null ) {
+            if ( sendEventId != null && ( form_submit_mode === 'both' || form_submit_mode === 'ajax_only' ) ) {
                 Utils.fireTriggerEvent( sendEventId );
             }
-            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action );
+            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action, form_submit_mode );
         } );
 
 
         $(document).on('fluentform_submission_success', function ( event, data ) {
+            if(!data || !data.form){
+                return;
+            }
             let $form = data.form; // Submitted form
             let config = data.config; // Form configuration
             let response = data.response; // Server response
@@ -6679,7 +7204,8 @@
             let $formItem = $form;
             let form_id = config.id;
             let sendEventId = null,
-                disabled_form_action = false;
+                disabled_form_action = false,
+                form_submit_mode = 'both';
             if ( options.triggerEventTypes.hasOwnProperty( 'fluentform' ) ) {
                 $.each( options.triggerEventTypes.fluentform, function ( eventId, triggers ) {
                     $.each( triggers, function ( index, trigger ) {
@@ -6687,22 +7213,24 @@
                             if ( value == form_id ) {
                                 disabled_form_action = trigger.disabled_form_action;
                                 sendEventId = eventId;
+                                form_submit_mode = trigger.form_submit_mode || 'both';
                             }
                         } )
                     } );
                 } );
             }
 
-            if ( sendEventId != null ) {
+            if ( sendEventId != null && ( form_submit_mode === 'both' || form_submit_mode === 'ajax_only' ) ) {
                 Utils.fireTriggerEvent( sendEventId );
             }
-            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action );
+            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action, form_submit_mode );
         } );
 
         //WSForm
         $( document ).on( 'wsf-submit-complete', ( event, form_object, form_id ) => {
             let sendEventId = null,
-                disabled_form_action = false;
+                disabled_form_action = false,
+                form_submit_mode = 'both';
             if ( options.triggerEventTypes.hasOwnProperty( 'wsform' ) ) {
                 $.each( options.triggerEventTypes.wsform, function ( eventId, triggers ) {
                     $.each( triggers, function ( index, trigger ) {
@@ -6710,16 +7238,17 @@
                             if ( value == form_id ) {
                                 disabled_form_action = trigger.disabled_form_action;
                                 sendEventId = eventId;
+                                form_submit_mode = trigger.form_submit_mode || 'both';
                             }
                         } )
                     } );
                 } );
             }
 
-            if ( sendEventId != null ) {
+            if ( sendEventId != null && ( form_submit_mode === 'both' || form_submit_mode === 'ajax_only' ) ) {
                 Utils.fireTriggerEvent( sendEventId );
             }
-            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action );
+            sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action, form_submit_mode );
         } )
 
         // Elementor Forms
@@ -6781,6 +7310,7 @@
                     if (response.success) {
                         $.each(response.data, function(slug) {
                             $.each(response.data[slug], function(index, event) {
+                                event.isVariationTrigger = true;
                                 getPixelBySlag(slug).fireEvent(event.name, event);
                             });
                         });
@@ -6791,7 +7321,12 @@
             });
         });
     }
-    var sendFormAction = function (form_target, formId, customEventId = null, disabled = false){
+    var sendFormAction = function (form_target, formId, customEventId = null, disabled = false, form_submit_mode = 'both'){
+        // Check submit mode - skip automatic event if reload_only
+        if (disabled == true || form_submit_mode === 'reload_only' ) {
+            return;
+        }
+        
         var params = {
             form_id: formId,
             text: form_target.find('[type="submit"]').is('input') ? form_target.find('[type="submit"]').val() :
@@ -6807,7 +7342,7 @@
                     continue;
                 }
                 var event = options.dynamicEvents.automatic_event_form[pixels[i]];
-                if (pixels[i] === "tiktok") {
+                if (pixels[i] === "tiktok" || pixels[i] === "reddit") {
                     getPixelBySlag(pixels[i]).fireEvent(event.name, event);
                 } else {
                     Utils.copyProperties(params, event.params)
@@ -6824,7 +7359,7 @@
             for ( var i = 0; i < pixels.length; i++ ) {
                 if ( disabled_for_pixels.indexOf(pixels[ i ]) === -1 ) {
                     var event = Utils.clone( options.dynamicEvents.automatic_event_email_link[ pixels[ i ] ] );
-                    if ( pixels[ i ] !== 'tiktok' ) {
+                    if ( pixels[ i ] !== 'tiktok' && pixels[ i ] !== 'reddit' ) {
                         Utils.copyProperties( Utils.getRequestParams(), event.params );
                     }
                     getPixelBySlag( pixels[ i ] ).fireEvent( event.name, event );
@@ -6849,7 +7384,8 @@
                         }
 
                         let sendEventId = null,
-                            disabled_form_action = false;
+                            disabled_form_action = false,
+                            form_submit_mode = 'both';
                         if ( options.triggerEventTypes.hasOwnProperty( 'elementor_form' ) ) {
                             $.each( options.triggerEventTypes.elementor_form, function ( eventId, triggers ) {
                                 $.each( triggers, function ( index, trigger ) {
@@ -6857,15 +7393,16 @@
                                         if ( value == form_id ) {
                                             disabled_form_action = trigger.disabled_form_action;
                                             sendEventId = eventId;
+                                            form_submit_mode = trigger.form_submit_mode || 'both';
                                         }
                                     })
                                 } );
                             } );
                         }
-                        if ( sendEventId != null ) {
+                        if ( sendEventId != null && ( form_submit_mode === 'both' || form_submit_mode === 'ajax_only' ) ) {
                             Utils.fireTriggerEvent( sendEventId );
                         }
-                        sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action );
+                        sendFormAction( $( event.target ), form_id, sendEventId, disabled_form_action, form_submit_mode );
 
                         observer.disconnect();
                         break;
@@ -6884,6 +7421,7 @@
 
 }(jQuery, pysOptions);
 
+
 function pys_generate_token() {
     return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
@@ -6901,18 +7439,6 @@ function getBundlePriceOnSingleProduct(data) {
         }
     });
     return items_sum;
-}
-
-function getPixelBySlag(slug) {
-    switch (slug) {
-        case "facebook": return window.pys.Facebook;
-        case "ga": return window.pys.Analytics;
-        case "gtm": return window.pys.GTM;
-        case "google_ads": return window.pys.GAds;
-        case "bing": return window.pys.Bing;
-        case "pinterest": return window.pys.Pinterest;
-        case "tiktok": return window.pys.TikTok;
-    }
 }
 function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),

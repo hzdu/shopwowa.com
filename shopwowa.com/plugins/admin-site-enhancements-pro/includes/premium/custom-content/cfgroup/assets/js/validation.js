@@ -1,5 +1,9 @@
 (function($) {
     $(function() {
+        if ( typeof CFG === 'undefined' ) {
+            var CFG = CFG || {};
+        }
+
         CFG.validators = {
             'required': {
                 'error': 'Please enter or choose something',

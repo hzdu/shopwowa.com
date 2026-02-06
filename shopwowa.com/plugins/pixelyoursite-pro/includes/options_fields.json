@@ -28,6 +28,16 @@
   "gdpr_ajax_enabled": "checkbox",
   "gdpr_real_cookie_banner_integration_enabled": "checkbox",
 
+  "queue_enabled": "checkbox",
+  "queue_use_for_ajax": "checkbox",
+  "queue_max_events_per_batch": "number",
+  "queue_processing_interval": "number",
+  "queue_max_size": "number",
+  "queue_max_retries": "number",
+  "queue_retention_days": "number",
+  "queue_pending_cleanup_days": "number",
+  "queue_drop_table_on_deactivate": "checkbox",
+
   "block_robot_enabled": "checkbox",
   "exclude_blocked_robots": "multi_select",
   "block_ip_enabled": "checkbox",
@@ -188,6 +198,13 @@
   "cookie_duration": "number",
   "last_visit_duration": "number",
 
+  "enable_CwCD" : "checkbox",
+  "aw_merchant_id": "text",
+  "aw_feed_country": "select",
+  "aw_feed_label": "text",
+  "aw_feed_language": "select",
+  "merge_ga_events": "radio",
+
   "enable_woo_category_name_param" : "checkbox",
   "enable_woo_num_items_param": "checkbox",
   "enable_woo_total_param": "checkbox",
@@ -199,6 +216,7 @@
   "enable_woo_coupon_name_param": "checkbox",
   "enable_woo_shipping_param": "checkbox",
   "enable_woo_shipping_cost_param": "checkbox",
+  "enable_woo_payment_method" : "checkbox",
   "enable_woo_brand": "checkbox",
   "woo_brand_taxonomy": "select",
   "woo_brand_taxonomy_plugin": "array_v",
@@ -213,6 +231,7 @@
   "enable_remove_download_url_param":  "checkbox",
   "enable_edd_total_param":  "checkbox",
   "enable_edd_coupon_param":  "checkbox",
+  "enable_edd_payment_method" : "checkbox",
   "compress_front_js":  "checkbox",
 
   "wcf_sell_step_view_content_enabled": "checkbox",
@@ -271,6 +290,7 @@
   "hide_version_plugin_in_console": "checkbox",
   "server_event_use_ajax": "checkbox",
   "server_static_event_use_ajax": "checkbox",
+  "use_send_beacon": "checkbox",
 
   "send_external_id": "checkbox",
   "external_id_expire": "number",

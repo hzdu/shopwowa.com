@@ -113,5 +113,7 @@
 
   "disable_noscript": "checkbox",
   "enabled_medical": "checkbox",
-  "do_not_track_medical_param": "multi_select"
+  "do_not_track_medical_param": "multi_select",
+
+  "logs_enable": "checkbox"
 }

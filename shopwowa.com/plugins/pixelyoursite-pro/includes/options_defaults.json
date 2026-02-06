@@ -27,6 +27,16 @@
   "gdpr_ajax_enabled": false,
   "gdpr_real_cookie_banner_integration_enabled": false,
 
+  "queue_enabled": true,
+  "queue_use_for_ajax": false,
+  "queue_max_events_per_batch": 500,
+  "queue_processing_interval": 60,
+  "queue_max_size": 10000,
+  "queue_max_retries": 3,
+  "queue_retention_days": 1,
+  "queue_pending_cleanup_days": 1,
+  "queue_drop_table_on_deactivate": false,
+
   "block_robot_enabled": true,
   "exclude_blocked_robots": ["WP Rocket"],
   "block_ip_enabled": false,
@@ -184,6 +194,13 @@
   "cookie_duration": 7,
   "last_visit_duration": 60,
 
+  "enable_CwCD" : true,
+  "aw_merchant_id": "",
+  "aw_feed_country": "",
+  "aw_feed_label": "",
+  "aw_feed_language": "",
+  "merge_ga_events": "yes",
+
   "enable_content_name_param": true,
   "enable_page_title_param" : true,
   "enable_post_type_param": true,
@@ -206,6 +223,7 @@
   "enable_woo_tax_param": false,
   "enable_woo_shipping_param": false,
   "enable_woo_shipping_cost_param": false,
+  "enable_woo_payment_method": true,
   "enable_woo_brand": false,
   "woo_brand_taxonomy": "product_brand",
   "woo_brand_taxonomy_plugin": "",
@@ -220,6 +238,7 @@
   "enable_edd_tags_param": true,
   "enable_edd_total_param": false,
   "enable_edd_coupon_param": true,
+  "enable_edd_payment_method": true,
 
 
   "wcf_sell_step_view_content_enabled": true,
@@ -292,5 +311,6 @@
   "track_cookie_for_subdomains": true,
   "server_event_use_ajax": true,
   "server_static_event_use_ajax": true,
+  "use_send_beacon": true,
   "google_consent_mode": true
 }

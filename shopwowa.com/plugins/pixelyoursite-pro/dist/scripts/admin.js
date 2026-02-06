@@ -52,7 +52,6 @@ jQuery( document ).ready( function ( $ ) {
 
         let triggerGroup = $( ".pys_triggers_wrapper .trigger_group" );
         $( ".event_triggers_panel" ).hide();
-
         if ( triggerGroup.length > 0 ) {
             $.each( triggerGroup, function ( index, trigger ) {
                 trigger = $( trigger );
@@ -151,39 +150,81 @@ jQuery( document ).ready( function ( $ ) {
         }
     }
 
-    function toggleFacebookCustomEventType() {
-        if ( $( "#pys_event_facebook_event_type" ).val() === "CustomEvent" ) {
-            $( ".facebook-custom-event-type" ).slideDown( 400 );
+    function updateFacebookEventParamsFrom() {
+        let $select = $( '#pys_event_facebook_event_type' );
+        if ( $select.length === 0 ) return;
+        let $panel = $( '#facebook_params_panel' );
+        let $custom = $( '.facebook-custom-event-type' );
+
+        if ( $select.val() === 'CustomEvent' ) {
+            $custom.slideDown( 400 );
+            $panel.slideUp( 400, function () {
+                // Save custom params before clearing
+                let customParamsHtml = $( '.facebook-custom-param', $panel ).clone();
+                let insertMarker = $( '.insert-marker', $panel ).clone();
+                let addButton = $( '.mt-24:has(.add-facebook-parameter)', $panel ).clone();
+
+                $( this ).html( '' );
+
+                // Restore custom params
+                customParamsHtml.each(function() {
+                    $panel.append( $(this) );
+                });
+                $panel.append( insertMarker );
+                $panel.append( addButton );
+            } );
         } else {
-            $( ".facebook-custom-event-type" ).slideUp( 400 );
-        }
-    }
+            let fields = $select.find( ":selected" ).data( 'fields' );
 
-    function toggleFacebookParamsPanel() {
-        if ( $( "#pys_event_facebook_params_enabled" ).is( ":checked" ) ) {
-            $( "#facebook_params_panel" ).show();
-            updateFacebookParamsPanelClass( 0 );
-        } else {
-            $( "#facebook_params_panel" ).slideUp( 400 );
-        }
-    }
+            if ( fields.length === 0 || !$( '#pys_event_facebook_params_enabled' ).is( ":checked" ) ) {
+                $panel.slideUp( 400, function () {
+                    // Save custom params before clearing
+                    let customParamsHtml = $( '.facebook-custom-param', $panel ).clone();
+                    let insertMarker = $( '.insert-marker', $panel ).clone();
+                    let addButton = $( '.mt-24:has(.add-facebook-parameter)', $panel ).clone();
 
-    function updateFacebookParamsPanelClass( delay = 200 ) {
-        $( "#facebook_params_panel" ).slideUp( delay, function () {
-            if ( $( "#pys_event_facebook_params_enabled" ).is( ":checked" ) ) {
-                let eventType = $( "#pys_event_facebook_event_type" ).val();
-                $( "#facebook_params_panel" ).removeClass().addClass( eventType );
+                    $( this ).html( '' );
 
-                $( this ).slideDown( 400 );
+                    // Restore custom params
+                    customParamsHtml.each(function() {
+                        $panel.append( $(this) );
+                    });
+                    $panel.append( insertMarker );
+                    $panel.append( addButton );
+                } );
+            } else {
+                // Save custom params before clearing
+                let customParamsHtml = $( '.facebook-custom-param', $panel ).clone();
+                let insertMarker = $( '.insert-marker', $panel ).clone();
+                let addButton = $( '.mt-24:has(.add-facebook-parameter)', $panel ).clone();
+
+                $panel.html( '' )
+                fields.forEach( function ( item ) {
+                    $panel.append( renderField( item ) )
+                } );
+
+                // Restore custom params
+                customParamsHtml.each(function() {
+                    $panel.append( $(this) );
+                });
+                $panel.append( insertMarker );
+                $panel.append( addButton );
+
+                $panel.slideDown( 400 );
             }
-        } );
+
+            $custom.slideUp( 400 );
+        }
     }
 
-    function toggleFacebookCustomCurrency() {
-        if ( $( "#pys_event_facebook_params_currency" ).val() === "custom" ) {
-            $( ".facebook-custom-currency" ).slideDown( 400 );
+    function updateFacebookParamFormVisibility( new_form = false ) {
+        if ( $( '#pys_event_facebook_params_enabled:checked' ).length > 0 ) {
+            if ( new_form ) {
+                updateFacebookEventParamsFrom();
+            }
+            $( '#facebook_params_panel' ).slideDown( 400 );
         } else {
-            $( ".facebook-custom-currency" ).slideUp( 400 );
+            $( '#facebook_params_panel' ).slideUp( 400 );
         }
     }
 
@@ -239,7 +280,160 @@ jQuery( document ).ready( function ( $ ) {
         }
     }
 
-    function toggleGoogleAnalyticsPanel() {
+    function updatePinterestEventParamsFrom() {
+        let $select = $( '#pys_event_pinterest_event_type' );
+        if ( $select.length === 0 ) return;
+        let $panel = $( '#pinterest_params_panel' );
+        let $custom = $( '.pinterest-custom-event-type' );
+
+        if ( $select.val() === 'partner_defined' ) {
+            $custom.slideDown( 400 );
+        } else {
+            $custom.slideUp( 400 );
+        }
+
+        let fields = $select.find( ":selected" ).data( 'fields' );
+
+        if ( fields.length === 0 || !$( '#pys_event_pinterest_params_enabled' ).is( ":checked" ) ) {
+            $panel.slideUp( 400, function () {
+                // Save custom params before clearing
+                let customParamsHtml = $( '.pinterest-custom-param', $panel ).clone();
+                let insertMarker = $( '.insert-marker', $panel ).clone();
+                let addButton = $( '.mt-24:has(.add-pinterest-parameter)', $panel ).clone();
+
+                $( this ).html( '' );
+
+                // Restore custom params
+                customParamsHtml.each(function() {
+                    $panel.append( $(this) );
+                });
+                $panel.append( insertMarker );
+                $panel.append( addButton );
+            } );
+        } else {
+            // Save custom params before clearing
+            let customParamsHtml = $( '.pinterest-custom-param', $panel ).clone();
+            let insertMarker = $( '.insert-marker', $panel ).clone();
+            let addButton = $( '.mt-24:has(.add-pinterest-parameter)', $panel ).clone();
+            $panel.html( '' )
+            fields.forEach( function ( item ) {
+                $panel.append( renderField( item ) )
+            } );
+
+            // Restore custom params
+            customParamsHtml.each(function() {
+                $panel.append( $(this) );
+            });
+            $panel.append( insertMarker );
+            $panel.append( addButton );
+
+            $panel.slideDown( 400 );
+        }
+    }
+
+    function updatePinterestParamFormVisibility( new_form = false ) {
+        if ( $( '#pys_event_pinterest_params_enabled:checked' ).length > 0 ) {
+            if ( new_form ) {
+                updatePinterestEventParamsFrom();
+            }
+            $( '#pinterest_params_panel' ).slideDown( 400 );
+        } else {
+            $( '#pinterest_params_panel' ).slideUp( 400 );
+        }
+    }
+
+	/**
+	 * Toggle Reddit pixel panel
+	 */
+	function toggleRedditPanel() {
+		let event_reddit_enabled = $( "#pys_event_reddit_enabled" ),
+			card = event_reddit_enabled.closest( '.card' ),
+			configured = +card.attr( 'data-configured' ) === 1,
+			pixel_status = card.find( '.custom-event-pixel-status .pixel-status' );
+
+		if ( configured ) {
+			if ( event_reddit_enabled.is( ":checked" ) ) {
+				$( "#reddit_panel" ).removeClass( 'disabled' );
+				pixel_status.find( '.pixel-enabled' ).show();
+				pixel_status.find( '.pixel-disabled' ).hide();
+			} else {
+				$( "#reddit_panel" ).addClass( 'disabled' );
+				pixel_status.find( '.pixel-enabled' ).hide();
+				pixel_status.find( '.pixel-disabled' ).show();
+			}
+		} else {
+			$( '.reddit-not-configured-error' ).show();
+			$( "#reddit_panel" ).addClass( 'disabled' );
+			event_reddit_enabled.prop( 'checked', false ).prop( 'disabled', true );
+		}
+	}
+
+	function toggleRedditCustomEventType() {
+		if ( $( "#pys_event_reddit_event_type" ).val() === "Custom" ) {
+			$( ".reddit-custom-event-type" ).slideDown( 400 );
+		} else {
+			$( ".reddit-custom-event-type" ).slideUp( 400 );
+		}
+	}
+
+	function toggleRedditParamsPanel( new_form = false ) {
+		if ( $( '#pys_event_reddit_params_enabled:checked' ).length > 0 ) {
+			if ( new_form ) {
+				updateRedditEventParamsFrom();
+			}
+			$( '#reddit_params_panel' ).slideDown( 400 );
+		} else {
+			$( '#reddit_params_panel' ).slideUp( 400 );
+		}
+	}
+
+	toggleRedditPanel();
+	toggleRedditCustomEventType();
+	toggleRedditParamsPanel();
+
+	$( "#pys_event_reddit_enabled" ).on( 'click', function () {
+		toggleRedditPanel();
+	} );
+
+	$( "#pys_event_reddit_event_type" ).on( 'change', function () {
+		updateRedditEventParamsFrom();
+	} );
+
+	$( "#pys_event_reddit_params_enabled" ).on( 'click', function () {
+		toggleRedditParamsPanel( true );
+	} );
+
+	function updateRedditEventParamsFrom() {
+		let $select = $( '#pys_event_reddit_event_type' );
+		if ( $select.length === 0 ) {
+			return;
+		}
+		let $panel = $( '#reddit_params_panel' );
+		let $custom = $( '.reddit-custom-event-type' );
+
+		if ( $select.val() === 'Custom' ) {
+			$custom.slideDown( 400 );
+		} else {
+			$custom.slideUp( 400 );
+		}
+
+		let fields = $select.find( ":selected" ).data( 'fields' );
+
+		if ( fields.length === 0 || !$( '#pys_event_reddit_params_enabled' ).is( ":checked" ) ) {
+			$panel.slideUp( 400, function () {
+				$( this ).html( '' );
+			} );
+		} else {
+			$panel.html( '' )
+			fields.forEach( function ( item ) {
+				$panel.append( renderField( item ) )
+			} );
+
+			$panel.slideDown( 400 );
+		}
+	}
+
+	function toggleGoogleAnalyticsPanel() {
         if ( $( "#pys_event_ga_enabled" ).is( ":checked" ) ) {
             $( "#analytics_panel" ).show();
         } else {
@@ -283,6 +477,69 @@ jQuery( document ).ready( function ( $ ) {
             $('.bing-not-configured-error').show();
             $( "#bing_panel" ).addClass( 'disabled' );
             event_bing_enabled.prop( 'checked', false ).prop( 'disabled', true );
+        }
+    }
+
+    function updateBingEventParamsFrom() {
+        let $select = $( '#pys_event_bing_event_type' );
+        if ( $select.length === 0 ) return;
+        let $panel = $( '#bing_params_panel' );
+        let $custom = $( '.bing-custom-event-type' );
+
+        if ( $select.val() === 'Custom' ) {
+            $custom.slideDown( 400 );
+        } else {
+            $custom.slideUp( 400 );
+        }
+
+        let fields = $select.find( ":selected" ).data( 'fields' );
+
+        if ( fields.length === 0 || !$( '#pys_event_bing_params_enabled' ).is( ":checked" ) ) {
+            $panel.slideUp( 400, function () {
+                // Save custom params before clearing
+                let customParamsHtml = $( '.bing-custom-param', $panel ).clone();
+                let insertMarker = $( '.insert-marker', $panel ).clone();
+                let addButton = $( '.mt-24:has(.add-bing-parameter)', $panel ).clone();
+
+                $( this ).html( '' );
+
+                // Restore custom params
+                customParamsHtml.each(function() {
+                    $panel.append( $(this) );
+                });
+                $panel.append( insertMarker );
+                $panel.append( addButton );
+            } );
+        } else {
+            // Save custom params before clearing
+            let customParamsHtml = $( '.bing-custom-param', $panel ).clone();
+            let insertMarker = $( '.insert-marker', $panel ).clone();
+            let addButton = $( '.mt-24:has(.add-bing-parameter)', $panel ).clone();
+
+            $panel.html( '' )
+            fields.forEach( function ( item ) {
+                $panel.append( renderField( item ) )
+            } );
+
+            // Restore custom params
+            customParamsHtml.each(function() {
+                $panel.append( $(this) );
+            });
+            $panel.append( insertMarker );
+            $panel.append( addButton );
+
+            $panel.slideDown( 400 );
+        }
+    }
+
+    function updateBingParamFormVisibility( new_form = false ) {
+        if ( $( '#pys_event_bing_params_enabled:checked' ).length > 0 ) {
+            if ( new_form ) {
+                updateBingEventParamsFrom();
+            }
+            $( '#bing_params_panel' ).slideDown( 400 );
+        } else {
+            $( '#bing_params_panel' ).slideUp( 400 );
         }
     }
 
@@ -390,7 +647,6 @@ jQuery( document ).ready( function ( $ ) {
         $inputWrapperList.each( function () {
             addInputNumberListener( $( this ) );
         } );
-
         cloned.insertBefore( triggerWrapper );
         $( '.pys_event_trigger_type', cloned ).trigger( 'change' );
     }
@@ -494,6 +750,26 @@ jQuery( document ).ready( function ( $ ) {
                         disableElementorForm.find( 'label.custom-switch-btn' ).attr( {
                             for: 'pys_event_' + triggerId + '_' + panel + '_disabled_form_action'
                         } );
+
+                        break;
+                    case 'form_field':
+                        $( '.pys_event_form_field_data', clonedTrigger ).attr( {
+                            name: 'pys[event][triggers][' + triggerId + '][form_field_data]',
+                        } );
+                        $( '.pys_form_field_urls_event', clonedTrigger ).attr( {
+                            name: 'pys[event][triggers][' + triggerId + '][form_field_urls][]',
+                            id: 'pys_event_' + triggerId + '_pys_form_field_urls_event'
+                        } ).addClass( 'pys-tags-pysselect2' );
+
+                        $( '.pys_form_field_triggers_event', clonedTrigger ).attr( {
+                            name: 'pys[event][triggers][' + triggerId + '][form_field][form]',
+                            id: 'pys_event_' + triggerId + '_form_field_triggers'
+                        } ).addClass( 'pys-pysselect2' );
+
+                        $('.pys_form_field_event', clonedTrigger).attr({
+                            name: 'pys[event][triggers][' + triggerId + '][form_field][field]',
+                            id: 'pys_event_' + triggerId + '_form_field'
+                        }).addClass( 'pys-pysselect2' );
 
                         break;
                     case 'email_link':
@@ -657,6 +933,61 @@ jQuery( document ).ready( function ( $ ) {
     } );
 
     // Initialize pysselect2 for select elements
+    $( ".pys_triggers_wrapper .pys_form_field_urls_event" ).each( function () {
+        $( this ).pysselect2({
+            tags: true,
+            tokenSeparators: [ ",", " " ],
+            templateSelection: pysTagTemplateSelection
+        }).on('pysselect2:unselecting', function (e) {
+            if ($(e.params.args.data.element).attr('locked')) {
+                e.preventDefault();
+            }
+        });
+    });
+    $( ".pys_triggers_wrapper .pys_form_field_triggers_event:not(.pys-pysselect2)" ).each( function () {
+        $( this ).pysselect2({
+            templateResult: function (data) {
+                if (!data.id) return data.text;
+
+                const $el = $(data.element);
+                const selector = $el.data('selector');
+
+                return $(`
+                            <div>
+                                <strong>${data.text}</strong>
+                                ${selector ? `<div style="font-size: 0.75em; color: #aaa;">${selector}</div>` : ''}
+                            </div>
+                        `);
+            },
+            templateSelection: function (data) {
+                return data.text;
+            }
+        });
+    });
+
+    $( ".pys_triggers_wrapper .pys_form_field_event:not(.pys-pysselect2)" ).each( function () {
+        $( this ).pysselect2({
+            templateResult: function (data) {
+                if (!data.id) return data.text;
+
+                const $el = $(data.element);
+                const type = $el.data('type');
+                const id = $el.data('id');
+
+                return $(`
+                    <div>
+                        <strong>${data.text}</strong>
+                        <div style="font-size: 0.75em; color: #aaa;">Type: ${type}</div>
+                        <div style="font-size: 0.75em; color: #aaa;">ID: ${id}</div>
+                    </div>
+                `);
+            },
+            templateSelection: function (data) {
+                return data.text;
+            }
+        });
+    });
+
     $( ".pys-pysselect2" ).each( function () {
         $( this ).pysselect2( {
             placeholder: $( this ).data( "placeholder" )
@@ -758,39 +1089,44 @@ jQuery( document ).ready( function ( $ ) {
     $( ".pys_event_condition_type" ).on( 'change', function () {
         let conditionGroup = $( this ).closest( '.condition_group' ),
             panel = $( this ).val();
-        console.log( panel );
         checkConditionTypeAvailability( conditionGroup, panel );
     } );
 
-    $( ".add-event-trigger" ).on( 'click', function () {
+    $( document ).on( 'click', '.add-event-trigger', function () {
         let triggerPanel = $( this ).closest( ".event_triggers_panel" ),
             triggerType = triggerPanel.data( "trigger_type" );
         cloneAndInsertTrigger( triggerPanel, triggerType );
     } );
 
     $( document ).on( 'click', '.button-remove-row', function ( e ) {
-        $( this ).closest( ".event_trigger, .facebook-custom-param, .pinterest-custom-param, .ga-ads-custom-param" ).remove();
+        $( this ).closest( ".event_trigger, .facebook-custom-param, .pinterest-custom-param, .ga-ads-custom-param, .bing-custom-param, .tiktok-custom-param, .reddit-custom-param" ).remove();
     } );
 
+    /**
+     * Facebook Edit Event
+     */
+    if ( $( '#pys_event_facebook_event_type' ).length > 0 ) {
+        $( '#pys_event_facebook_event_type' ).on( 'change', function () {
+            updateFacebookEventParamsFrom()
+        } )
+
+        $( '#pys_event_facebook_params_enabled' ).on( 'change', function () {
+            updateFacebookParamFormVisibility( true )
+        } )
+
+        if ( $( '#pys_event_facebook_event_type' ).val() === 'CustomEvent' ) {
+            $( '.facebook-custom-event-type' ).css( 'display', 'block' )
+        } else {
+            $( '.facebook-custom-event-type' ).css( 'display', 'none' )
+        }
+        updateFacebookParamFormVisibility();
+    }
+
     toggleFacebookPanel();
-    toggleFacebookCustomEventType();
-    toggleFacebookParamsPanel();
-    updateFacebookParamsPanelClass();
-    toggleFacebookCustomCurrency();
     $( "#pys_event_facebook_enabled" ).on( 'click', function () {
         toggleFacebookPanel();
     } );
-    $( "#pys_event_facebook_event_type" ).on( 'change', function () {
-        toggleFacebookCustomEventType();
-        updateFacebookParamsPanelClass();
-    } );
-    $( "#pys_event_facebook_params_enabled" ).on( 'click', function () {
-        toggleFacebookParamsPanel();
-    } );
-    $( "#pys_event_facebook_params_currency" ).on( 'change', function () {
-        toggleFacebookCustomCurrency();
-    } );
-    $( ".add-facebook-parameter" ).on( 'click', function () {
+    $( document ).on( 'click', '.add-facebook-parameter', function () {
         var facebookParamsPanel = $( "#facebook_params_panel" ),
             customParams = $( ".facebook-custom-param", facebookParamsPanel ),
             clonedParam = $( customParams[ 0 ] ).clone( true ),
@@ -800,9 +1136,31 @@ jQuery( document ).ready( function ( $ ) {
         clonedParam.data( "param_id", newParamId );
         $( "input.custom-param-name", clonedParam ).attr( "name", newParamName + "[name]" );
         $( "input.custom-param-value", clonedParam ).attr( "name", newParamName + "[value]" );
+        $( "input.custom-param-selector", clonedParam ).attr( "name", newParamName + "[selector]" );
+        $( "input.custom-param-dynamic-checkbox", clonedParam ).attr( "name", newParamName + "[dynamic]" );
         clonedParam.css( "display", "flex" );
         clonedParam.insertBefore( $( ".insert-marker", facebookParamsPanel ) );
     } );
+
+    /**
+     * Pinterest Edit Event
+     */
+    if ( $( '#pys_event_pinterest_event_type' ).length > 0 ) {
+        $( '#pys_event_pinterest_event_type' ).on( 'change', function () {
+            updatePinterestEventParamsFrom()
+        } )
+
+        $( '#pys_event_pinterest_params_enabled' ).on( 'change', function () {
+            updatePinterestParamFormVisibility( true )
+        } )
+
+        if ( $( '#pys_event_pinterest_event_type' ).val() === 'partner_defined' ) {
+            $( '.pinterest-custom-event-type' ).css( 'display', 'block' )
+        } else {
+            $( '.pinterest-custom-event-type' ).css( 'display', 'none' )
+        }
+        updatePinterestParamFormVisibility();
+    }
 
     togglePinterestPanel();
     togglePinterestCustomEventType();
@@ -812,17 +1170,10 @@ jQuery( document ).ready( function ( $ ) {
     $( "#pys_event_pinterest_enabled" ).on( 'click', function () {
         togglePinterestPanel();
     } );
-    $( "#pys_event_pinterest_event_type" ).on( 'change', function () {
-        togglePinterestCustomEventType();
-        updatePinterestParamsPanelClass();
-    } );
-    $( "#pys_event_pinterest_params_enabled" ).on( 'click', function () {
-        togglePinterestParamsPanel();
-    } );
     $( "#pys_event_pinterest_params_currency" ).on( 'change', function () {
         togglePinterestCustomCurrency();
     } );
-    $( ".add-pinterest-parameter" ).on( 'click', function () {
+    $( document ).on( 'click', '.add-pinterest-parameter', function () {
         var pinterestParamsPanel = $( "#pinterest_params_panel" ),
             customParams = $( ".pinterest-custom-param", pinterestParamsPanel ),
             clonedParam = $( customParams[ 0 ] ).clone( true ),
@@ -832,6 +1183,8 @@ jQuery( document ).ready( function ( $ ) {
         clonedParam.data( "param_id", newParamId );
         $( "input.custom-param-name", clonedParam ).attr( "name", newParamName + "[name]" );
         $( "input.custom-param-value", clonedParam ).attr( "name", newParamName + "[value]" );
+        $( "input.custom-param-selector", clonedParam ).attr( "name", newParamName + "[selector]" );
+        $( "input.custom-param-dynamic-checkbox", clonedParam ).attr( "name", newParamName + "[dynamic]" );
         clonedParam.css( "display", "flex" );
         clonedParam.insertBefore( $( ".insert-marker", pinterestParamsPanel ) );
     } );
@@ -849,7 +1202,7 @@ jQuery( document ).ready( function ( $ ) {
     $( "#pys_event_google_ads_event_action" ).on( 'change', function () {
         toggleGoogleAdsCustomEventAction();
     } );
-    $( ".add-google_ads-parameter" ).on( 'click', function () {
+    $( document ).on( 'click', '.add-google_ads-parameter', function () {
         var googleAdsParamsPanel = $( "#google_ads_params_panel" ),
             customParams = $( ".google_ads-custom-param", googleAdsParamsPanel ),
             clonedParam = $( customParams[ 0 ] ).clone( true ),
@@ -863,9 +1216,44 @@ jQuery( document ).ready( function ( $ ) {
         clonedParam.insertBefore( $( ".insert-marker", googleAdsParamsPanel ) );
     } );
 
+    /**
+     * Bing Edit Event
+     */
+    if ( $( '#pys_event_bing_event_type' ).length > 0 ) {
+        $( '#pys_event_bing_event_type' ).on( 'change', function () {
+            updateBingEventParamsFrom()
+        } )
+
+        $( '#pys_event_bing_params_enabled' ).on( 'change', function () {
+            updateBingParamFormVisibility( true )
+        } )
+
+        if ( $( '#pys_event_bing_event_type' ).val() === 'custom' ) {
+            $( '.bing-custom-event-type' ).css( 'display', 'block' )
+        } else {
+            $( '.bing-custom-event-type' ).css( 'display', 'none' )
+        }
+        updateBingParamFormVisibility();
+    }
+
     toggleBingPanel();
     $( "#pys_event_bing_enabled" ).on( 'click', function () {
         toggleBingPanel();
+    } );
+    $( document ).on( 'click', '.add-bing-parameter', function () {
+        var bingParamsPanel = $( "#bing_params_panel" ),
+            customParams = $( ".bing-custom-param", bingParamsPanel ),
+            clonedParam = $( customParams[ 0 ] ).clone( true ),
+            newParamId = $( customParams[ customParams.length - 1 ] ).data( "param_id" ) + 1,
+            newParamName = "pys[event][bing_custom_params][" + newParamId + "]";
+
+        clonedParam.data( "param_id", newParamId );
+        $( "input.custom-param-name", clonedParam ).attr( "name", newParamName + "[name]" );
+        $( "input.custom-param-value", clonedParam ).attr( "name", newParamName + "[value]" );
+        $( "input.custom-param-selector", clonedParam ).attr( "name", newParamName + "[selector]" );
+        $( "input.custom-param-dynamic-checkbox", clonedParam ).attr( "name", newParamName + "[dynamic]" );
+        clonedParam.css( "display", "flex" );
+        clonedParam.insertBefore( $( ".insert-marker", bingParamsPanel ) );
     } );
 
 
@@ -1018,18 +1406,31 @@ jQuery( document ).ready( function ( $ ) {
             for ( let i = 0; i < ga_fields.length; i++ ) {
                 if ( ga_fields[ i ].name == value ) {
                     ga_fields[ i ].fields.forEach( function ( el ) {
-                        ga_param_list += '<div class="ga_param mb-24">\n' +
+                        console.log(el)
+                        ga_param_list += '<div class="ga_param mb-24 param-field-wrapper" data-param-key="' + el.name + '">\n' +
                             '<div class="mb-8">' +
-                            '<label class="custom-event-label">' + el + '</label>' +
+                            '<label class="custom-event-label">' + el.name + '</label>' +
                             '</div>' +
-                            '<input type="text" name="pys[event][ga_params][' + el + ']" class="input-standard">' +
-                            ' </div>';
-                        ga_ads_param_list += '<div class="ga_ads_param mb-24">\n' +
+                            '<input type="hidden" name="pys[event][ga_params][' + el.name + '][input_type]" value="' + el.input_type + '">' +
+                            '<input type="text" name="pys[event][ga_params][' + el.name + '][value]" class="input-standard param-value-input" placeholder="">' +
+                            '<input type="text" name="pys[event][ga_params][' + el.name + '][selector]" class="input-standard param-selector-input" placeholder="CSS Selector (e.g., .price)" style="display: none;">' +
+                            '<div class="mt-8 d-flex align-items-center">' +
+                            '<input type="checkbox" name="pys[event][ga_params][' + el.name + '][dynamic]" value="1" class="param-dynamic-checkbox" />' +
+                            '<label class="ml-8" style="font-size: 13px; color: #666;">Use dynamic value from page</label>' +
+                            '</div>' +
+                            '</div>';
+                        ga_ads_param_list += '<div class="ga_ads_param mb-24 param-field-wrapper" data-param-key="' + el.name + '">\n' +
                             '<div class="mb-8">' +
-                            '<label class="custom-event-label">' + el + '</label>' +
+                            '<label class="custom-event-label">' + el.name + '</label>' +
                             '</div>' +
-                            '<input type="text" name="pys[event][ga_ads_params][' + el + ']" class="input-standard">' +
-                            ' </div>';
+                            '<input type="hidden" name="pys[event][ga_ads_params][' + el.name + '][input_type]" value="' + el.input_type + '">' +
+                            '<input type="text" name="pys[event][ga_ads_params][' + el.name + '][value]" class="input-standard param-value-input" placeholder="">' +
+                            '<input type="text" name="pys[event][ga_ads_params][' + el.name + '][selector]" class="input-standard param-selector-input" placeholder="CSS Selector (e.g., .price)" style="display: none;">' +
+                            '<div class="mt-8 d-flex align-items-center">' +
+                            '<input type="checkbox" name="pys[event][ga_ads_params][' + el.name + '][dynamic]" value="1" class="param-dynamic-checkbox" />' +
+                            '<label class="ml-8" style="font-size: 13px; color: #666;">Use dynamic value from page</label>' +
+                            '</div>' +
+                            '</div>';
                     } );
                     break;
                 }
@@ -1064,9 +1465,9 @@ jQuery( document ).ready( function ( $ ) {
                 if ( ga_fields[ i ].name == value ) {
                     ga_fields[ i ].fields.forEach( function ( el ) {
                         $( ".ga-ads-param-list" ).append( '<div class="row mb-3 ga_ads_param">\n' +
-                            '<label class="col-5">' + el + '</label>' +
+                            '<label class="col-5">' + el.name + '</label>' +
                             '<div class="col-4">' +
-                            '<input type="text" name="pys[event][ga_ads_params][' + el + ']" class="form-control">' +
+                            '<input type="text" name="pys[event][ga_ads_params][' + el.name + ']" class="form-control">' +
                             '</div>' +
                             ' </div>' );
                     } );
@@ -1121,12 +1522,18 @@ jQuery( document ).ready( function ( $ ) {
             for ( let i = 0; i < gtm_fields.length; i++ ) {
                 if ( gtm_fields[ i ].name == value ) {
                     gtm_fields[ i ].fields.forEach( function ( el ) {
-                        gtm_param_list += '<div class="mb-24 gtm_param">' +
+                        gtm_param_list += '<div class="mb-24 gtm_param param-field-wrapper" data-param-key="' + el.name + '">' +
                             '<div class="mb-8">' +
-                            '<label class="custom-event-label">' + el + '</label>' +
+                            '<label class="custom-event-label">' + el.name + '</label>' +
                             '</div>' +
-                            '<input type="text" name="pys[event][gtm_params][' + el + ']" class="form-control input-standard">' +
-                            ' </div>';
+                            '<input type="hidden" name="pys[event][gtm_params][' + el.name + '][input_type]" value="' + el.input_type + '">' +
+                            '<input type="text" name="pys[event][gtm_params][' + el.name + '][value]" class="form-control input-standard param-value-input" placeholder="">' +
+                            '<input type="text" name="pys[event][gtm_params][' + el.name + '][selector]" class="form-control input-standard param-selector-input" placeholder="CSS Selector (e.g., .price)" style="display: none;">' +
+                            '<div class="mt-8 d-flex align-items-center">' +
+                            '<input type="checkbox" name="pys[event][gtm_params][' + el.name + '][dynamic]" value="1" class="param-dynamic-checkbox" />' +
+                            '<label class="ml-8" style="font-size: 13px; color: #666;">Use dynamic value from page</label>' +
+                            '</div>' +
+                            '</div>';
                     } );
                     break;
                 }
@@ -1156,12 +1563,18 @@ jQuery( document ).ready( function ( $ ) {
             for(let i=0;i<gtm_fields.length;i++){
                 if(gtm_fields[i].name == value) {
                     gtm_fields[ i ].fields.forEach( function ( el ) {
-                        gtm_param_list += '<div class="mb-24 gtm_param">' +
+                        gtm_param_list += '<div class="mb-24 gtm_param param-field-wrapper" data-param-key="' + el.name + '">' +
                             '<div class="mb-8">' +
-                            '<label class="custom-event-label">' + el + '</label>' +
+                            '<label class="custom-event-label">' + el.name + '</label>' +
                             '</div>' +
-                            '<input type="text" name="pys[event][gtm_params][' + el + ']" class="form-control input-standard">' +
-                            ' </div>';
+                            '<input type="hidden" name="pys[event][gtm_params][' + el.name + '][input_type]" value="' + el.input_type + '">' +
+                            '<input type="text" name="pys[event][gtm_params][' + el.name + '][value]" class="form-control input-standard param-value-input" placeholder="">' +
+                            '<input type="text" name="pys[event][gtm_params][' + el.name + '][selector]" class="form-control input-standard param-selector-input" placeholder="CSS Selector (e.g., .price)" style="display: none;">' +
+                            '<div class="mt-8 d-flex align-items-center">' +
+                            '<input type="checkbox" name="pys[event][gtm_params][' + el.name + '][dynamic]" value="1" class="param-dynamic-checkbox" />' +
+                            '<label class="ml-8" style="font-size: 13px; color: #666;">Use dynamic value from page</label>' +
+                            '</div>' +
+                            '</div>';
                     } );
                     break;
                 }
@@ -1204,27 +1617,38 @@ jQuery( document ).ready( function ( $ ) {
         }
     } );
 
-    $( '.add-gtm-parameter' ).on( 'click', function () {
+    $( document ).on( 'click', '.add-gtm-parameter', function () {
         let currentCount = $( ".gtm-custom-param-list .gtm-custom-param" ).length,
             messageContainer = $( "#custom-param-message" );
 
         if ( currentCount < 5 ) {
             let index = currentCount + 1;
             $( ".gtm-custom-param-list" ).append( '<div class="gtm-custom-param" data-param_id="' + index + '">' +
-                '<div class="mt-24 d-flex align-items-center">' +
+                '<div class="mt-24">' +
+                '<div class="d-flex align-items-center">' +
                 '<div>' +
                 '<input type="text" placeholder="Enter name" class="custom-param-name input-standard"' +
                 ' name="pys[event][gtm_custom_params][' + index + '][name]"' +
                 ' value="">' +
                 '</div>' +
-                '<div class="ml-16">' +
+                '<div class="ml-16" style="flex: 1;">' +
                 '<input type="text" placeholder="Enter value" class="custom-param-value input-standard"' +
                 ' name="pys[event][gtm_custom_params][' + index + '][value]"' +
-                ' value="">' +
+                ' value="" style="width: 100%;">' +
+                '</div>' +
+                '<div class="ml-16" style="flex: 1; display: none;">' +
+                '<input type="text" placeholder="CSS Selector (e.g., .price)" class="custom-param-selector input-standard"' +
+                ' name="pys[event][gtm_custom_params][' + index + '][selector]"' +
+                ' value="" style="width: 100%;">' +
                 '</div>' +
                 '<button type="button" class="btn button-remove-row">' +
                 '<i class="icon-delete" aria-hidden="true"></i>' +
                 '</button>' +
+                '</div>' +
+                '<div class="mt-8 d-flex align-items-center">' +
+                '<input type="checkbox" name="pys[event][gtm_custom_params][' + index + '][dynamic]" value="1" class="custom-param-dynamic-checkbox" />' +
+                '<label class="ml-8" style="font-size: 13px; color: #666;">Use dynamic value from page</label>' +
+                '</div>' +
                 '</div>' +
                 '</div>' );
             if ( messageContainer.length ) {
@@ -1244,25 +1668,37 @@ jQuery( document ).ready( function ( $ ) {
        $(this).parents('.ga-custom-param').remove();
     });
 
-    $( '.add-ga-ads-parameter' ).on( 'click', function () {
+    $( document ).on( 'click', '.add-ga-ads-parameter', function () {
         let index = $( ".ga-ads-custom-param-list .ga-ads-custom-param" ).length + 1;
 
         $( ".ga-ads-custom-param-list" ).append( '<div class="ga-ads-custom-param" data-param_id="' + index + '">' +
-            '<div class="mt-24 d-flex align-items-center">' +
+            '<div class="mt-24">' +
+            '<div class="d-flex align-items-center">' +
             '<div>' +
             '<input type="text" placeholder="Enter name" class="custom-param-name input-standard"' +
             ' name="pys[event][ga_ads_custom_params][' + index + '][name]"' +
             ' value="">' +
             '</div>' +
-            '<div class="ml-16">' +
-            '<input type="text" placeholder="Enter value" class="custom-param-name input-standard"' +
+            '<div class="ml-16" style="flex: 1;">' +
+            '<input type="text" placeholder="Enter value" class="custom-param-value input-standard"' +
             ' name="pys[event][ga_ads_custom_params][' + index + '][value]"' +
-            ' value="">' +
+            ' value="" style="width: 100%;">' +
+            '</div>' +
+            '<div class="ml-16" style="flex: 1; display: none;">' +
+            '<input type="text" placeholder="CSS Selector (e.g., .price)" class="custom-param-selector input-standard"' +
+            ' name="pys[event][ga_ads_custom_params][' + index + '][selector]"' +
+            ' value="" style="width: 100%;">' +
             '</div>' +
             '<div>' +
             '<button type="button" class="btn button-remove-row">' +
             '<i class="icon-delete" aria-hidden="true"></i>' +
             '</button>' +
+            '</div>' +
+            '</div>' +
+            '<div class="mt-8 d-flex align-items-center">' +
+            '<input type="checkbox" name="pys[event][ga_ads_custom_params][' + index + '][dynamic]" value="1" class="custom-param-dynamic-checkbox" />' +
+            '<label class="ml-8" style="font-size: 13px; color: #666;">Use dynamic value from page</label>' +
+            '</div>' +
             '</div>' +
             '</div>' );
     } );
@@ -1481,11 +1917,24 @@ jQuery( document ).ready( function ( $ ) {
 
     function renderField( data ) {
         if ( data.type === "input" ) {
-            return '<div class="mt-24">' +
+            // Extract parameter key from name (e.g., "pys[event][facebook_params][value]" -> "value")
+            var paramKey = data.label;
+            var baseName = data.name.replace('[value]', '').replace('[selector]', '').replace('[dynamic]', '').replace('[input_type]', '');
+
+            return '<div class="mt-24 param-field-wrapper" data-param-key="' + paramKey + '">' +
                 '<div class="mb-8">' +
                 '<label class="custom-event-label">' + data.label + '</label>' +
                 '</div>' +
-                '<input type="text" name="' + data.name + '" value="" placeholder="" class="input-standard">' +
+                '<input type="hidden" name="' + baseName + '[input_type]" value="' + data.input_type + '">' +
+                // Value input (shown when dynamic mode is OFF)
+                '<input type="text" name="' + baseName + '[value]" value="" placeholder="" class="input-standard param-value-input">' +
+                // Selector input (hidden by default, shown when dynamic mode is ON)
+                '<input type="text" name="' + baseName + '[selector]" value="" placeholder="CSS Selector (e.g., .price)" class="input-standard param-selector-input" style="display: none;">' +
+                // Dynamic checkbox
+                '<div class="mt-8 d-flex align-items-center">' +
+                '<input type="checkbox" name="' + baseName + '[dynamic]" value="1" class="param-dynamic-checkbox" />' +
+                '<label class="ml-8" style="font-size: 13px; color: #666;">Use dynamic value from page</label>' +
+                '</div>' +
                 '</div>';
         }
     }
@@ -1519,20 +1968,56 @@ jQuery( document ).ready( function ( $ ) {
         if ( $select.val() === 'CustomEvent' ) {
             $custom.slideDown( 400 );
             $panel.slideUp( 400, function () {
+                // Save custom params before clearing
+                let customParamsHtml = $( '.tiktok-custom-param', $panel ).clone();
+                let insertMarker = $( '.insert-marker', $panel ).clone();
+                let addButton = $( '.mt-24:has(.add-tiktok-parameter)', $panel ).clone();
+
                 $( this ).html( '' );
+
+                // Restore custom params
+                customParamsHtml.each(function() {
+                    $panel.append( $(this) );
+                });
+                $panel.append( insertMarker );
+                $panel.append( addButton );
             } );
         } else {
             let fields = $select.find( ":selected" ).data( 'fields' );
 
             if ( fields.length === 0 || !$( '#pys_event_tiktok_params_enabled' ).is( ":checked" ) ) {
                 $panel.slideUp( 400, function () {
+                    // Save custom params before clearing
+                    let customParamsHtml = $( '.tiktok-custom-param', $panel ).clone();
+                    let insertMarker = $( '.insert-marker', $panel ).clone();
+                    let addButton = $( '.mt-24:has(.add-tiktok-parameter)', $panel ).clone();
+
                     $( this ).html( '' );
+
+                    // Restore custom params
+                    customParamsHtml.each(function() {
+                        $panel.append( $(this) );
+                    });
+                    $panel.append( insertMarker );
+                    $panel.append( addButton );
                 } );
             } else {
+                // Save custom params before clearing
+                let customParamsHtml = $( '.tiktok-custom-param', $panel ).clone();
+                let insertMarker = $( '.insert-marker', $panel ).clone();
+                let addButton = $( '.mt-24:has(.add-tiktok-parameter)', $panel ).clone();
+
                 $panel.html( '' )
                 fields.forEach( function ( item ) {
                     $panel.append( renderField( item ) )
                 } );
+
+                // Restore custom params
+                customParamsHtml.each(function() {
+                    $panel.append( $(this) );
+                });
+                $panel.append( insertMarker );
+                $panel.append( addButton );
 
                 $panel.slideDown( 400 );
             }
@@ -1579,7 +2064,45 @@ jQuery( document ).ready( function ( $ ) {
     $( "#pys_event_tiktok_enabled" ).on( 'click', function () {
         updateTikTokPanelVisibility()
     } )
+    $( document ).on( 'click', '.add-tiktok-parameter', function () {
+        var tiktokParamsPanel = $( "#tiktok_params_panel" ),
+            customParams = $( ".tiktok-custom-param", tiktokParamsPanel ),
+            clonedParam = $( customParams[ 0 ] ).clone( true ),
+            newParamId = $( customParams[ customParams.length - 1 ] ).data( "param_id" ) + 1,
+            newParamName = "pys[event][tiktok_custom_params][" + newParamId + "]";
 
+        clonedParam.data( "param_id", newParamId );
+        $( "input.custom-param-name", clonedParam ).attr( "name", newParamName + "[name]" );
+        $( "input.custom-param-value", clonedParam ).attr( "name", newParamName + "[value]" );
+        $( "input.custom-param-selector", clonedParam ).attr( "name", newParamName + "[selector]" );
+        $( "input.custom-param-dynamic-checkbox", clonedParam ).attr( "name", newParamName + "[dynamic]" );
+        clonedParam.css( "display", "flex" );
+        clonedParam.insertBefore( $( ".insert-marker", tiktokParamsPanel ) );
+    } );
+
+    /**
+     * Dynamic Parameter Mode Toggle
+     * Handles switching between static value input and dynamic selector input
+     */
+    $( document ).on( 'change', '.param-dynamic-checkbox, .custom-param-dynamic-checkbox', function () {
+        var $checkbox = $( this );
+        var $wrapper = $checkbox.closest( '.param-field-wrapper, .facebook-custom-param, .tiktok-custom-param, .pinterest-custom-param, .bing-custom-param, .reddit-custom-param, .ga-ads-custom-param, .gtm-custom-param' );
+        var isChecked = $checkbox.is( ':checked' );
+
+        if ( isChecked ) {
+            // Dynamic mode: hide value input, show selector input
+            $wrapper.find( '.param-value-input, .custom-param-value' ).hide();
+            $wrapper.find( '.param-value-input, .custom-param-value' ).parent().hide();
+            $wrapper.find( '.param-selector-input, .custom-param-selector' ).parent().show();
+            $wrapper.find( '.param-selector-input, .custom-param-selector' ).show();
+        } else {
+            // Static mode: show value input, hide selector input
+            $wrapper.find( '.param-selector-input, .custom-param-selector' ).hide();
+            $wrapper.find( '.param-selector-input, .custom-param-selector' ).parent().hide();
+            $wrapper.find( '.param-value-input, .custom-param-value' ).parent().show();
+            $wrapper.find( '.param-value-input, .custom-param-value' ).show();
+        }
+    } );
 
     $( "select.pys_hidden_content" ).each( function ( el ) {
         hideShowHiddenData( $( this ) )
@@ -1861,7 +2384,192 @@ jQuery( document ).ready( function ( $ ) {
             error.slideDown( 400 );
             elementor_form_triggers.slideUp( 400 );
         }
-    } )
+    } );
+
+    /**
+     * Any forms handler
+     */
+
+    $(document).on('click', '.pys-scan-forms', function (e) {
+        const panel = $(this).closest('.form_field_panel');
+        const urlsInput = panel.find('.pys_form_field_urls_event');
+        const errorBox = panel.find('.elementor_form_error');
+        const messageBox = errorBox.find('.event_error');
+        const button = $(this);
+        const formTriggersBlock = panel.find('.pys_form_field_triggers');
+        const formTriggersSelect = panel.find('.pys_form_field_triggers_event');
+
+        const urls = urlsInput.val();
+        errorBox.slideUp(400);
+
+        if (!urls || urls.length === 0) {
+            messageBox.html('Please enter form pages URLs');
+            errorBox.slideDown(400);
+            formTriggersBlock.slideUp(400);
+            return;
+        }
+
+        // Проверка: все ли URL принадлежат текущему сайту
+        const siteUrl = window.location.origin;
+        const notValidUrls = urls.filter(url => !url.startsWith(siteUrl));
+
+        if (notValidUrls.length > 0) {
+            const errorText = `The URLs "${notValidUrls.join(', ')}" are not related to the site: ${siteUrl}. Please enter valid Elementor form URLs.`;
+            messageBox.html(errorText);
+            errorBox.slideDown(400);
+            return;
+        }
+
+        // Запускаем скан
+        button.html('Scanning...');
+        const ajaxData = {
+            _wpnonce: $('#_wpnonce').val(),
+            action: 'pys_scan_any_form',
+            urls: urls
+        };
+
+        $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            data: ajaxData,
+
+            success: function (response) {
+                if (!response.success) {
+                    messageBox.html('Something went wrong');
+                    errorBox.slideDown(400);
+                    formTriggersBlock.slideUp(400);
+                    return;
+                }
+
+                // Сохраняем полученные формы
+                panel.find( '.pys_event_form_field_data' ).val( JSON.stringify( response.data ) );
+                dataForms = response.data;
+                formTriggersSelect.empty();
+
+                // Заполняем селект форм
+                let formsFound = false;
+                dataForms.forEach(item => {
+                    Object.values(item.forms).forEach(form => {
+                        formsFound = true;
+                        formTriggersSelect.append($('<option>', {
+                            value: form.selector,
+                            text: form.title,
+                            'data-selector': form.selector
+                        }));
+                    });
+                });
+
+                if (formsFound) {
+                    formTriggersBlock.slideDown(400);
+                    formTriggersSelect.pysselect2({
+                        templateResult: function (data) {
+                            if (!data.id) return data.text;
+
+                            const $el = $(data.element);
+                            const selector = $el.data('selector');
+
+                            return $(`
+                            <div>
+                                <strong>${data.text}</strong>
+                                ${selector ? `<div style="font-size: 0.75em; color: #aaa;">${selector}</div>` : ''}
+                            </div>
+                        `);
+                        },
+                        templateSelection: function (data) {
+                            return data.text;
+                        }
+                    });
+                } else {
+                    messageBox.html('These URLs do not contain any forms');
+                    errorBox.slideDown(400);
+                    formTriggersBlock.slideUp(400);
+                }
+            },
+
+            error: function (xhr) {
+                const errorText = xhr?.responseJSON?.data || 'Unexpected error';
+                messageBox.html(errorText);
+                errorBox.slideDown(400);
+                formTriggersBlock.slideUp(400);
+                console.error(xhr);
+            },
+
+            complete: function () {
+                button.html(button.val()).prop('disabled', false);
+            }
+        });
+    });
+
+
+// Обработка выбора формы
+    $(document).on('change', '.trigger_form_select', function () {
+        const panel = $(this).closest('.form_field_panel');
+        const errorBox = panel.find('.elementor_form_error');
+        const messageBox = errorBox.find('.event_error');
+        const fieldsBlock = panel.find('.pys_form_fields');
+        const eventFieldSelect = panel.find('.pys_form_field_event');
+        const dataFormsRaw = panel.find('.pys_event_form_field_data').val();
+        let dataForms = [];
+
+        try {
+            dataForms = JSON.parse(dataFormsRaw);
+        } catch (e) {
+            console.error('Invalid JSON in dataForms', e);
+        }
+        eventFieldSelect.empty();
+        const selectedSelector = $(this).val();
+        const form = getFormBySelector(selectedSelector, dataForms);
+
+        if (!form) {
+            console.warn('Selector не найден');
+            return;
+        }
+
+        // Заполняем список полей
+        form.fields.forEach(field => {
+            eventFieldSelect.append($('<option>', {
+                value: field.selector,
+                text: `Name: ${field.name}`,
+                'data-type': field.type,
+                'data-id': field.id
+            }));
+        });
+
+        fieldsBlock.slideDown(400);
+        eventFieldSelect.pysselect2({
+            templateResult: function (data) {
+                if (!data.id) return data.text;
+
+                const $el = $(data.element);
+                const type = $el.data('type');
+                const id = $el.data('id');
+
+                return $(`
+                    <div>
+                        <strong>${data.text}</strong>
+                        <div style="font-size: 0.75em; color: #aaa;">Type: ${type}</div>
+                        <div style="font-size: 0.75em; color: #aaa;">ID: ${id}</div>
+                    </div>
+                `);
+            },
+            templateSelection: function (data) {
+                return data.text;
+            }
+        });
+    });
+
+
+// Поиск формы по CSS-селектору
+    function getFormBySelector(selector, dataForms) {
+        for (const item of dataForms) {
+            for (const form of Object.values(item.forms)) {
+                if (form.selector === selector) {
+                    return form;
+                }
+            }
+        }
+        return null;
+    }
 
     //Remove trigger
     $( document ).on( 'click', '.pys_triggers_wrapper .pys_remove_trigger .button-remove-row', function () {
@@ -1996,4 +2704,220 @@ jQuery( document ).ready( function ( $ ) {
         headButtonBlock.find(".icon-load").addClass("active");
         passwordBlock.find(".maskedInput").attr("disabled", true);
     });
+
+    // Queue Management JavaScript
+    if ($('#queue-stats-container').length > 0) {
+        
+        // Refresh statistics
+        $('#refresh-stats').on('click', function() {
+            const $btn = $(this);
+            const originalText = $btn.html();
+            
+            $btn.html('<i class="fa fa-spinner fa-spin"></i> Refreshing...');
+            $btn.prop('disabled', true);
+            
+            $.ajax({
+                url: ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'pys_refresh_queue_stats',
+                    _wpnonce: $('#_wpnonce').val()
+                },
+                success: function(response) {
+                    if (response.success) {
+                        updateQueueStats(response.data);
+                        showMessage('Statistics refreshed successfully', 'success');
+                    } else {
+                        showMessage('Failed to refresh statistics: ' + response.data, 'error');
+                    }
+                },
+                error: function() {
+                    showMessage('Error refreshing statistics', 'error');
+                },
+                complete: function() {
+                    $btn.html(originalText);
+                    $btn.prop('disabled', false);
+                }
+            });
+        });
+
+        // Manual queue processing
+        $('#manual-process-queue').on('click', function() {
+            const $btn = $(this);
+            const originalText = $btn.html();
+            
+            if (!confirm('Are you sure you want to process the queue manually? This may take some time.')) {
+                return;
+            }
+            
+            $btn.addClass('loading');
+            $btn.prop('disabled', true);
+            
+            $.ajax({
+                url: ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'pys_process_queue_manual',
+                    _wpnonce: $('#_wpnonce').val()
+                },
+                success: function(response) {
+                    if (response.success) {
+                        showMessage(response.data.message, 'success');
+                        // Refresh stats after processing
+                        $('#refresh-stats').trigger('click');
+                    } else {
+                        showMessage('Failed to process queue: ' + response.data, 'error');
+                    }
+                },
+                error: function() {
+                    showMessage('Error processing queue', 'error');
+                },
+                complete: function() {
+                    $btn.removeClass('loading');
+                    $btn.html(originalText);
+                    $btn.prop('disabled', false);
+                }
+            });
+        });
+
+        // Clear old records
+        $('#clear-old-records').on('click', function() {
+            const $btn = $(this);
+            const originalText = $btn.html();
+            
+            if (!confirm('Are you sure you want to clear old records? This action cannot be undone.')) {
+                return;
+            }
+            
+            $btn.addClass('loading');
+            $btn.prop('disabled', true);
+            
+            $.ajax({
+                url: ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'pys_cleanup_queue',
+                    _wpnonce: $('#_wpnonce').val()
+                },
+                success: function(response) {
+                    if (response.success) {
+                        showMessage(response.data.message, 'success');
+                        // Refresh stats after clearing
+                        $('#refresh-stats').trigger('click');
+                    } else {
+                        showMessage('Failed to clear old records: ' + response.data, 'error');
+                    }
+                },
+                error: function() {
+                    showMessage('Error clearing old records', 'error');
+                },
+                complete: function() {
+                    $btn.removeClass('loading');
+                    $btn.html(originalText);
+                    $btn.prop('disabled', false);
+                }
+            });
+        });
+
+        // Reset failed events
+        $('#reset-failed-events').on('click', function() {
+            const $btn = $(this);
+            const originalText = $btn.html();
+            
+            if (!confirm('Are you sure you want to reset failed events? They will be retried again.')) {
+                return;
+            }
+            
+            $btn.addClass('loading');
+            $btn.prop('disabled', true);
+            
+            $.ajax({
+                url: ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'pys_reset_failed_events',
+                    _wpnonce: $('#_wpnonce').val()
+                },
+                success: function(response) {
+                    if (response.success) {
+                        showMessage(response.data.message, 'success');
+                        // Refresh stats after reset
+                        $('#refresh-stats').trigger('click');
+                    } else {
+                        showMessage('Failed to reset failed events: ' + response.data, 'error');
+                    }
+                },
+                error: function() {
+                    showMessage('Error resetting failed events', 'error');
+                },
+                complete: function() {
+                    $btn.removeClass('loading');
+                    $btn.html(originalText);
+                    $btn.prop('disabled', false);
+                }
+            });
+        });
+
+        // Auto-refresh stats every 30 seconds
+        setInterval(function() {
+            $('#refresh-stats').trigger('click');
+        }, 30000);
+    }
+
+    // Helper functions
+    function updateQueueStats(stats) {
+        $('#pending-count').text(stats.pending || 0);
+        $('#processed-count').text(stats.processed || 0);
+        $('#failed-count').text(stats.failed || 0);
+        $('#total-count').text(stats.total || 0);
+        $('#last-processed').text(stats.last_processed || 'Never');
+        $('#queue-status').text(stats.queue_status_text || 'Unknown').attr('class', 'queue-status ' + (stats.queue_status || 'idle'));
+        $('#processing-rate').text(stats.processing_rate || '0');
+        $('#success-rate').text(stats.success_rate || '100');
+    }
+
+    function showMessage(message, type) {
+        // Remove existing messages
+        $('.queue-message').remove();
+        
+        // Create new message
+        const $message = $('<div class="queue-message ' + type + '">' + message + '</div>');
+        
+        // Insert after queue management actions
+        $('.queue-management-actions').after($message);
+        
+        // Auto-hide after 5 seconds
+        setTimeout(function() {
+            $message.fadeOut(300, function() {
+                $(this).remove();
+            });
+        }, 5000);
+    }
+
+
+	/**
+	 * Function to update the fixed width of the save settings
+	 */
+	function updateFixedWidth() {
+		const leftMenu = document.getElementById( 'adminmenuwrap' ),
+			saveSettings = document.querySelector( '.save-settings' );
+
+		if ( leftMenu && saveSettings ) {
+			saveSettings.style.left = `${ leftMenu.offsetWidth }px`;
+		}
+	}
+
+	window.addEventListener( 'load', updateFixedWidth );
+
+	const container = document.getElementById( 'adminmenuwrap' );
+
+	if ( container ) {
+		const resizeObserver = new ResizeObserver( entries => {
+			for ( let entry of entries ) {
+				updateFixedWidth();
+			}
+		} );
+
+		resizeObserver.observe( container );
+	}
 } );

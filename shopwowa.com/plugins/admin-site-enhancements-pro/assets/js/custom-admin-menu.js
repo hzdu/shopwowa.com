@@ -1,6 +1,20 @@
 (function( $ ) {
    'use strict';
 
+   /**
+    * Get an element by ID without using CSS selector parsing.
+    *
+    * This avoids jQuery selector syntax errors when IDs contain percent-encoded
+    * sequences (e.g. %e3%83...) which can happen for multibyte site languages.
+    *
+    * @param {string} id Element ID (without '#').
+    * @return {Object} jQuery object (empty set when not found).
+    */
+   function asenhaGetById( id ) {
+      var el = document.getElementById( id );
+      return el ? $( el ) : $();
+   }
+
    $(document).ready( function() {
 
       // ----- Menu Ordering -----
@@ -18,7 +32,7 @@
       let menuOrder = $('#custom-admin-menu').sortable("toArray").toString();
 
       // Set hidden input value for saving in options
-      document.getElementById('admin_site_enhancements[custom_menu_order]').value = menuOrder;
+      document.getElementById('custom_menu_order').value = menuOrder;
 
       // Save custom order into a comma-separated string, triggerred after each drag and drop of menu item
       // https://api.jqueryui.com/sortable/#event-update
@@ -29,7 +43,7 @@
          let menuOrder = $('#custom-admin-menu').sortable("toArray").toString();
 
          // Set hidden input value for saving in options
-         document.getElementById('admin_site_enhancements[custom_menu_order]').value = menuOrder;
+         document.getElementById('custom_menu_order').value = menuOrder;
 
       });
 
@@ -60,14 +74,14 @@
          submenuOrder[submenuSortableId] = $(this).sortable("toArray").toString();
 
          // Set hidden input value for saving in options
-         document.getElementById('admin_site_enhancements[custom_submenus_order]').value = JSON.stringify(submenuOrder);
+         document.getElementById('custom_submenus_order').value = JSON.stringify(submenuOrder);
       });
 
       // Update submenus items order for saving to options
       $('.submenu-sortable').on('sortupdate', function( event, ui) {
          submenuSortableId = $(this).attr('id');
          submenuOrder[submenuSortableId] = $(this).sortable("toArray").toString();
-         document.getElementById('admin_site_enhancements[custom_submenus_order]').value = JSON.stringify(submenuOrder);
+         document.getElementById('custom_submenus_order').value = JSON.stringify(submenuOrder);
       });
       
       // Toggle submenu items
@@ -77,7 +91,7 @@
       });
 
       // Prepare constant to store IDs of menu items that will be hidden
-      var hiddenMenuByRoleInput = document.getElementById('admin_site_enhancements[custom_menu_always_hidden]');
+      var hiddenMenuByRoleInput = document.getElementById('custom_menu_always_hidden');
       if ( hiddenMenuByRoleInput && hiddenMenuByRoleInput.value ) {
          var menuAlwaysHidden = JSON.parse(hiddenMenuByRoleInput.value); // object
       } else {
@@ -93,24 +107,24 @@
       $('#custom-admin-menu').on('click', '.parent-menu-hide-checkbox-prm', function() {
          var menuId = $(this).data('menu-item-id'); // may contain transformed ID
          if ($(this).is(':checked')) {
-            $('#options-for-'+menuId).show();
-            $('#all-selected-roles-options-for-'+menuId).show();
+            asenhaGetById('options-for-' + menuId).show();
+            asenhaGetById('all-selected-roles-options-for-' + menuId).show();
          } else {
-            $('#options-for-'+menuId).hide();
-            $('#hide-until-toggled-for-'+menuId).prop('checked', false);
-            $('#hide-by-role-for-'+menuId).prop('checked', false);
-            $('#all-selected-roles-radio-for-'+menuId).hide();
-            $('#hide-for-roles-'+menuId).hide();
-            $('#menu-required-capability-for-'+menuId).hide();
+            asenhaGetById('options-for-' + menuId).hide();
+            asenhaGetById('hide-until-toggled-for-' + menuId).prop('checked', false);
+            asenhaGetById('hide-by-role-for-' + menuId).prop('checked', false);
+            asenhaGetById('all-selected-roles-radio-for-' + menuId).hide();
+            asenhaGetById('hide-for-roles-' + menuId).hide();
+            asenhaGetById('menu-required-capability-for-' + menuId).hide();
             menuAlwaysHidden[menuId]['hide_by_toggle'] = false;
             menuAlwaysHidden[menuId]['always_hide'] = false;
          }
-         if ( $('#options-for-'+menuId).is(':visible') ) {
+         if ( asenhaGetById('options-for-' + menuId).is(':visible') ) {
             $(this).parent().next('.options-toggle').children('.arrow-right').addClass('rotate-down');
          } else {
             $(this).parent().next('.options-toggle').children('.arrow-right').removeClass('rotate-down');            
          }
-         document.getElementById('admin_site_enhancements[custom_menu_always_hidden]').value = JSON.stringify(menuAlwaysHidden);
+         document.getElementById('custom_menu_always_hidden').value = JSON.stringify(menuAlwaysHidden);
       });
 
       // On clicking "Hide until toggled" on parent menu items
@@ -118,19 +132,19 @@
          var menuId = $(this).data('menu-item-id'); // may contain transformed ID
          if ($(this).is(':checked')) {
             menuAlwaysHidden[menuId]['hide_by_toggle'] = true;
-            $('#hide-status-for-'+menuId).prop('checked',true);
+            asenhaGetById('hide-status-for-' + menuId).prop('checked',true);
          } else {
             menuAlwaysHidden[menuId]['hide_by_toggle'] = false;
-            if (!$('#hide-by-role-for-'+menuId).is(':checked')) {
-               $('#hide-status-for-'+menuId).prop('checked',false);
+            if ( ! asenhaGetById('hide-by-role-for-' + menuId).is(':checked') ) {
+               asenhaGetById('hide-status-for-' + menuId).prop('checked',false);
                // delete menuAlwaysHidden[menuId];
             }
          }
-         document.getElementById('admin_site_enhancements[custom_menu_always_hidden]').value = JSON.stringify(menuAlwaysHidden);
+         document.getElementById('custom_menu_always_hidden').value = JSON.stringify(menuAlwaysHidden);
       });
 
       // Prepare constant to store IDs of submenu items that will be hidden
-      var hiddenSubmenuByRoleInput = document.getElementById('admin_site_enhancements[custom_submenu_always_hidden]');
+      var hiddenSubmenuByRoleInput = document.getElementById('custom_submenu_always_hidden');
       if ( hiddenSubmenuByRoleInput && hiddenSubmenuByRoleInput.value ) {
          var submenuAlwaysHidden = JSON.parse(hiddenSubmenuByRoleInput.value); // object
       } else {
@@ -146,24 +160,24 @@
       $('#custom-admin-menu').on('click', '.submenu-hide-checkbox-prm', function() {
          var menuId = $(this).data('menu-item-id'); // may contain transformed ID
          if ($(this).is(':checked')) {
-            $('#options-for-'+menuId).show();
-            $('#all-selected-roles-options-for-'+menuId).show();
+            asenhaGetById('options-for-' + menuId).show();
+            asenhaGetById('all-selected-roles-options-for-' + menuId).show();
          } else {
-            $('#options-for-'+menuId).hide();
-            $('#hide-until-toggled-for-'+menuId).prop('checked', false);
-            $('#hide-by-role-for-'+menuId).prop('checked', false);
-            $('#all-selected-roles-radio-for-'+menuId).hide();
-            $('#hide-for-roles-'+menuId).hide();
-            $('#menu-required-capability-for-'+menuId).hide();
+            asenhaGetById('options-for-' + menuId).hide();
+            asenhaGetById('hide-until-toggled-for-' + menuId).prop('checked', false);
+            asenhaGetById('hide-by-role-for-' + menuId).prop('checked', false);
+            asenhaGetById('all-selected-roles-radio-for-' + menuId).hide();
+            asenhaGetById('hide-for-roles-' + menuId).hide();
+            asenhaGetById('menu-required-capability-for-' + menuId).hide();
             submenuAlwaysHidden[menuId]['hide_by_toggle'] = false;
             submenuAlwaysHidden[menuId]['always_hide'] = false;
          }
-         if ( $('#options-for-'+menuId).is(':visible') ) {
+         if ( asenhaGetById('options-for-' + menuId).is(':visible') ) {
             $(this).parent().next('.options-toggle').children('.arrow-right').addClass('rotate-down');
          } else {
             $(this).parent().next('.options-toggle').children('.arrow-right').removeClass('rotate-down');            
          }
-         document.getElementById('admin_site_enhancements[custom_submenu_always_hidden]').value = JSON.stringify(submenuAlwaysHidden);
+         document.getElementById('custom_submenu_always_hidden').value = JSON.stringify(submenuAlwaysHidden);
       });
       
       // On clicking "Hide until toggled" on submenu items
@@ -171,26 +185,26 @@
          var menuId = $(this).data('menu-item-id'); // may contain transformed ID
          if ($(this).is(':checked')) {
             submenuAlwaysHidden[menuId]['hide_by_toggle'] = true;
-            $('#hide-status-for-'+menuId).prop('checked',true);
+            asenhaGetById('hide-status-for-' + menuId).prop('checked',true);
          } else {
             submenuAlwaysHidden[menuId]['hide_by_toggle'] = false;
-            if (!$('#hide-by-role-for-'+menuId).is(':checked')) {
-               $('#hide-status-for-'+menuId).prop('checked',false);
+            if ( ! asenhaGetById('hide-by-role-for-' + menuId).is(':checked') ) {
+               asenhaGetById('hide-status-for-' + menuId).prop('checked',false);
                // delete submenuAlwaysHidden[menuId];
             }
          }
          // console.log('submenuAlwaysHidden:');
          // console.log(submenuAlwaysHidden);
-         document.getElementById('admin_site_enhancements[custom_submenu_always_hidden]').value = JSON.stringify(submenuAlwaysHidden);
+         document.getElementById('custom_submenu_always_hidden').value = JSON.stringify(submenuAlwaysHidden);
       });
       
       // On clicking the "Options" toggle
       $('#custom-admin-menu').on('click', '.options-toggle', function() {
          $(this).children('.arrow-right').toggleClass('rotate-down');
          var menuId = $(this).data('menu-item-id');
-         $('#options-for-'+menuId).toggle();
-         if (!$('#hide-until-toggled-for-'+menuId).is(':checked') && !$('#hide-by-role-for-'+menuId).is(':checked')) {
-            $('#hide-status-for-'+menuId).prop('checked',false);         
+         asenhaGetById('options-for-' + menuId).toggle();
+         if ( ! asenhaGetById('hide-until-toggled-for-' + menuId).is(':checked') && ! asenhaGetById('hide-by-role-for-' + menuId).is(':checked') ) {
+            asenhaGetById('hide-status-for-' + menuId).prop('checked',false);
          }
       });
             
@@ -198,12 +212,12 @@
       $('.hide-by-role-checkbox').each(function() {
          var menuId = $(this).data('menu-item-id');
          if ( $(this).is(':checked') ) {
-            $('#hide-status-for-'+menuId).prop('checked', true);
-            $('#all-selected-roles-options-for-'+menuId).show();
-            $('#all-selected-roles-radio-for-'+menuId).show();
-            if ($('#all-roles-except-for-'+menuId).is(':checked') || $('#selected-roles-for-'+menuId).is(':checked')) {
-               $('#hide-for-roles-'+menuId).show();
-               $('#menu-required-capability-for-'+menuId).show();
+            asenhaGetById('hide-status-for-' + menuId).prop('checked', true);
+            asenhaGetById('all-selected-roles-options-for-' + menuId).show();
+            asenhaGetById('all-selected-roles-radio-for-' + menuId).show();
+            if ( asenhaGetById('all-roles-except-for-' + menuId).is(':checked') || asenhaGetById('selected-roles-for-' + menuId).is(':checked') ) {
+               asenhaGetById('hide-for-roles-' + menuId).show();
+               asenhaGetById('menu-required-capability-for-' + menuId).show();
             }
          }
       });
@@ -213,8 +227,8 @@
          var menuId = $(this).data('menu-item-id');
          var menuType = $(this).data('menu-type'); // 'parent' (menu) or 'sub' (menu)
          // console.log( '.hide-by-role-checkbox >> menuId: ' + menuId + ' // menuType: ' + menuType );
-         $('#hide-status-for-'+menuId).prop('checked', true);
-         $('#hide-until-toggled-for-'+menuId).prop('checked', false);
+         asenhaGetById('hide-status-for-' + menuId).prop('checked', true);
+         asenhaGetById('hide-until-toggled-for-' + menuId).prop('checked', false);
          
          // For a parent menu item
          if ( menuType == 'parent' ) {
@@ -240,11 +254,11 @@
             if ( menuType == 'sub' ) {
                submenuAlwaysHidden[menuId]['always_hide'] = true;
             }
-            $('#all-selected-roles-radio-for-'+menuId).show();
-            if ($('#all-roles-except-for-'+menuId).is(':checked') || $('#selected-roles-for-'+menuId).is(':checked')) {
-               $('#hide-for-roles-'+menuId).show();
-               $('#menu-required-capability-for-'+menuId).show();
-               if ($('#selected-roles-for-'+menuId).is(':checked')) {
+            asenhaGetById('all-selected-roles-radio-for-' + menuId).show();
+            if ( asenhaGetById('all-roles-except-for-' + menuId).is(':checked') || asenhaGetById('selected-roles-for-' + menuId).is(':checked') ) {
+               asenhaGetById('hide-for-roles-' + menuId).show();
+               asenhaGetById('menu-required-capability-for-' + menuId).show();
+               if ( asenhaGetById('selected-roles-for-' + menuId).is(':checked') ) {
                   // For a parent menu item
                   if ( menuType == 'parent' ) {
                      menuAlwaysHidden[menuId]['always_hide_for'] = 'selected-roles';
@@ -253,7 +267,7 @@
                   if ( menuType == 'sub' ) {
                      submenuAlwaysHidden[menuId]['always_hide_for'] = 'selected-roles';                  
                   }
-               } else if ($('#all-roles-except-for-'+menuId).is(':checked')) {
+               } else if ( asenhaGetById('all-roles-except-for-' + menuId).is(':checked') ) {
                   // For a parent menu item
                   if ( menuType == 'parent' ) {
                      menuAlwaysHidden[menuId]['always_hide_for'] = 'all-roles-except';
@@ -264,7 +278,7 @@
                   }
                }
 
-            } else if ($('#all-roles-for-'+menuId).is(':checked')) {
+            } else if ( asenhaGetById('all-roles-for-' + menuId).is(':checked') ) {
                // For a parent menu item
                if ( menuType == 'parent' ) {
                   menuAlwaysHidden[menuId]['always_hide_for'] = 'all-roles';
@@ -288,21 +302,21 @@
                submenuAlwaysHidden[menuId]['which_roles'] = [];            
             }
 
-            $('#all-selected-roles-radio-for-'+menuId).hide();
-            $('#hide-for-roles-'+menuId).hide();
-            $('#menu-required-capability-for-'+menuId).hide();
-            if (!$('#hide-until-toggled-for-'+menuId).is(':checked')) {
-               $('#hide-status-for-'+menuId).prop('checked',false);
+            asenhaGetById('all-selected-roles-radio-for-' + menuId).hide();
+            asenhaGetById('hide-for-roles-' + menuId).hide();
+            asenhaGetById('menu-required-capability-for-' + menuId).hide();
+            if ( ! asenhaGetById('hide-until-toggled-for-' + menuId).is(':checked') ) {
+               asenhaGetById('hide-status-for-' + menuId).prop('checked',false);
             }
          }
 
          // For a parent menu item
          if ( menuType == 'parent' ) {
-            document.getElementById('admin_site_enhancements[custom_menu_always_hidden]').value = JSON.stringify(menuAlwaysHidden);
+            document.getElementById('custom_menu_always_hidden').value = JSON.stringify(menuAlwaysHidden);
          }
          // For a submenu item
          if ( menuType == 'sub' ) {
-            document.getElementById('admin_site_enhancements[custom_submenu_always_hidden]').value = JSON.stringify(submenuAlwaysHidden);         
+            document.getElementById('custom_submenu_always_hidden').value = JSON.stringify(submenuAlwaysHidden);         
          }
       });
 
@@ -312,8 +326,8 @@
          var menuType = $(this).data('menu-type'); // 'parent' (menu) or 'sub' (menu)
          // console.log( '.all-selected-roles-radios >> menuId: ' + menuId + ' // menuType: ' + menuType );
          if (this.value == 'all-roles-except' || this.value == 'selected-roles') {
-            $('#hide-for-roles-'+menuId).show();
-            $('#menu-required-capability-for-'+menuId).show();
+            asenhaGetById('hide-for-roles-' + menuId).show();
+            asenhaGetById('menu-required-capability-for-' + menuId).show();
             if (this.value == 'all-roles-except') {
                if ( menuType == 'parent' ) {
                   menuAlwaysHidden[menuId]['always_hide_for'] = 'all-roles-except';
@@ -342,7 +356,7 @@
                submenuAlwaysHidden[menuId]['which_roles'] = [];
             }
 
-            $('#hide-until-toggled-for-'+menuId).prop('checked',false);
+            asenhaGetById('hide-until-toggled-for-' + menuId).prop('checked',false);
 
             if ( menuType == 'parent' ) {
                menuAlwaysHidden[menuId]['hide_by_toggle'] = false;
@@ -352,16 +366,16 @@
                submenuAlwaysHidden[menuId]['hide_by_toggle'] = false;
             }
 
-            $('#hide-for-roles-'+menuId).hide();
-            $('#menu-required-capability-for-'+menuId).hide();
+            asenhaGetById('hide-for-roles-' + menuId).hide();
+            asenhaGetById('menu-required-capability-for-' + menuId).hide();
          }
 
          if ( menuType == 'parent' ) {
-            document.getElementById('admin_site_enhancements[custom_menu_always_hidden]').value = JSON.stringify(menuAlwaysHidden);
+            document.getElementById('custom_menu_always_hidden').value = JSON.stringify(menuAlwaysHidden);
          }
          // For a submenu item
          if ( menuType == 'sub' ) {
-            document.getElementById('admin_site_enhancements[custom_submenu_always_hidden]').value = JSON.stringify(submenuAlwaysHidden);
+            document.getElementById('custom_submenu_always_hidden').value = JSON.stringify(submenuAlwaysHidden);
          }
       });
 
@@ -383,7 +397,7 @@
                const parentIndex = menuAlwaysHidden[menuId]['which_roles'].indexOf(roleSlug);
                menuAlwaysHidden[menuId]['which_roles'].splice(parentIndex,1);
             }
-            document.getElementById('admin_site_enhancements[custom_menu_always_hidden]').value = JSON.stringify(menuAlwaysHidden);            
+            document.getElementById('custom_menu_always_hidden').value = JSON.stringify(menuAlwaysHidden);            
          }
 
          // For a submenu item
@@ -399,12 +413,12 @@
             }
             // console.log("submenuAlwaysHidden[menuId]['which_roles']");
             // console.log(submenuAlwaysHidden[menuId]['which_roles']);
-            document.getElementById('admin_site_enhancements[custom_submenu_always_hidden]').value = JSON.stringify(submenuAlwaysHidden);            
+            document.getElementById('custom_submenu_always_hidden').value = JSON.stringify(submenuAlwaysHidden);            
          }
       });
 
       // Prepare constant to store IDs of new separator menu items
-      var newSeparatorsInput = document.getElementById('admin_site_enhancements[custom_menu_new_separators]');
+      var newSeparatorsInput = document.getElementById('custom_menu_new_separators');
       if ( newSeparatorsInput && newSeparatorsInput.value ) {
          var newSeparators = JSON.parse(newSeparatorsInput.value); // object
       } else {
@@ -412,7 +426,7 @@
       }
 
       // Add new separator
-      $('.admin-interface.custom-menu-order').on('click', '#add-menu-separator', function(e) {
+      $('.admin-menu-organizer-main').on('click', '#add-menu-separator', function(e) {
          e.preventDefault();
          // console.log('Adding new separator...');
          var separatorCount = $('#custom-admin-menu li[id^="separator"]').length;
@@ -438,8 +452,8 @@
       // ----- Parent Menu Item Hiding -----
 
       // Prepare constant to store IDs of menu items that will be hidden
-      if ( document.getElementById('admin_site_enhancements[custom_menu_hidden]') != null ) {
-         var hiddenMenuItems = document.getElementById('admin_site_enhancements[custom_menu_hidden]').value.split(","); // array
+      if ( document.getElementById('custom_menu_hidden') != null ) {
+         var hiddenMenuItems = document.getElementById('custom_menu_hidden').value.split(","); // array
       } else {
          var hiddenMenuItems = []; // array
       }
@@ -465,14 +479,14 @@
             }
 
             // Set hidden input value
-            document.getElementById('admin_site_enhancements[custom_menu_hidden]').value = hiddenMenuItems;
+            document.getElementById('custom_menu_hidden').value = hiddenMenuItems;
 
          });
 
       });
 
       // Clicking on header save button
-      $('.asenha-save-button').click( function(e) {
+      $('#amo-save-changes').click( function(e) {
 
          e.preventDefault();
 
@@ -493,7 +507,7 @@
          });
 
          // Set hidden input value
-         document.getElementById('admin_site_enhancements[custom_menu_titles]').value = customMenuTitles;
+         document.getElementById('custom_menu_titles').value = customMenuTitles;
 
       });
 
@@ -526,14 +540,14 @@
       if (typeof menuAlwaysHidden[menuId]['which_roles'] === 'undefined') {
          menuAlwaysHidden[menuId]['which_roles'] = [];         
       }
-      if ( $('#hide-until-toggled-for-'+menuId).is(':checked') || $('hide-by-role-for-'+menuId).is(':checked') ) {
+      if ( asenhaGetById('hide-until-toggled-for-' + menuId).is(':checked') || asenhaGetById('hide-by-role-for-' + menuId).is(':checked') ) {
          $(menuItemObject).prop('checked', true);            
       }
       if (typeof menuAlwaysHidden[menuId]['menu_url_fragment'] === 'undefined') {
          menuAlwaysHidden[menuId]['menu_url_fragment'] = menuUrlFragment;
       }
       // console.log(menuAlwaysHidden);
-      document.getElementById('admin_site_enhancements[custom_menu_always_hidden]').value = JSON.stringify(menuAlwaysHidden);
+      document.getElementById('custom_menu_always_hidden').value = JSON.stringify(menuAlwaysHidden);
    }
 
    function initSubmenuAlwaysHidden(submenuAlwaysHidden,submenuItemObject) {
@@ -562,14 +576,14 @@
       if (typeof submenuAlwaysHidden[submenuId]['which_roles'] === 'undefined') {
          submenuAlwaysHidden[submenuId]['which_roles'] = [];         
       }
-      if ( $('#hide-until-toggled-for-'+submenuId).is(':checked') || $('hide-by-role-for-'+submenuId).is(':checked') ) {
+      if ( asenhaGetById('hide-until-toggled-for-' + submenuId).is(':checked') || asenhaGetById('hide-by-role-for-' + submenuId).is(':checked') ) {
          $(submenuItemObject).prop('checked', true);            
       }
       if (typeof submenuAlwaysHidden[submenuId]['menu_url_fragment'] === 'undefined') {
          submenuAlwaysHidden[submenuId]['menu_url_fragment'] = submenuUrlFragment;
       }
       // console.log(submenuAlwaysHidden);
-      document.getElementById('admin_site_enhancements[custom_submenu_always_hidden]').value = JSON.stringify(submenuAlwaysHidden);
+      document.getElementById('custom_submenu_always_hidden').value = JSON.stringify(submenuAlwaysHidden);
    }
    
    // Add a new separator and make sure 
@@ -595,7 +609,7 @@
       newSeparators[menuId]['menu_id'] = menuId;
       // newSeparators = {}; // To reset value during dev/testing
 
-      document.getElementById('admin_site_enhancements[custom_menu_new_separators]').value = JSON.stringify(newSeparators);
+      document.getElementById('custom_menu_new_separators').value = JSON.stringify(newSeparators);
    }
 
    // Remove separator from list of separators to save
@@ -605,7 +619,7 @@
       // console.log('newSeparators before: ' + JSON.stringify(newSeparators));
       delete newSeparators[menuId];
       // console.log('newSeparators after: ' + JSON.stringify(newSeparators));
-      document.getElementById('admin_site_enhancements[custom_menu_new_separators]').value = JSON.stringify(newSeparators);
+      document.getElementById('custom_menu_new_separators').value = JSON.stringify(newSeparators);
    }
 
    // References

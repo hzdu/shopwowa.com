@@ -284,3 +284,7 @@ body.log-more-info-popup-open{
 .log-more-info .source-wrap {
 	padding-top: 1em;
 }
+.log-more-info .ui-widget-content .info-content a {
+    color: #2271b1;
+    text-decoration: none;
+}

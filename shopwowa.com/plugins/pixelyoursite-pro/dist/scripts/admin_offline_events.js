@@ -45,7 +45,7 @@ jQuery( document ).ready(function($) {
 
             end = (new Date()).toISOString().slice(0,10) + " 23:59:59"
         }
-        var orderStatus = $(".woo-export-statuses .order_status:checked").map(function(){
+        var orderStatus = $(".woo-export.offline-conversions .woo-export-statuses .order_status:checked").map(function(){
             return $(this).val();
         }).get();
 
@@ -106,7 +106,7 @@ jQuery( document ).ready(function($) {
             }
             end = (new Date()).toISOString().slice(0,10) + " 23:59:59"
         }
-        var orderStatus = $(".woo-export-statuses .order_status:checked").map(function(){
+        var orderStatus = $(".woo-export.offline-conversions .woo-export-statuses .order_status:checked").map(function(){
             return $(this).val();
         }).get();
 
@@ -171,7 +171,7 @@ jQuery( document ).ready(function($) {
     }
 
     function showNewFile( fileUrl, fileName ) {
-        $( ".export_links li" ).slice( 3 ).remove();
+        $( ".offline-conversions .export_links li" ).slice( 3 ).remove();
 
         let parts = fileName.split( "-" ),
             created = parts[ 0 ].replaceAll( "_", "/" ),
@@ -187,13 +187,13 @@ jQuery( document ).ready(function($) {
         }
 
         item += "</span> - <a href='" + fileUrl + "' download class='link'>download CSV</a></li>";
-        $( ".export_links_title" ).after( item );
-        $( ".export_links_wrap" ).slideDown( 400 );
+        $( ".offline-conversions .export_links_title" ).after( item );
+        $( ".offline-conversions .export_links_wrap" ).slideDown( 400 );
     }
 
     function wooGenerateOfflineEventsReport(count,type,start,end,page,key) {
         showLoader(true)
-        var orderStatus = $(".woo-export-statuses .order_status:checked").map(function(){
+        var orderStatus = $(".woo-export.offline-conversions .woo-export-statuses .order_status:checked").map(function(){
             return $(this).val();
         }).get();
 
@@ -231,7 +231,7 @@ jQuery( document ).ready(function($) {
     }
     function wooGenerateAllOfflineEventsReport(count,type,start,end,page,key) {
         showLoader(true)
-        var orderStatus = $(".order_status:checked").map(function(){
+        var orderStatus = $(".woo-export.offline-conversions .order_status:checked").map(function(){
             return $(this).val();
         }).get();
 
