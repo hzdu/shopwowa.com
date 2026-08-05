@@ -10,21 +10,56 @@
 button#export_coupons,
 a#wc_sc_print_coupons,
 a#sc-manage-category,
-#wc-sc-copy-coupon-code {
+button#sc-preset-toggle,
+#wc-sc-copy-coupon-code,
+th.column-wc_sc_linked_coupons,
+th.column-wc_sc_coupon_category,
+th.column-wc_sc_view_orders,
+th.column-wc_sc_meta_data {
 	background-color: #f0fff0;
-	border-bottom: 1px solid #bfbfbf !important;
 }
+
+#sc-share-link .sc-shareable-link textarea#coupon-link {
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 4.5em;
+	resize: vertical;
+}
+
+#sc-share-link .sc-multiple-coupons code {
+	display: block;
+	overflow-wrap: anywhere;
+	white-space: normal;
+	word-break: break-word;
+}
+
 button#export_coupons > span.dashicons,
 a#wc_sc_print_coupons > span.dashicons,
 a#sc-manage-category > span.dashicons {
 	transform: translateX(-15%) translateY(15%);
+	line-height: 1.2em;
 }
 div#smart_coupons_tabs h2 {
 	margin-bottom: 10px;
 }
 div#smart_coupons_tabs h2 .sc-quick-links {
-	text-align: right;
 	font-size: 0.8em;
+    float: right;
+	margin: 0.6em 0 0;
+}
+/* Inactive tabs (2nd, 3rd and 4th) */
+#smart_coupons_tabs .nav-tab-wrapper > a.nav-tab:not(:first-child):not(.nav-tab-active) {
+	background-color: #e6f5e6;
+}
+
+/* Hover state for inactive tabs */
+#smart_coupons_tabs .nav-tab-wrapper > a.nav-tab:not(:first-child):not(.nav-tab-active):hover {
+	background-color: #f0fff0;
+}
+
+/* Active tab */
+#smart_coupons_tabs .nav-tab-wrapper > a.nav-tab.nav-tab-active:not(:first-child) {
+	background-color: #f0fff0;
 }
 .coupon_title_prefix_suffix_field input {
 	height: 2em;
@@ -63,4 +98,129 @@ table.wp-list-table .column-wc_sc_linked_coupons {
 	margin-top: 0px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+}
+
+#sc-restriction-container {
+	margin-top: 1em;
+}
+
+#sc-restriction-container .smart-coupons-field {
+	border: none !important;
+}
+
+.wc-wp-version-gte-70 .woocommerce_options_panel .smart-coupons-field {
+	.coupon_title_prefix_suffix_field label,
+	.wc-sc-restrictions_field label,
+	.wc_sc_combined_coupons_blocked_field label {
+		line-height: inherit !important;
+		margin-top: .7em !important;
+	}
+}
+
+#sc-restriction-container .select2-container {
+	width: 50% !important;
+}
+
+.select2-container .select2-selection--single {
+	height: 2.5rem !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: 2.5rem !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	height: 2.5rem !important;
+}
+
+#wc-sc-add-restriction.button {
+	margin-left: 1em;
+}
+
+/* Changes for WooCommerce 9.9+ - Start */
+body.woocommerce_page_wc-settings-wc-smart-coupons #wpbody-content {
+	padding-bottom: 65px !important;
+	background: inherit !important;
+}
+/* Changes for WooCommerce 9.9+ - End */
+
+td.forminp-wc_sc_email_setting span {
+	display: inline-block;
+    height: 100%;
+    vertical-align: bottom;
+}
+
+.wc-wp-version-gte-70 td.forminp-wc_sc_email_setting span.tips::before {
+	margin-top: -.2em;
+}
+
+.column-wc_sc_meta_data {
+	width: 28em;
+}
+
+.column-coupon_code .row-actions .copy .dashicons-clipboard {
+	transform: rotate(-45deg);
+    display: inline-block;
+}
+
+.smart-coupons-section-notice-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	margin: 14px 0;
+	width: 100%;
+}
+
+.smart-coupons-section-notice-wrapper::before,
+.smart-coupons-section-notice-wrapper::after {
+	content: '';
+	flex: 1;
+	height: 1px;
+	background: #dcdcde;
+}
+
+h2 span.smart-coupons-legend {
+	display: inline-flex;
+	align-items: center;
+	gap: .5em;
+	font-weight: normal;
+    font-size: smaller;
+	margin: 0 2em;
+}
+
+.smart-coupons-legend {
+	display: inline-flex;
+	align-items: center;
+	gap: .5em;
+	color: var(--wc-secondary-text);
+}
+
+.smart-coupons-legend-color {
+	flex: 0 0 auto;
+	width: 4em;
+	height: 2em;
+	background: #f0fff0;
+	border: 1px solid var(--wc-subtext);
+	border-radius: 2px;
+}
+
+.smart-coupons-legend-text {
+	flex: 0 1 auto;
+}
+
+.wc-sc-field-notice {
+	display: inline-flex;
+    align-items: center;
+    height: 3em;
+    vertical-align: middle;
+    margin: auto 3em;
+}
+
+.wc-wp-version-gte-70 .currency-cell.currency-left .currency-symbol {
+	left: 1em;
+}
+
+.wc-wp-version-gte-70 .sc-import-input-file-container .sc-file-container .sc-file-container-label .dashicons.dashicons-upload {
+	line-height: 2.1;
 }

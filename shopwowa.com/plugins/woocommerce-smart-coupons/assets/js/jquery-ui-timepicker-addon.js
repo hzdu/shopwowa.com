@@ -1854,7 +1854,7 @@
 			tp_inst._updateDateTime( inst );
 			return tp_inst.$input.val();
 		}
-		return this._base_formatDate( inst );
+		return this._base_formatDate( inst, day, month, year );
 	};
 
 	/*
