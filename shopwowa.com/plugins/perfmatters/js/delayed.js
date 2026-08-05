@@ -321,7 +321,11 @@ async function pmReplaceScript(script) {
         }
 
         //replace original script with final
-        script.parentNode.replaceChild(newscript, script);
+        if(script.parentNode) {
+            script.parentNode.replaceChild(newscript, script);
+        } else {
+            replaceScript();
+        }
     });
 }
 
